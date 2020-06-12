@@ -1,6 +1,6 @@
 module.exports = {
   prefix: "tk!",
-  color: "ORANGE",
+  color: "#ff4803",
   "hosting": "Glitch"
 }
 

@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const config = require('../config.js');
-module.exports = async (guild, client, member) => {
+module.exports = async (client, guild) => {
 
-  let md = client.users.cache.get("178651638209314816")
+ let md = client.users.cache.get("178651638209314816")
   const embed = new Discord.MessageEmbed()
   .setTitle(`Ahora estoy en ${client.guilds.cache.size} servidores`)
   .addField("Nombre:", guild.name)
