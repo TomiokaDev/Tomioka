@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const config = require('../config.js'); 
+const cooldown = new Set();
 
 module.exports = (client, message, args) => {
+  if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
   let persona = message.mentions.users.first()                                                    //tk!punch
     const embednopersona = new Discord.MessageEmbed() 
     .setTitle("Te pegaste a vos mismo xd")
@@ -15,4 +17,9 @@ module.exports = (client, message, args) => {
     .setImage("https://media1.tenor.com/images/079fad3ce8871e86b93bff8b786aa179/tenor.gif?itemid=16557096")
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
         message.channel.send({ embed: embedpersona }) 
+  
+  cooldown.add(message.author.id); //agregas al autor en el cooldown
+  setTimeout(() => {
+    cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
+  }, 5000) //1 seg = 1000ms
 }

@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const config = require('../config.js'); 
+const cooldown = new Set();
 
 module.exports = (client, message, args) => {  
+  if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
   let sugerencia = message.content.split(/ +/).slice(1).join(/ +/)
     if(!sugerencia) return message.reply("falta un contenido.")
       message.delete({ timeout: 5000 })
@@ -12,5 +14,10 @@ const embed = new Discord.MessageEmbed()
    .setFooter(`Servidor: ${message.guild}`, message.guild.iconURL())
  .setThumbnail(message.author.avatarURL())
 message.channel.send({ embed: embed })
+  
+  cooldown.add(message.author.id); //agregas al autor en el cooldown
+  setTimeout(() => {
+    cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
+  }, 5000) //1 seg = 1000ms
  
 }
