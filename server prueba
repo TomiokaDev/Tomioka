@@ -11,8 +11,7 @@ app.use(express.static('public'));
 
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
-});
-
+member
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
