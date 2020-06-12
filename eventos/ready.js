@@ -6,8 +6,10 @@ module.exports = (client, member) => {
   client.user.setPresence({
      status: "online",
 activity: {
-           name: `tk!report | Estoy en ${client.guilds.cache.size} servidores.`,
+           name: `tk!help | Estoy en ${client.guilds.cache.size} servidores.`,
            type: "WATCHING",
       }
     });
+
   }
+

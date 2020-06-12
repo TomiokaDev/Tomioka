@@ -25,8 +25,11 @@ setInterval(() => {
 const config = require('config.js');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const cooldown = require("./eventos/cooldown.js")
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:
 let { readdirSync } = require('fs'); 
+let scooldown = new Map();
+
 
 // Referenciamos nuestro archivo de configuración, ahora en JS: 
 
@@ -73,7 +76,7 @@ for(const file of readdirSync('./eventos/')) {
   
   // Cuando el evento se activa o es solicitada exportamos la función con 
   // el nombre del evento vinculada y tambien el parametro client.
-client.on(fileName, fileContents.bind(null, client)); 
+client.on(fileName, fileContents.bind(null, client));
 		
   // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
   // tener más memoria de la necesaria.
