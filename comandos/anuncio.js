@@ -14,7 +14,7 @@ const embed = new Discord.MessageEmbed()
   .setDescription(`${anuncio}`)
  .setColor(config.color)
 .setFooter(`Responsable: ${message.author.tag}`, message.author.avatarURL())
- .setThumbnail(message.author.avatarURL())
+ .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
     message.channel.send({ embed: embed })
 
   cooldown.add(message.author.id); //agregas al autor en el cooldown
