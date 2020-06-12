@@ -16,7 +16,7 @@ module.exports = (client, message, args) => {
  .addField("Región:", message.guild.region)
  .addField("Fecha de creación:", createdAt)
  .addField("Cantidad de canales:", message.guild.channels.cache.size)
- .setThumbnail(message.guild.iconURL())
+ .setThumbnail(message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)
  message.channel.send({ embed: embed })

@@ -20,7 +20,7 @@ module.exports = (client, message, args) => {
  .addField("Lenguaje", "`Spanish (Uruguay)` `English`")
  .addField("Etiquetas:", "`Diversión` `Memes` `Anime`")
  .addField("Support server:", support)
- .setThumbnail(client.user.avatarURL)
+ .setThumbnail(client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
  .setColor(config.color)
    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  message.channel.send({ embed: embed })
