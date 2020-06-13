@@ -4,7 +4,7 @@ const cooldown = new Set();
 
 module.exports = (client, message, args) => {  
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
-  let sugerencia = message.content.split(/ +/).slice(1).join(/ +/)
+  let sugerencia = message.content.split(' ').slice(1).join(' ')
     if(!sugerencia) return message.reply("falta un contenido.")
       message.delete({ timeout: 5000 })
 const embed = new Discord.MessageEmbed()
