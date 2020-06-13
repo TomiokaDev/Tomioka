@@ -6,6 +6,7 @@ dependencies:
   megadb: 3.4.0
   moment: 2.26.0
   nekos.life: 2.0.7
+  node-fetch: 2.6.0
   request: 2.88.2
 packages:
   /@discordjs/collection/0.1.5:
@@ -860,4 +861,5 @@ specifiers:
   megadb: ^3.4.0
   moment: ^2.26.0
   nekos.life: ^2.0.7
+  node-fetch: ^2.6.0
   request: ^2.88.2
