@@ -4,7 +4,7 @@ const cooldown = new Set();
 
 module.exports = (client, message, args) => { 
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
-  let hosting = config.hosting
+
  let support = `${client.guilds.cache.get("178651985015209984")} [entra aquí](https://discord.gg/yzaTfgU)`
  let creador = client.users.cache.get("178651638209314816")
  let colaborador = client.users.cache.get("706694530497380463")
@@ -14,7 +14,6 @@ module.exports = (client, message, args) => {
  .addField("Nombre:", client.user.username)
  .addField("Creador:", creador.tag)
  .addField("Colaboradores:", `${colaborador.tag} [entrar a su discord](https://discord.gg/C9qzVxg)`)
- .addField("Alojamiento:", hosting)
  .addField("Servidores:", client.guilds.cache.size)
  .addField("Cantidad global de usuarios:", client.users.cache.size)
  .addField("Lenguaje", "`Spanish (Uruguay)` `English`")
