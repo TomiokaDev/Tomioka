@@ -2,18 +2,19 @@ const db = require("megadb");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
-module.exports = async (bot, message, args, channel, client) => {
-  
+const client = new Discord.Client();
+module.exports = async (bot, message, args) => {
   var member =
+      
     message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
   
   try {
+    let guild = client.guild.id.cache.get 
+    let channel = message.guild.id()
     if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
-  
     let canalnsfw = await nsfwchannel.get(`${channel.guild.id}`);
-//let guild = `${message.guild.id}`;  
 if(!message.channel.nsfw) return message.canal.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a' + nsfwchannel)
     
     let canal = client.channels.cache.get(canalnsfw);
