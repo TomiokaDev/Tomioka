@@ -4,6 +4,7 @@ const cooldown = new Set();
 
 module.exports = async (client, message, args) => {
 
+message.delete({timeout: 5000})
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")                                                                         
     let creador = client.users.cache.get("178651638209314816")
     let sugerencia = message.content.split(' ').slice(1).join(' ')
@@ -22,8 +23,6 @@ module.exports = async (client, message, args) => {
   .setFooter(`Servidor: ${message.guild}`, message.guild.iconURL())
  .setThumbnail(message.author.avatarURL({ dynamic:false , format: 'png', size: 1024 }))
   return message.channel.send({ embed: res })
-  
-message.delete(1000)
   
   cooldown.add(message.author.id); //agregas al autor en el cooldown
   setTimeout(() => {
