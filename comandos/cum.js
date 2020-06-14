@@ -1,3 +1,4 @@
+
 const db = require("megadb");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
@@ -14,19 +15,20 @@ module.exports = async (bot, message, args) => {
   let canalnsfw = await nsfwchannel.get(`${message.guild.id}`)
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
-if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
-   const cumFetch = await fetch("https://nekos.life/api/v2/img/cum"),
+if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")   
+    const cumFetch = await fetch("https://nekos.life/api/v2/img/cum"),
     cumImg = await cumFetch.json();
 
-    return message.channel.send({
+  return message.channel.send({
       embed: {
+        
         description: member
           ? `**${message.member.displayName}** se vino en **${member.username}** owo!`
           : `**${message.member.displayName}** se corrió`,
         image: {
           url: member
             ? cumImg.url
-            : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
+            : cumImg.url
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }
