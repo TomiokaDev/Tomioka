@@ -25,7 +25,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
         
         description: member
           ? `**${message.member.displayName}** le hace un anal a **${member.username}** owo!`
-          : `**${message.member.displayName}** Debes mencionar a alguien, si no tienes con quien ven usa -masturbate`,
+          : `**${message.member.displayName}** Debes mencionar a alguien`,
         image: {
           url: member
             ? analImg.url
