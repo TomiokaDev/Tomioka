@@ -7,7 +7,7 @@ module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio`")
-    .addField("Comandos de reacción", "`chocovaso` `owo` `cookie` `clown` `question` `genero` `microwave` `tabien` `tamal`")
+    .addField("Comandos de reacción", "`chocovaso` `owo` `cookie` `clown` `question` `genero` `microwave` `tabien` `tamal` `pan`")
     .addField("Comandos de interaccion", "`punch` `kiss`")
     .addField("Comandos de información", "`owner` `dev` `ping` `serverinfo`")
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
