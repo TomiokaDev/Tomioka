@@ -1,12 +1,14 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
+const client = new Discord.Client();
+const config = require('../config.js');
 
-module.exports ; async (bot, message, args, config) => {
-  var member = message.mentions.users.first() || message.guild.members.get(args.join(" "));
+module.exports = async (client, message, args) => {
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
   try {
     if (member === message.author) return message.channel.send("No puedes acariciarte a ti mismo, pero si te sientes solo ven y yo te acaricio uwu"); // estoo
-    if (member === bot.user) return message.channel.send(`**${message.member.displayName}**, *awwwww*, que lindo -corresponde-`); // estoo
+    if (member === client.user) return message.channel.send(`**${message.member.displayName}**, *awwwww*, que lindo -corresponde-`); // estoo
 
      let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg, https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg"]
     
@@ -15,30 +17,18 @@ module.exports ; async (bot, message, args, config) => {
     const embed = new Discord.MessageEmbed()
      .setTitle("pan")
     .setDescription("pan")
+    .setImage("https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg")
     .setColor(config.color)
-    .setImage(pan)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL)
-    return message.channel.send({
-      embed: {
-        description: member
-          ? `**${message.member.displayName}** acarició a **${member.username}** uwu!`
-          : `**${message.member.displayName}** Debes mencionar a alguien, si no tiens pirilin ven y te lo hago crecer con mi hoyo anal OwO`,
-        image: {
-          url: member
-            ? captura
-            : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
-        },
-        color: message.guild ? message.guild.me.displayColor : "#00e059"
-      }
-    });
+    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+    return message.channel.send({ embed : embed });
   } catch (err) {
     console.log(err);
     return message.reply("Hubo un error"); // estoo
   }
 };
 module.exports.config = {
-  command: "kill",
-  aliases: ["kill"]
+  command: "pan",
+  aliases: ["pan"]
 };
  
   //if(!roquefore);
