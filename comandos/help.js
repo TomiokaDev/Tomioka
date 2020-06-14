@@ -18,7 +18,7 @@ module.exports = (client, message, args) => {
     .addField("Comandos útiles", "`report` `suggest` `anuncio`")
     .addField("Comandos de diversión", "`punch` `chocovaso` `owo` `cookie` `clown` `question` `genero` `microwave` `tabien` `tamal`")
     .addField("Comandos de información", "`owner` `dev` `ping` `serverinfo`")
-    .addField("Comandos de NSFW", " `suck`")
+    .addField("Comandos de NSFW", " `suck` `anal` `cum` `eatpussy` `fuck` `suck`")
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
   if(message.channel.nsfw) return message.channel.send({ embed: embednsfw })
