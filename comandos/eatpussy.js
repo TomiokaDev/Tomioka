@@ -15,6 +15,7 @@ module.exports = async (bot, message, args) => {
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
 if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
+   if(!canalnsfw) return message.channel.send('No hay ningun canal definido');
        const eatpussyFetch = await fetch("https://nekos.life/api/v2/img/les"),
       eatpussyImg = await eatpussyFetch.json();
       if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso <:PoohMamadisimoPorMiel_NRC:640240069252481044>, por favor ve a <#637133413203181570>')    
