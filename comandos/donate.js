@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const config = require('../config.js');
+const cooldown = new Set();
 
 
 module.exports = (client, message, args) => { 

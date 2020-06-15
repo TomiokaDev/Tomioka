@@ -2,7 +2,7 @@ const db = require("megadb");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const Discord = require('discord.js');
 const megadb = require("megadb"); 
-
+const cooldown = new Set();
 
 module.exports = (client, message, args) => {
   
