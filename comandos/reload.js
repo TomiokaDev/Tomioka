@@ -1,16 +1,12 @@
 const Discord = require('discord.js');
-module.exports = (client, message, args) => {
-  if(!args || args.length < 1) return message.reply("pon el nombre de un comando");
-  const commandName = args[0];
-  // Check if the command exists and is valid
-  if(!client.commands.has(commandName)) {
-    return message.send("Ese comando no existe");
-  }
-  // the path is relative to the *current folder*, so just ./filename.js
-  delete require.cache[require.resolve(`./${commandName}.js`)];
-  // We also need to delete and reload the command from the client.commands Enmap
-  client.commands.delete(commandName);
-  const props = require(`./${commandName}.js`);
-  client.commands.set(commandName, props);
-  return message.channel.send(`The command ${commandName} has been reloaded`);
-}
+module.exports = async (client, message, args) => {
+    if(message.author.id !== '178651638209314816') return message.reply("Acceso denegado.");
+     message.channel.send("Reiniciando...").then(async msg => {
+        msg.edit("Restarting...")
+        client.destroy();
+        await client.login(process.env.TOKEN)
+        await msg.edit("Restarting, please wait...")
+        msg.edit("Success!")
+      
+    })
+ }
