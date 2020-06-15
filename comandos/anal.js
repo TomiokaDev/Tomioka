@@ -5,7 +5,6 @@ const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
 module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
-
  try {
     let guild = message.guild
     if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
@@ -45,3 +44,5 @@ module.exports.config = {
   command: "anal",
   aliases: ["anal"]
 };
+
+

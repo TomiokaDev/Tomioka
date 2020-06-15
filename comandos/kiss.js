@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-
+const cooldown = new Set();
 module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.get(args.join(" "));
 
