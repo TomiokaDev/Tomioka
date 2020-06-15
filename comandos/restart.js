@@ -6,6 +6,6 @@ module.exports = async (client, message, args) => {
         msg.edit("Restarting...")
         await msg.edit("Restarting, please wait...")
         msg.edit("Success!")
-        process.exit()
+       setTimeout(() => { process.exit() }, 2000)
     })
  }
