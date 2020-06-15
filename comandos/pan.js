@@ -10,14 +10,14 @@ module.exports = async (client, message, args) => {
     if (member === message.author) return message.channel.send("No puedes acariciarte a ti mismo, pero si te sientes solo ven y yo te acaricio uwu"); // estoo
     if (member === client.user) return message.channel.send(`**${message.member.displayName}**, *awwwww*, que lindo -corresponde-`); // estoo
 
-     let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg, https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg"]
+     let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg", "https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg"]
     
      let captura = pan[Math.floor(pan.length * Math.random())];
     
     const embed = new Discord.MessageEmbed()
      .setTitle("pan")
     .setDescription("pan")
-    .setImage("https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg")
+    .setImage(captura)
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
     return message.channel.send({ embed : embed });
