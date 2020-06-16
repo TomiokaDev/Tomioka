@@ -7,14 +7,15 @@ module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
  try {
     let guild = message.guild
-    if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
-    if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
   let canalnsfw = await nsfwchannel.get(`${message.guild.id}`)
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
    if(!canalnsfw) return message.channel.send('No hay ningun canal definido');
 if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
+   
+   if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
+    if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
     let canal = client.channels.cache.get(canalnsfw);
     const analFetch = await fetch("https://nekos.life/api/v2/img/anal"),
