@@ -3,13 +3,21 @@ const Discord = require('discord.js');
 module.exports = (client, member) => {
 
  
-  client.user.setPresence({
-     status: "online",
-activity: {
-           name: `tk!help | Estoy en ${client.guilds.cache.size} servidores.`,
-           type: "WATCHING",
+  setInterval(function() {
+
+    var estados = [`tk!help | Estoy en ${client.guilds.cache.size} servidores.`, `tk!help | Veo ${client.users.cache.size} usuarios.`, `tk!report por algun fallo o sugerencia.`]
+
+    let estado = estados[Math.floor(estados.length * Math.random())];
+
+    client.user.setPresence({
+      status: "dnd",
+      activity: {
+        name: estado,
+        type: "WATCHING",
       }
-    });
+    })
 
-  }
 
+  }, 10000);
+  
+      };
