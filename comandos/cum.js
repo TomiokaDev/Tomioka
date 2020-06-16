@@ -16,7 +16,7 @@ module.exports = async (bot, message, args) => {
     if(!canalnsfw) return message.channel.send('No hay ningun canal definido');
 if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
    
-   if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
+   if (member === message.author) return message.channel.send("No es necesario mencionarte a ti mismo para correrte owo"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
    
     const cumFetch = await fetch("https://nekos.life/api/v2/img/cum"),

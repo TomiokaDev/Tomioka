@@ -17,7 +17,7 @@ module.exports = async (bot, message, args) => {
 if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
     
     
-    if (member === message.author) return message.channel.send("¿Como te nalguearias a ti mismo?"); // estoo
+    if (member === message.author) return message.channel.send("Como te chuparias a ti mismo? owo"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
 
