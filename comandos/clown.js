@@ -5,7 +5,6 @@ const cooldown = new Set();
 module.exports = (client, message, args) => {
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
     const embed = new Discord.MessageEmbed()
-    if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
     .setDescription("you")
     .setImage(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
     .setColor(config.color)
