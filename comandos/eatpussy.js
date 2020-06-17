@@ -27,8 +27,8 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
     return message.channel.send({
       embed: {
         description: member
-          ? `**${message.member.displayName}** le come la concha a ** ${member.username}**  owo!`
-          : `**${message.member.displayName}** Debes mencionar a alguien, si no tienes con quien ven usa -masturbate`,
+          ? `**${message.member.displayName}** le come la concha a ** ${member.username}**  :0!`
+          : `**${message.member.displayName}** Debes mencionar a alguien`,
         image: {
           url: member
             ? eatpussyImg.url

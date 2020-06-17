@@ -28,7 +28,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
     return message.channel.send({
       embed: {
         description: member
-          ? `**${message.member.displayName}** le hace una mamada a **${member.username}** owo!`
+          ? `**${message.member.displayName}** le hace una mamada a **${member.username}** :0`
           : `**${message.member.displayName}** Debes mencionar a alguien para darle sus mamadas`,
         image: {
           url: member
