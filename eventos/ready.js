@@ -10,7 +10,7 @@ module.exports = (client, member) => {
     let estado = estados[Math.floor(estados.length * Math.random())];
 
     client.user.setPresence({
-      status: "dnd",
+      status: "online",
       activity: {
         name: estado,
         type: "WATCHING",
