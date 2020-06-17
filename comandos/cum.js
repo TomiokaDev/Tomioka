@@ -26,7 +26,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
       embed: {
         
         description: member
-          ? `**${message.member.displayName}** se vino en **${member.username}** owo!`
+          ? `**${message.member.displayName}** se vino en **${member.username}** :0!`
           : `**${message.member.displayName}** se corrió`,
         image: {
           url: member
