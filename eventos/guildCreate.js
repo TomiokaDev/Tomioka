@@ -10,6 +10,6 @@ module.exports = async (client, guild) => {
   .addField("Usuarios:", guild.members.cache.size)
   .setColor(config.color)
   .setFooter(`Noticia del bot ${client.user.username}`)
-  .setThumbnail(guild.iconURL())
+  .setThumbnail(guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
   md.send({ embed: embed })
   }
