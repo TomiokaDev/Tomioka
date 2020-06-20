@@ -14,7 +14,7 @@ message.delete({timeout: 5000})
   .setDescription(`**Aporte:** ${sugerencia}\n**Sugerente:** ${message.author.tag}`)
  .setColor(config.color)
    .setFooter(`Servidor: ${message.guild}`, message.guild.iconURL)
- .setThumbnail(message.author.avatarURL())
+ .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   creador.send({ embed: embed })
   
   const res = new Discord.MessageEmbed()
