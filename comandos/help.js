@@ -7,7 +7,7 @@ module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio`")
-    .addField("Comandos de reacción", "`chocomilk` `owo` `cookie` `clown` `question` `genero` `microwave` `tabien` `tamal` `pan` `cyber`")
+    .addField("Comandos de reacción", "`chocomilk` `owo` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `pan` `cyber`")
     .addField("Comandos de interaccion", "`punch` `kiss`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate`")
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
@@ -17,7 +17,7 @@ module.exports = (client, message, args) => {
   
   const embednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio`")
-    .addField("Comandos de reacción", "`chocomilk` `owo` `cookie` `clown` `question` `genero` `microwave` `tabien` `tamal` `cyber`")
+    .addField("Comandos de reacción", "`chocomilk` `owo` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `cyber`")
     .addField("Comandos de interaccion", "`punch` `kiss`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate`")
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `eatpussy` `fuck`")
