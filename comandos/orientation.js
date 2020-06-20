@@ -5,7 +5,7 @@ const cooldown = new Set();
 module.exports = (client, message, args) => { 
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
 let persona = message.mentions.users.first()
- let posibles = ["chevrolet corsa hatchback tuning soundcar", "honda civic 2002", "uwu", "homosexual", "heterosexual", "trapito"]
+ let posibles = ["chevrolet corsa hatchback tuning soundcar", "honda civic 2002", "uwu", "homosexual", "heterosexual", "trapito", "bisexual"]
  let rd = Math.floor(Math.random() * posibles.length)
  let respuesta = posibles[rd]
  if(!persona) return message.channel.send(`Sos ${respuesta}.`);
