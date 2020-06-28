@@ -8,9 +8,10 @@ module.exports = async (client, message, args) => {
   let canalnsfw = await nsfwchannel.get(`${message.guild.id}`)
   let channel = message.mentions.channels.first() || client.channels.cache.get(args[0])
 
-  
+ 
 if(!channel){
     return message.channel.send("Debes proporcionar la ID o mencionar el canal donde iran los comandos NSFW")
+} if(!message.member.hasPermission("ADMINISTRATOR")) { return message.reply("No tienes permisos para definir canales.") 
 } else if(!channel.nsfw) {
   return message.channel.send("No mencionaste un canal nsfw, por favor, menciona uno.") 
 }else{
