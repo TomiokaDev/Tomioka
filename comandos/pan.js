@@ -7,8 +7,6 @@ module.exports = async (client, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
   try {
-    if (member === message.author) return message.channel.send("No puedes acariciarte a ti mismo, pero si te sientes solo ven y yo te acaricio uwu"); // estoo
-    if (member === client.user) return message.channel.send(`**${message.member.displayName}**, *awwwww*, que lindo -corresponde-`); // estoo
 
      let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg", "https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg"]
     
