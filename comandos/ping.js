@@ -6,7 +6,7 @@ module.exports = (client, message, args) => {
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")  
     let ping = Math.floor(message.client.ws.ping)
     const embed = new Discord.MessageEmbed()
-    .setTitle("Tu ping de mensajes")
+    .setTitle("Ping del bot")
     .setDescription(`${ping}`)
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
