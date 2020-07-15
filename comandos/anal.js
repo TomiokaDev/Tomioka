@@ -3,7 +3,9 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
+
 module.exports = async (bot, message, args) => {
+
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
  try {
     let guild = message.guild
@@ -14,7 +16,7 @@ module.exports = async (bot, message, args) => {
    if(!canalnsfw) return message.channel.send('No hay ningun canal definido. Definelo con tk!setnsfw <#CANAL>');
 if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
    
-   if (member === message.author) return message.channel.send("Como te culearias a tu mismo? qwq"); // estoo
+   if (member === message.author) return message.channel.send("Como te culearias a vos mismo? qwq"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
     let canal = client.channels.cache.get(canalnsfw);

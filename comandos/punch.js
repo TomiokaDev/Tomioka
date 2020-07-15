@@ -12,7 +12,7 @@ module.exports = (client, message, args) => {
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
         if(!persona) return message.channel.send({ embed: embednopersona })
     const embedpersona = new Discord.MessageEmbed() 
-    .setTitle("Le pegaste a " + persona.username)
+    .setTitle("Le pegaste a " + `**`+persona.username+`**`)
     .setColor(config.color)
     .setImage("https://media1.tenor.com/images/079fad3ce8871e86b93bff8b786aa179/tenor.gif?itemid=16557096")
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
