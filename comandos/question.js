@@ -19,4 +19,4 @@ module.exports = (client, message, args) => {
  
 }
 
-//Preguntale al bot, no muerde
+//Preguntale al bot, no muerde xd
