@@ -22,4 +22,4 @@ message.channel.send({ embed: embed })
  
 }
 
-//El arregla servidores le decian
+//El arregla servidores le decian xd
