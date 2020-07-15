@@ -33,3 +33,5 @@ module.exports.config = {
   command: "kiss",
   aliases: ["kiss"]
 };
+
+//HARRYYYYYYYYYYY BESAME
