@@ -23,4 +23,4 @@ const embed = new Discord.MessageEmbed()
   }, 5000) //1 seg = 1000ms
 }
 
-//Si lees esto, hola
+//Si lees esto, hola xd
