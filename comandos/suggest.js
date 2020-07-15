@@ -21,3 +21,5 @@ message.channel.send({ embed: embed })
   }, 5000) //1 seg = 1000ms
  
 }
+
+//El arregla servidores le decian
