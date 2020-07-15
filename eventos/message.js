@@ -26,3 +26,5 @@ cmd(client, message, args);
   
 
 }
+
+//Hathor te la re comes
