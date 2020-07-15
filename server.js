@@ -35,9 +35,9 @@ let { readdirSync } = require('fs');
 let scooldown = new Map();
 
 
-// Referenciamos nuestro archivo de configuración, ahora en JS: 
+// Referenciamos nuestro archivo de configuraciÃ³n, ahora en JS: 
 
-//Creamos una colección para Discordjs llamada 'comandos':
+//Creamos una colecciÃ³n para Discordjs llamada 'comandos':
 client.comandos = new Discord.Collection();  
 
 // <-- AQUI EL CONTROLADOR DE COMANDOS: -->
@@ -49,15 +49,15 @@ for(const file of readdirSync('./comandos/')) {
   //Esto condicion evitara que los archivos que no son archivos .js no coleccione:
   if(file.endsWith(".js")) { 
 
-  //Elimina los últimos tres caracteres nombre del archivo para
-  //deshacerse de la extensión .js y solo quedarnos con el nombre del comando:
+  //Elimina los Ãºltimos tres caracteres nombre del archivo para
+  //deshacerse de la extensiÃ³n .js y solo quedarnos con el nombre del comando:
   let fileName = file.substring(0, file.length - 3); 
 
-  //Define una nueva varible 'fileContents' de la exportación del comando 
+  //Define una nueva varible 'fileContents' de la exportaciÃ³n del comando 
   //dentro de la carpeta comandos:
   let fileContents = require(`./comandos/${file}`); 
 
-  //Agrega el nombre del comando a la colección client.commands con un 
+  //Agrega el nombre del comando a la colecciÃ³n client.commands con un 
   //valor de sus exportaciones respectivas.
   client.comandos.set(fileName, fileContents);
   }
@@ -71,19 +71,19 @@ for(const file of readdirSync('./eventos/')) {
   //Esto condicion evitara que los archivos que no son archivos .js no coleccione:
   if(file.endsWith(".js")){
 
-  //Elimina los últimos tres caracteres nombre del archivo para
-  //deshacerse de la extensión .js y solo quedarnos con el nombre del evento:
+  //Elimina los Ãºltimos tres caracteres nombre del archivo para
+  //deshacerse de la extensiÃ³n .js y solo quedarnos con el nombre del evento:
   let fileName = file.substring(0, file.length - 3); 
 
-  //Define una nueva variable 'fileContents' de la exportación del evento dentro de la carpeta eventos:
+  //Define una nueva variable 'fileContents' de la exportaciÃ³n del evento dentro de la carpeta eventos:
   let fileContents = require(`./eventos/${file}`); 
   
-  // Cuando el evento se activa o es solicitada exportamos la función con 
+  // Cuando el evento se activa o es solicitada exportamos la funciÃ³n con 
   // el nombre del evento vinculada y tambien el parametro client.
 client.on(fileName, fileContents.bind(null, client));
 		
-  // Elimina la memoria caché del archivo requerido para facilitar la recarga y no 
-  // tener más memoria de la necesaria.
+  // Elimina la memoria cachÃ© del archivo requerido para facilitar la recarga y no 
+  // tener mÃ¡s memoria de la necesaria.
 
     //let guildMemberAdd = file.split(".")[0];
     
@@ -98,16 +98,16 @@ client.on(fileName, fileContents.bind(null, client));
 
 // <-- PROPIEDAD LOGIN: -->
 
-// Inicia sesión en Discord con el token definido en config.
-client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.Xuwz6w.mXwElX-teXkkhaRC3TvUQvjJ5n0") //agregamos las promesas de la propiedad login.
+// Inicia sesiÃ³n en Discord con el token definido en config.
+client.login("TOKEN") //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
 
   })
   .catch((err) => {
 
-    //Si se produce un error al iniciar sesión, se le indicará en la consola.
-    console.error("Error al iniciar sesión: " + err);
+    //Si se produce un error al iniciar sesiÃ³n, se le indicarÃ¡ en la consola.
+    console.error("Error al iniciar sesiÃ³n: " + err);
 
   });
  
