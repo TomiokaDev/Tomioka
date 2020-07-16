@@ -22,5 +22,3 @@ const embed = new Discord.MessageEmbed()
     cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
   }, 5000) //1 seg = 1000ms
 }
-
-//Si lees esto, hola xd
