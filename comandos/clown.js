@@ -16,5 +16,3 @@ module.exports = (client, message, args) => {
     cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
   }, 5000) //1 seg = 1000ms
 }
-
-//alto payaso sos

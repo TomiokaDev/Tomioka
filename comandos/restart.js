@@ -10,5 +10,3 @@ module.exports = async (client, message, args) => {
        setTimeout(() => { process.exit() }, 2000)
     })
  }
-
-//Por si el momero de Valentino satura el bot

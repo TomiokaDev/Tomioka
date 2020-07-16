@@ -6,7 +6,7 @@ module.exports = (client, message, args) => {
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos") 
   
   const embed = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
     .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate` `invite`")
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
@@ -15,7 +15,7 @@ module.exports = (client, message, args) => {
   if(!message.channel.nsfw) return message.channel.send({ embed: embed }) 
   
   const embednsfw = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
     .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate` `invite`")
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `eatpussy` `fuck`")

@@ -14,5 +14,3 @@ module.exports = (client, message, args) => {
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
   message.channel.send({ embed: embed })
 }
-
-//dame plata

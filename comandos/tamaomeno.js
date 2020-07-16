@@ -6,7 +6,7 @@ module.exports = (client, message, args) => {
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")               //tk!tabien
  let owner = message.guild.owner.user
  const embed = new Discord.MessageEmbed()
- .setDescription(`${message.author.username} dijo que ta maomeno :thumbsup::thumbsdown:`)
+ .setDescription(`**${message.author.username}** dijo que ta maomeno :thumbsup::thumbsdown:`)
  .setImage("https://cdn.discordapp.com/attachments/671170382010515466/728673584142090250/hqdefault.png")
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)

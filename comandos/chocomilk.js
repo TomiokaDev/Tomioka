@@ -12,7 +12,7 @@ module.exports = (client, message, args) => {
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
         if(!persona) return message.channel.send({ embed: embednopersona })
     const embedpersona = new Discord.MessageEmbed() 
-    .setTitle(`**${message.author.username}** le dio chocomilk a ` + `**`+persona.username+`**`)
+    .setDescription(`**${message.author.username}** le dio chocomilk a ` + `**`+persona.username+`**`)
     .setColor(config.color)
     .setImage("https://cdn.discordapp.com/attachments/710648492791431238/711378070786932826/ENdaoP_WoAEs7WH.jpg")
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
