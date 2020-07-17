@@ -7,7 +7,7 @@ module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
-    .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja`")
+    .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja` `like`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate` `invite`")
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
     .setColor(config.color)
@@ -16,7 +16,7 @@ module.exports = (client, message, args) => {
   
   const embednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
-    .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja`")
+    .addField("Comandos de reacción e interaccion", "`chocomilk` `owo` `uwu` `cookie` `clown` `question` `orientation` `microwave` `tabien` `tamal` `tamaomeno` `tahelao` `amimir` `pan` `cyber` `trespingos` `punch` `kiss` `lasubeolabaja` `like`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `donate` `invite`")
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `eatpussy` `fuck`")
     .setColor(config.color)
