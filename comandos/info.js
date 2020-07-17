@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const config = require('../config.js'); 
 const cooldown = new Set();
 
-module.exports = (client, message, args) => { 
+module.exports = async (client, message, args) => { 
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
 
  let support = `${client.guilds.cache.get("178651985015209984")} [entra aquí](https://discord.gg/yzaTfgU)`
- let creador = client.users.cache.get("178651638209314816")
- let colaborador = client.users.cache.get("706694530497380463")
- let colaborador2 = client.users.cache.get ("696481341566615664")
- let colaborador3 = client.users.cache.get ("604227193651986443")
+ let creador = await client.users.fetch("178651638209314816")
+ let colaborador = await client.users.fetch("706694530497380463")
+ let colaborador2 = await client.users.fetch("696481341566615664")
+ let colaborador3 = await client.users.fetch("604227193651986443")
  const embed = new Discord.MessageEmbed()
  .setTitle("Bot info")
  .setDescription("Bot de diversión y memes")
@@ -23,7 +23,7 @@ module.exports = (client, message, args) => {
  .addField("Support server:", support)
  .setThumbnail(client.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
  .setColor(config.color)
-   .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  message.channel.send({ embed: embed })
   
   cooldown.add(message.author.id); //agregas al autor en el cooldown
