@@ -36,4 +36,3 @@ function remove (guild, user) {
 }
 
 
-//Valentino estas de los momos

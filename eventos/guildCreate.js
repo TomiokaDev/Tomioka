@@ -13,4 +13,3 @@ module.exports = async (client, guild) => {
   .setThumbnail(guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
   md.send({ embed: embed })
   }
-//si
