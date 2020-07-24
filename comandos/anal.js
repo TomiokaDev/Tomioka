@@ -14,7 +14,7 @@ module.exports = async (bot, message, args) => {
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
    if(!canalnsfw) return message.channel.send('No hay ningun canal definido. Definelo con tk!setnsfw <#CANAL>');
-if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
+   if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
    
    if (member === message.author) return message.channel.send("Como te culearias a vos mismo? qwq"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo

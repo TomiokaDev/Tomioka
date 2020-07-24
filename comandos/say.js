@@ -6,7 +6,7 @@ module.exports = (client, message, args) => {
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")                  //tk!question
  let say = message.content.split(' ').slice(1).join(' ')
  message.delete({ timeout: 100 })
- if(!say) return message.reply("debes preguntarme algo.");
+ if(!say) return message.reply("debes ponerme algo para que lo repita");
  message.channel.send(say)
   
   cooldown.add(message.author.id); //agregas al autor en el cooldown
