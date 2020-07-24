@@ -2,8 +2,9 @@ const Discord = require('discord.js');
 const config = require('../config.js'); 
 const cooldown = new Set();
 
-module.exports = (client, message, args) => { 
+module.exports = async(client, message, args) => { 
   if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
+if(message.author.id == '503611659328421888') return message.channel.send("No por momero, basta Valentino a la cucha perro")
   let owner = message.guild.owner.user
  const embed = new Discord.MessageEmbed()
  .setDescription(`**${message.author.username}** dijo que ta bien :thumbsup:`)
