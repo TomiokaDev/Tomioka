@@ -15,7 +15,7 @@ megadb
 ```
 ### Instalación
 
-_ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN AWS_
+_ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN UBUNTU_
 
 ```
 sudo apt update
