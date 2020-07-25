@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const config = require('../config.js');
-const cooldown = new Set();
 
 
 module.exports = (client, message, args) => { 
@@ -13,4 +12,9 @@ module.exports = (client, message, args) => {
  .setColor(config.color)
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
   message.channel.send({ embed: embed })
+};
+module.exports.config = {
+command:"donate",
+aliases:["donate"],
+cooldown: 5
 }

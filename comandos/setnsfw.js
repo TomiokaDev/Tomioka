@@ -1,8 +1,7 @@
 const db = require("megadb");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const Discord = require('discord.js');
-const megadb = require("megadb"); 
-const cooldown = new Set();
+const megadb = require("megadb");
 
 module.exports = async (client, message, args) => {
   let canalnsfw = await nsfwchannel.get(`${message.guild.id}`)
@@ -25,6 +24,12 @@ message.channel.send(embed).then(async m => {
   await nsfwchannel.set(`${message.guild.id}`,channel.id);
 })
 }
-  }
+};
+module.exports.config = {
+command:"setnsfw",
+aliases:["setnsfw"],
+cooldown: 5
+}
+
 
                                  

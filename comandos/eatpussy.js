@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
-const cooldown = new Set();
 module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
@@ -44,5 +43,6 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
 };
 module.exports.config = {
   command: "eatpussy",
-  aliases: ["eatpussy"]
+  aliases: ["eatpussy"],
+  cooldown: 5
 }

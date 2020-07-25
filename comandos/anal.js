@@ -45,7 +45,8 @@ module.exports = async (bot, message, args) => {
 };
 module.exports.config = {
   command: "anal",
-  aliases: ["anal"]
+  aliases: ["anal"],
+  cooldown: 5
 };
 
 

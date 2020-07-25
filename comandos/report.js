@@ -1,11 +1,9 @@
 const Discord = require('discord.js');
-const config = require('../config.js'); 
-const cooldown = new Set();
+const config = require('../config.js');
 
 module.exports = async (client, message, args) => {
 
-message.delete({timeout: 5000})
-  if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")                                                                         
+message.delete({timeout: 5000})                                                                     
     let creador = client.users.cache.get("178651638209314816")
     let sugerencia = message.content.split(' ').slice(1).join(' ')
     if(!sugerencia) return message.reply("falta un contenido.")
@@ -23,9 +21,9 @@ message.delete({timeout: 5000})
   .setFooter(`Servidor: ${message.guild}`, message.guild.iconURL())
  .setThumbnail(message.author.avatarURL({ dynamic:false , format: 'png', size: 1024 }))
   return message.channel.send({ embed: res })
-  
-  cooldown.add(message.author.id); //agregas al autor en el cooldown
-  setTimeout(() => {
-    cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
-  }, 5000) //1 seg = 1000ms
+};
+module.exports.config = {
+command:"report",
+aliases:["report"],
+cooldown: 5
 }
