@@ -14,10 +14,11 @@ if(["624411964931571722","678756451581427743"].includes(message.guild.id)){
  message.channel.send({ embed: embed })
  }else{
   return message.channel.send("error")
+ }
  };
 module.exports.config = {
 command:"facha",
 aliases:["facha"],
 cooldown: 5
 };
-}
+
