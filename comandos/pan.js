@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const client = new Discord.Client();
 const config = require('../config.js');
-const cooldown = new Set();
+
 module.exports = async (client, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
@@ -26,7 +26,8 @@ module.exports = async (client, message, args) => {
 };
 module.exports.config = {
   command: "pan",
-  aliases: ["pan"]
+  aliases: ["pan"],
+  cooldown: 5
 };
  
   //if(!roquefore);

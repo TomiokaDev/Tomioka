@@ -1,9 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../config.js'); 
-const cooldown = new Set();
 
 module.exports = (client, message, args) => {
-  if(cooldown.has(message.author.id)) return message.channel.send("Espera 5 segundos")
   let persona = message.mentions.users.first()                                                    //tk!punch
     const embednopersona = new Discord.MessageEmbed() 
     .setTitle("Creo que es medio egoista no compartir tu chocomilk >:(")
@@ -22,4 +20,9 @@ module.exports = (client, message, args) => {
   setTimeout(() => {
     cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
   }, 5000) //1 seg = 1000ms
+};
+module.exports.config = {
+command:"chocomilk",
+aliases:["chocomilk"],
+cooldown: 5
 }
