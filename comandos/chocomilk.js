@@ -15,11 +15,6 @@ module.exports = (client, message, args) => {
     .setImage("https://cdn.discordapp.com/attachments/710648492791431238/711378070786932826/ENdaoP_WoAEs7WH.jpg")
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
         message.channel.send({ embed: embedpersona }) 
-  
-  cooldown.add(message.author.id); //agregas al autor en el cooldown
-  setTimeout(() => {
-    cooldown.delete(message.author.id); //elimina el cooldown segun el tiempo que pongas
-  }, 5000) //1 seg = 1000ms
 };
 module.exports.config = {
 command:"chocomilk",
