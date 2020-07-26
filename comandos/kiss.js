@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 module.exports = async (bot, message, args) => {
-  var member = message.mentions.users.first() || message.guild.members.get(args.join(" "));
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
   try {
     if (member === message.author) return message.channel.send("¿Acaso quieres besarte a ti mismo?"); // estoo
