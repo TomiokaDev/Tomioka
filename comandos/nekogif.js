@@ -6,13 +6,13 @@ const neko = new client();
 
 module.exports = async(client, message, args) => {
 try {
-let gatito = await neko.sfw.meow();
+let nekosgif = await neko.sfw.nekoGif();
 
 
 const embed = new Discord.MessageEmbed()
-    .setTitle("Gatitoooo uwu")
+    .setTitle("Nekos!")
     .setColor(config.color)
-    .setImage(gatito.url)
+    .setImage(nekosgif.url)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
      message.channel.send({ embed: embed })
 } catch (err) {
@@ -21,7 +21,7 @@ const embed = new Discord.MessageEmbed()
 }
 };
 module.exports.config = {
-command:"gatito",
-aliases:["gatito"],
+command:"nekogif",
+aliases:["nekogif"],
 cooldown: 5
 }
