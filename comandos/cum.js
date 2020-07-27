@@ -3,6 +3,10 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
+const nekoslife = require('nekos.life');
+const neko = new nekoslife();
+
+
 module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
@@ -18,8 +22,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
    if (member === message.author) return message.channel.send("No es necesario mencionarte a ti mismo para correrte owo"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
    
-    const cumFetch = await fetch("https://nekos.life/api/v2/img/cum"),
-    cumImg = await cumFetch.json();
+    let cum = await neko.nsfw.cumsluts();
 
   return message.channel.send({
       embed: {
@@ -29,8 +32,8 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
           : `**${message.member.displayName}** se corrió`,
         image: {
           url: member
-            ? cumImg.url
-            : cumImg.url
+            ? cum.url
+            : cum.url
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }

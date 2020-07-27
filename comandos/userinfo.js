@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 const config = require('../config.js');
 const moment = require("moment");
 
-module.exports = (client, message, args) => {
+module.exports = async(client, message, args) => {
 
 let usuario = message.mentions.users.first();
+
 if(!usuario) {
  return message.channel.send("Menciona a alguien")
 }
@@ -13,6 +14,7 @@ if(!usuario) {
  .addField("ID", usuario.id)
  .addField("Estado", usuario.presence.status)
  .addField("Fecha de creación", usuario.createdAt)
+ .addField("Bot?", usuario.bot)
  .setThumbnail(usuario.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)
