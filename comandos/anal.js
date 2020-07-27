@@ -3,6 +3,9 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
+const nekoslife = require('nekos.life');
+const neko = new nekoslife();
+
 
 module.exports = async (bot, message, args) => {
 
@@ -20,8 +23,8 @@ module.exports = async (bot, message, args) => {
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
     
     let canal = client.channels.cache.get(canalnsfw);
-    const analFetch = await fetch("https://nekos.life/api/v2/img/anal"),
-      analImg = await analFetch.json();
+    
+    let anal = await neko.nsfw.anal();
 
     return message.channel.send({
       embed: {
@@ -31,7 +34,7 @@ module.exports = async (bot, message, args) => {
           : `**${message.member.displayName}** Debes mencionar a alguien`,
         image: {
           url: member
-            ? analImg.url
+            ? anal.url
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"

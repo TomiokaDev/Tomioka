@@ -3,6 +3,9 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const nsfwchannel = new db.crearDB("canales_nsfw");
 const client = new Discord.Client();
+const nekoslife = require('nekos.life');
+const neko = new nekoslife();
+
 module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
@@ -18,9 +21,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
    if (member === message.author) return message.channel.send("Como te comerias la concha vos mismo? owo (si es que tienes)"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
    
-       const eatpussyFetch = await fetch("https://nekos.life/api/v2/img/les"),
-      eatpussyImg = await eatpussyFetch.json();
-      if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso <:PoohMamadisimoPorMiel_NRC:640240069252481044>, por favor ve a <#637133413203181570>')    
+    let eatpussy = await neko.nsfw.pussyWankGif();    
      
 
     return message.channel.send({
@@ -30,7 +31,7 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
           : `**${message.member.displayName}** Debes mencionar a alguien`,
         image: {
           url: member
-            ? eatpussyImg.url
+            ? eatpussy.url
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
