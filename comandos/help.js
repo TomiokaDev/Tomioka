@@ -5,10 +5,10 @@ const cooldown = new Set();
 module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar`")
     .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `punch` `kiss` `pat` `poke` `slap` `tickle` `lasubeolabaja` `say`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
-    .addField("Comandos random", "`owo` `uwu` `clown` `pan` `like`")
+    .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `donate` `invite`")
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
@@ -17,10 +17,10 @@ module.exports = (client, message, args) => {
   if(!message.channel.nsfw) return message.channel.send({ embed: embed }) 
   
   const embednsfw = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar`")
     .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `punch` `kiss` `pat` `poke` `slap` `tickle` `lasubeolabaja` `say`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
-    .addField("Comandos random", "`owo` `uwu` `clown` `pan` `like`")
+    .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `donate` `invite`")
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `pussy` `fuck`")
