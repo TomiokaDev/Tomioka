@@ -9,7 +9,7 @@ const neko = new nekoslife();
 
 module.exports = async(client, message, args) => {
 try {
-let giffeet = await neko.nsfw.gifFeet();
+let giffeet = await neko.nsfw.feetGif();
 
  let guild = message.guild
     
