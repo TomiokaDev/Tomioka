@@ -6,7 +6,7 @@ module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar`")
-    .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say`")
+    .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl`")
@@ -18,7 +18,7 @@ module.exports = (client, message, args) => {
   
   const embednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar`")
-    .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say`")
+    .addField("Comandos de interaccion", "`chocomilk` `cookie` `question` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl`")
