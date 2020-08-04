@@ -25,12 +25,14 @@ let flags = {
    VERIFIED_BOT: "<:botverified:738156663978197112>",
    VERIFIED_DEVELOPER: "<:VerifiedDeveloper:738156897412317255>",
 }
-
+  let emoji =  id.flags ? id.flags.toArray().map(f => flags[f]).join(" ") : "";
   const embed = new Discord.MessageEmbed()
  .addField("Username", id.tag)
  .addField("ID", id.id)
  .addField("Fecha de creación", id.createdAt)
- .addField("Insignias", id.flags.toArray().map(f => flags[f]).join(" "))
+  if(emoji.length > 0)
+  embed.addField("Insignias", emoji);
+  embed
  .setThumbnail(id.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)

@@ -24,13 +24,16 @@ let flags = {
 if(!usuario){
  return message.channel.send("Menciona a alguien")
 }
+  let emoji =  usuario.flags.toArray().map(f => flags[f]).join(" ");
   const embed = new Discord.MessageEmbed()
  .addField("Username", usuario.tag)
  .addField("ID", usuario.id)
  .addField("Estado", usuario.presence.status)
  .addField("Fecha de creación", usuario.createdAt)
  .addField("Bot?", usuario.bot)
- .addField("Insignias", usuario.flags.toArray().map(f => flags[f]).join(" "))
+  if(emoji.length > 0)
+  embed.addField("Insignias", emoji);
+  embed
  .setThumbnail(usuario.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)
