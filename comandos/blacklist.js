@@ -2,12 +2,12 @@ const db = require("megadb"); //db del dia
 const bl = new db.crearDB("blacklist"); //"base de datos" bl
  
 module.exports  = async (client, message, args) => {
-  let reason = args[2] ? args[2].join(" ") : "Si estas viendo esto, puede ser que te hayamos bloqueado del uso del bot o un posible mantenimiento!"//la reason tomara despues de los dos primeros argumentos
+  let reason = args[2] ? args.slice(2).join(" ") : "Si estas viendo esto, puede ser que te hayamos bloqueado del uso del bot o un posible mantenimiento!"//la reason tomara despues de los dos primeros argumentos
 //args[0] add o remove
 //args[1] la ID del usuario a ingregar a la bl
 //args[2] la razon, opcional
   if(!["178651638209314816"].includes(message.author.id)) return message.channel.send("Solo el ``desarrollador`` puede usar este comando"); //si la id del autor no es tu id retorna este mensaje, asi evitas que alquien mas pueda usarlo
-  if(!args[0]) return message.channel.send("Opciones disponibles: add <ID> <Razon>\nremove <ID> <Razon>"); //mensaje por si no hay args[0]
+  if(!args[0]) return message.channel.send("Opciones disponibles: ``add`` ``<ID>`` ``<Razon>``\n``remove`` ``<ID>`` ``<Razon>``"); //mensaje por si no hay args[0]
   if(args[0].toLowerCase() == "add"){
     //si el primer argumento es add pues es agregarlo
     let user = await client.users.fetch(args[1]); //args[1] es el parametro de la ID el cual estara en la blacklist
