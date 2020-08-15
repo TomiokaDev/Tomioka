@@ -96,6 +96,8 @@ client.on(fileName, fileContents.bind(null, client));
 client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
+    console.log("Node Version: " + process.version);
+    console.log("Discord.js Version: " + Discord.version);
 
   })
   .catch((err) => {
@@ -104,4 +106,3 @@ client.login(process.env.TOKEN) //agregamos las promesas de la propiedad login.
     console.error("Error al iniciar sesión: " + err);
 
   });
- 
