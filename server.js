@@ -73,9 +73,11 @@ client.on(fileName, fileContents.bind(null, client));
 // <-- PROPIEDAD LOGIN: -->
 
 // Inicia sesión en Discord con el token definido en config.
-client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.Xuwz6w.mXwElX-teXkkhaRC3TvUQvjJ5n0") //agregamos las promesas de la propiedad login.
+client.login("TOKEN") //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
+    console.log("Node Version: " + process.version);
+    console.log("Discord.js Version: " + Discord.version);
 
   })
   .catch((err) => {
@@ -84,4 +86,3 @@ client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.Xuwz6w.mXwElX-teXkkhaRC3TvUQvjJ5n0") //ag
     console.error("Error al iniciar sesión: " + err);
 
   });
- 
