@@ -10,7 +10,7 @@ module.exports = (client, message) => {
   const command = args.shift().toLowerCase()
   
   if(message.author.bot) return;
-  if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${client.user.username} porque se encuentra en la blacklist`);
+  if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot. Para más información ve a nuestro servidor de soporte.`);
 
   // Definiendo los argumentos y comandos.
   
