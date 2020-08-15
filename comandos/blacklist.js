@@ -2,7 +2,7 @@ const db = require("megadb"); //db del dia
 const bl = new db.crearDB("blacklist"); //"base de datos" bl
  
 module.exports  = async (client, message, args) => {
-  let reason = args[2] ? args.slice(2).join(" ") : "Si estas viendo esto, puede ser que te hayamos bloqueado del uso del bot o un posible mantenimiento!"//la reason tomara despues de los dos primeros argumentos
+  let reason = args[2] ? args.slice(2).join(" ") : "No hay razón especificada"//la reason tomara despues de los dos primeros argumentos
 //args[0] add o remove
 //args[1] la ID del usuario a ingregar a la bl
 //args[2] la razon, opcional
