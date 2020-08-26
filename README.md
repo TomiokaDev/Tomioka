@@ -27,9 +27,9 @@ sudo apt -y install nodejs
 sudo apt -y  install gcc g++ make
 node --version
 npm --version
-npm i forever
-npm install discord.js
-npm i -s nekos.life
-npm i megadb
-npm i moment
+sudo npm install forever -g
+sudo npm i discord.js
+sudo npm i -s nekos.life
+sudo npm i megadb
+sudo npm i moment
 ```
