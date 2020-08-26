@@ -1,7 +1,7 @@
 {
-  "name": "supahfox",
+  "name": "TOMIOKA",
   "version": "0.0.1",
-  "description": "bot de pruebas",
+  "description": "DISCORD.JS v12",
   "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,7 +22,7 @@
     "request": "^2.88.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "repository": {
     "url": "https://github.com/cratermaik"
