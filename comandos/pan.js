@@ -8,7 +8,7 @@ module.exports = async (client, message, args) => {
 
   try {
 
-     let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg", "https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg"]
+     let pan = ["http://www.hacerpan.net/ImagenesHacerPan/ImagenesHacerPan/pan_trigo.jpg", "https://okdiario.com/img/recetas/2017/06/14/pan-blanco-amish.jpg", "https://cdn.discordapp.com/attachments/671170382010515466/746451807923994654/stsmall507x507-pad600x600f8f8f8.jpg"]
     
      let captura = pan[Math.floor(pan.length * Math.random())];
     
