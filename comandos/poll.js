@@ -3,7 +3,7 @@ const config = require('../config.js');
 
 module.exports = async(client, message, args) => {
 try{
- let poll = message.content.split(/ +/).slice(1).join(/ +/)
+ let poll = message.content.split(' ').slice(1).join(' ')
  if(!poll) return message.reply("Debes poner algo!");
 
 const embed = new Discord.MessageEmbed()
