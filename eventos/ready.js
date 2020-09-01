@@ -1,24 +1,36 @@
 const Discord = require('discord.js');
 //Esta función se activara cuando el evento haya iniciado:
-module.exports = (client, member) => {
+module.exports = async (client) => {
+await Discord.Util.delayFor((30 * 1000)); //30 s
+   try {
+      const promises = [
+         client.shard.fetchClientValues('guilds.cache.size'),
+         client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
+      ];
 
- 
-  setInterval(function() {
+      Promise.all(promises).then(results => {
+         
+         const guilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+         const users = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
 
-    var estados = [`tk!help |v1.0| Estoy en ${client.guilds.cache.size} servidores.`, `tk!help |v1.0| Veo ${client.users.cache.size} usuarios.`, `tk!report por algun fallo o sugerencia.`, `Desarrollo pausado hasta nuevo aviso!`, `tk!invite |v1.0| Estoy en ${client.guilds.cache.size} servidores.`, `tk!invite |v1.0| Veo ${client.users.cache.size} usuarios.`]
+         setInterval(function () {
+            var estados = [`tk!help |v1.0| Estoy en ${guilds} servidores.`, `tk!help |v1.0| Veo ${users} usuarios.`, `tk!report por algun fallo o sugerencia.`, `tk!invite |v1.0| Estoy en ${guilds} servidores.`, `tk!invite |v1.0| Veo ${users} usuarios.`]
 
-    let estado = estados[Math.floor(estados.length * Math.random())];
+            let estado = estados[Math.floor(estados.length * Math.random())];
 
-    client.user.setPresence({
-      status: "dnd",
-      activity: {
-        name: estado,
-        type: "WATCHING",
-        url: "https://www.twitch.tv/sunha07"
-      }
-    })
+            client.user.setPresence({
+               status: "online",
+               activity: {
+                  name: estado,
+                  type: "WATCHING",
+                  url: "https://www.twitch.tv/supahfoxeh"
+               }
+            })
 
 
-  }, 10000);
-  
-      };
+         }, 20000);
+      })
+   } catch (err) {
+      console.log(err);
+   }
+}
