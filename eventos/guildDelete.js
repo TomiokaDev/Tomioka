@@ -11,7 +11,7 @@ Promise.all(promises).then(results => {
 
  let md = client.users.cache.get("178651638209314816")
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Ahora estoy en ${client.guilds.cache.size} servidores porque me sacaron :(`)
+  .setTitle(`Ahora estoy en ${guilds} servidores porque me sacaron :(`)
   .addField("Nombre del servidor donde fui kickeado o baneado:", guild.name)
   .addField("Creador:", guild.owner.user.tag)
   .addField("Usuarios:", guild.members.cache.size)
