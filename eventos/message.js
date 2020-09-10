@@ -8,9 +8,10 @@ module.exports = (client, message) => {
   //taba client.config undefined
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);  
   const command = args.shift().toLowerCase()
+  let creador = client.users.cache.get("178651638209314816")
   
   if(message.author.bot) return;
-  if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot. Para más información ve a nuestro servidor de soporte.`);
+  if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot. Para más información contacta con ${creador.tag}.`);
 
   // Definiendo los argumentos y comandos.
   
