@@ -49,6 +49,7 @@ node --version
 npm --version
 sudo npm install forever -g
 sudo npm i discord.js ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core --save
+npm i ffmpeg-static
 sudo npm i -s nekos.life
 sudo npm i megadb
 sudo npm i moment
