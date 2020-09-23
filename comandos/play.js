@@ -3,14 +3,14 @@ const config = require('../config.js');
 const ytdl = require('ytdl-core');
 
 module.exports = async(client, message, args) => {
-if(!["178651638209314816"].includes(message.author.id)) return;
+if(!["tu id"].includes(message.author.id)) return;
 var queue = new Map();
-        if(!args[0]) return;
+        if(!args[0]) return message.channel.send("Necesitas poner un link de YouTube");
         let url = args.join(" ");
         if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.channel.send("Por favor pon un link de YouTube!");
 
         let serverQueue = queue.get(message.guild.id);
-        let vc = message.member.voice;
+        let vc = message.member.voice.channel;
 
         if(!vc) return message.channel.send("No estas en un canal de voz");
 
