@@ -3,7 +3,7 @@ const config = require('../config.js');
 const ytdl = require('ytdl-core');
 
 module.exports = async(client, message, args) => {
-if(!["tu id"].includes(message.author.id)) return;
+if(!["178651638209314816"].includes(message.author.id)) return;
 var queue = new Map();
         if(!args[0]) return message.channel.send("Necesitas poner un link de YouTube");
         let url = args.join(" ");
