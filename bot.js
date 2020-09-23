@@ -1,7 +1,9 @@
 const config = require('./config.js');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const cooldown = require("./eventos/cooldown.js")
+const cooldown = require("./eventos/cooldown.js");
+const ytdl = require('ytdl-core');
+
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:
 let { readdirSync } = require('fs'); 
 let scooldown = new Map();
