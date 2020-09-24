@@ -38,6 +38,7 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
                 let connection = await message.member.voice.channel.join();
                 queueConst.connection = connection
                 playSong(message.guild, queueConst.songs[0], client, message)
+                return message.channel.send(`Reproduciendo **${song.title}**!`)
             } catch (error) {
                 console.log(error);
                 client.queue.delete(message.guild.id);
@@ -45,7 +46,7 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
             }
         } else {
             serverQueue.songs.push(song);
-            return message.channel.send(`${song.title} fue añadido a la cola!`)
+            return message.channel.send(`**${song.title}** fue añadido a la cola!`)
         }
     }
 
