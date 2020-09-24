@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const config = require('../config.js');
 const ytdl = require('ytdl-core');
-const queue = new Map();
 
 module.exports = async(client, message, args) => {
 if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
@@ -9,7 +8,7 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
         let url = args.join(" ");
         if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.channel.send("Por favor pon un link de YouTube!");
 
-        let serverQueue = queue.get(message.guild.id);
+        let serverQueue = client.queue.get(message.guild.id);
         let vc = message.member.voice.channel;
         if(!vc) return message.channel.send("No estas en un canal de voz");
         const permissions = vc.permissionsFor(message.client.user);
@@ -32,16 +31,16 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
                 playing: true
             };
 
-            queue.set(message.guild.id, queueConst);
+            client.queue.set(message.guild.id, queueConst);
             queueConst.songs.push(song);
 
             try {
                 let connection = await message.member.voice.channel.join();
                 queueConst.connection = connection
-                playSong(message.guild, queueConst.songs[0])
+                playSong(message.guild, queueConst.songs[0], client, message)
             } catch (error) {
                 console.log(error);
-                queue.delete(message.guild.id);
+                client.queue.delete(message.guild.id);
                 return message.channel.send("Hubo un error al reproducir el link. Error: " + error);
             }
         } else {
@@ -55,18 +54,18 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
  * @param {Discord.Guild} guild 
  * @param {Object} song 
  */
-async function playSong(guild, song) {
-    let serverQueue = queue.get(guild.id);
+async function playSong(guild, song, client, message) {
+    let serverQueue = client.queue.get(message.guild.id)
 
     if(!song){
         serverQueue.voiceChannel.leave();
-        queue.delete(guild.id);
+        client.queue.delete(guild.id);
         return;
     }
 
     const dispatcher = serverQueue.connection.play(ytdl(song.url)).on('end', () => {
         serverQueue.songs.shift();
-        playSong(guild, serverQueue.songs[0]);
+        playSong(guild, serverQueue.songs[0], client, message);
  })
     .on('error', () => {console.log(error)})
 
