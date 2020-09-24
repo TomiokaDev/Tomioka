@@ -1,20 +1,20 @@
 const Discord = require('discord.js');
 const config = require('../config.js');
 const ytdl = require('ytdl-core');
+const queue = new Map();
 
 module.exports = async(client, message, args) => {
-if(!["178651638209314816"].includes(message.author.id)) return;
-var queue = new Map();
+if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
         if(!args[0]) return message.channel.send("Necesitas poner un link de YouTube");
         let url = args.join(" ");
         if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.channel.send("Por favor pon un link de YouTube!");
 
         let serverQueue = queue.get(message.guild.id);
         let vc = message.member.voice.channel;
-
         if(!vc) return message.channel.send("No estas en un canal de voz");
+        const permissions = vc.permissionsFor(message.client.user);
 
-        if(!vc.channel.permissionsFor(client.user).has('CONNECT') || !vc.channel.permissionsFor(client.user).has('SPEAK')) return message.channel.send("No tengo permisos para hablar o conectarme!");
+        if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return message.channel.send("No tengo permisos para hablar o conectarme!");
 
         let songinfo = await ytdl.getInfo(url);
         let song = {
@@ -36,7 +36,7 @@ var queue = new Map();
             queueConst.songs.push(song);
 
             try {
-                let connection = await vc.channel.join();
+                let connection = await message.member.voice.channel.join();
                 queueConst.connection = connection
                 playSong(message.guild, queueConst.songs[0])
             } catch (error) {
