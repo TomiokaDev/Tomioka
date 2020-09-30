@@ -18,7 +18,7 @@ dispatcher.on('start', () => {
 });
 
 dispatcher.on('finish', () => {
-	return message.channel.send("Comando secreto! 2/2")
+	return message.channel.send("Comando secreto! 2/2");
         monki.leave();
 });
 
