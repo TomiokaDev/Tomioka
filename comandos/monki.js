@@ -14,11 +14,15 @@ const connection = await message.member.voice.channel.join();
 const dispatcher = connection.play('./audio/monki.mp3');
 
 dispatcher.on('start', () => {
-	return message.channel.send("MONKI");
+     const embed = new Discord.MessageEmbed()
+    .setTitle("MONKI")
+    .setImage("https://cdn.discordapp.com/attachments/671170382010515466/760950452124123166/monkiswim.gif")
+    .setColor(config.color)
+    .setFooter(`Comando secreto! 2/2`, message.author.avatarURL())
+    return message.channel.send({ embed : embed });
 });
 
 dispatcher.on('finish', () => {
-	message.channel.send("Comando secreto! 2/2");
         monki.leave();
 });
 
@@ -29,7 +33,7 @@ return message.channel.send("Hubo un error al meterse al canal. " + error);
 }
 }
 module.exports.config = {
-command:"play",
-aliases:["play"],
+command:"monki",
+aliases:["monki"],
 cooldown: 5
 }
