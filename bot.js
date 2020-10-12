@@ -1,7 +1,7 @@
 //DEFINIMOS DISCORD.JS Y LOS GATEWAY INTENTS
 const { Client, Intents } = require('discord.js');
 const myIntents = new Intents();
-myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS');
+myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES');
 const config = require('./config.js');
 const Discord = require('discord.js');
 //const client = new Discord.Client({ ws: { intents: myIntents } });
@@ -13,7 +13,7 @@ client.queue = new Map();
 // INTENTS NO PRIVILEGIADOS
 
 const otherIntents = new Intents(Intents.NON_PRIVILEGED);
-otherIntents.remove(['GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS']);
+otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
 
 const otherIntents2 = new Intents(32509);
 otherIntents2.remove(1, 512);
@@ -88,7 +88,7 @@ client.on(fileName, fileContents.bind(null, client));
 // <-- PROPIEDAD LOGIN: -->
 
 // Inicia sesión en Discord con el token definido en config.
-client.login("TOKEN") //agregamos las promesas de la propiedad login.
+client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.XDHOVA.9LxofG4DSJp6V2CBWH1iZBFPTuo") //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
     console.log("Node Version: " + process.version);
