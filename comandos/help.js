@@ -15,6 +15,7 @@ module.exports = (client, message, args) => {
     .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+    .setThumbnail(client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   if(!message.channel.nsfw) return message.channel.send({ embed: embed }) 
   
   const embednsfw = new Discord.MessageEmbed()
@@ -28,6 +29,7 @@ module.exports = (client, message, args) => {
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+    .setThumbnail(client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   if(message.channel.nsfw) return message.channel.send({ embed: embednsfw })
 };
 module.exports.config = {
