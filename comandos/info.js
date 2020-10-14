@@ -20,7 +20,7 @@ Promise.all(promises).then(results => {
 
  const embed = new Discord.MessageEmbed()
  .setTitle("Bot info")
- .setDescription("Bot de diversión y memes")
+ .setDescription("Información técnica y general del bot")
  .addField("Nombre:", "``" + client.user.username + "``")
  .addField("Creador:", "``" + creador.tag + "``")
  .addField("Colaboradores:", "``" + colaborador.tag  + "`` " + "``" + colaborador2.tag + "`` " + "``" + colaborador3.tag + "``")
