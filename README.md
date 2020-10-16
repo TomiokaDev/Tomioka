@@ -27,12 +27,13 @@ sudo apt -y install nodejs
 sudo apt -y  install gcc g++ make
 node --version
 npm --version
-sudo npm install forever -g
-sudo npm i discord.js
-sudo npm i discord.js ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core --save
-sudo npm i -s nekos.life
-sudo npm i megadb
-sudo npm i moment
+npm install forever -g
+npm i discord.js
+npm i discord.js ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core --save
+npm i -s nekos.life
+npm i megadb
+npm i moment
+npm i dblapi.js
 ```
 
 _ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN DEBIAN_
