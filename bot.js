@@ -9,6 +9,8 @@ const client = new Discord.Client();
 const cooldown = require("./eventos/cooldown.js")
 const ytdl = require('ytdl-core');
 client.queue = new Map();
+const DBL = require("dblapi.js");
+const dbl = new DBL('TOKEN', client);
 
 // INTENTS NO PRIVILEGIADOS
 
@@ -88,7 +90,7 @@ client.on(fileName, fileContents.bind(null, client));
 // <-- PROPIEDAD LOGIN: -->
 
 // Inicia sesión en Discord con el token definido en config.
-client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.XDHOVA.9LxofG4DSJp6V2CBWH1iZBFPTuo") //agregamos las promesas de la propiedad login.
+client.login("TOKEN") //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
     console.log("Node Version: " + process.version);
@@ -101,3 +103,11 @@ client.login("NTMxNDA4MDY3OTkzMTQxMjQ4.XDHOVA.9LxofG4DSJp6V2CBWH1iZBFPTuo") //ag
     console.error("Error al iniciar sesión: " + err);
 
   });
+
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+ console.log(`Error de la API de top.gg! ${e}`);
+})
