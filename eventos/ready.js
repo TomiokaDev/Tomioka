@@ -14,7 +14,7 @@ await Discord.Util.delayFor((30 * 1000)); //30 s
          const users = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
 
          setInterval(function () {
-            var estados = [`tk!help |v1.1.0| Estoy en ${guilds} servers.`, `tk!help |v1.1.0| Veo ${users} usuarios.`, `tk!report por algun fallo o sugerencia.`, `tk!invite |v1.1.0| Estoy en ${guilds} servers.`, `tk!invite |v1.1.0| Veo ${users} usuarios.`]
+            var estados = [`tk!help |v1.2.0| Estoy en ${guilds} servers.`, `tk!help |v1.2.0| Veo ${users} usuarios.`, `tk!report por algun fallo o sugerencia.`, `tk!invite |v1.2.0| Estoy en ${guilds} servers.`, `tk!invite |v1.2.0| Veo ${users} usuarios.`]
 
             let estado = estados[Math.floor(estados.length * Math.random())];
 
