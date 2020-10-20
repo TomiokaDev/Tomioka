@@ -4,8 +4,8 @@ const myIntents = new Intents();
 myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES');
 const config = require('./config.js');
 const Discord = require('discord.js');
-//const client = new Discord.Client({ ws: { intents: myIntents } });
-const client = new Discord.Client();
+const client = new Discord.Client({ ws: { intents: myIntents } });
+//const client = new Discord.Client();
 const cooldown = require("./eventos/cooldown.js")
 const ytdl = require('ytdl-core');
 client.queue = new Map();
