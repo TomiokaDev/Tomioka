@@ -5,7 +5,7 @@ module.exports = async(client, message, args) => {
 var fc = message.member.voice.channel;
 if(!fc) return message.channel.send("No estas en un canal de voz");
 const permissions = fc.permissionsFor(message.client.user);
-if(message.author.id !== '178651638209314816') return;
+if(!["178651638209314816"].includes(message.author.id)) return;
 if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return message.channel.send("No tengo permisos para hablar o conectarme!");
 
      let audiom = ['./audio/fc.mp3']
@@ -41,3 +41,4 @@ module.exports.config = {
 command:"fc",
 aliases:["fc"],
 cooldown: 90
+}
