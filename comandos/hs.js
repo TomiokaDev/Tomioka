@@ -8,7 +8,7 @@ if(!fc) return message.channel.send("No estas en un canal de voz");
 const permissions = fc.permissionsFor(message.client.user);
 if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return message.channel.send("No tengo permisos para hablar o conectarme!");
 
-     let audiom = ['./audio/hotsex.mp3']
+     let audiom = ['./audio/hotsex.m4a']
     
      let random = audiom[Math.floor(audiom.length * Math.random())];
 
@@ -20,7 +20,7 @@ const dispatcher = connection.play(random);
 
 dispatcher.on('start', () => {
      const embed = new Discord.MessageEmbed()
-    .setTitle("HOT SEX")
+    .setTitle("ｈｏｔ ｓｅｘ")
     .setImage("https://cdn.discordapp.com/attachments/671170382010515466/772219335791607848/hotsex.jpg")
     .setColor(config.color)
     .setFooter(`Comando exclusivo xd`, message.author.avatarURL())
@@ -42,3 +42,4 @@ command:"hs",
 aliases:["hs"],
 cooldown: 5
 }
+
