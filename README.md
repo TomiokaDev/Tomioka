@@ -28,14 +28,10 @@ sudo apt -y  install gcc g++ make
 node --version
 npm --version
 sudo npm install forever -g
-sudo npm i discord.js ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core --save
 npm i ffmpeg-static
-sudo npm i -s nekos.life
-sudo npm i megadb
-sudo npm i moment
-npm i dblapi.js
-npm i curse-text
-npm i puppeteer
+sudo npm install -g pnpm
+pnpm add lodash
+pnpm start
 sudo apt-get install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 sudo sysctl -w kernel.unprivileged_userns_clone=1
 ```
@@ -53,14 +49,10 @@ sudo apt -y  install gcc g++ make
 node --version
 npm --version
 sudo npm install forever -g
-sudo npm i discord.js ffmpeg fluent-ffmpeg @discordjs/opus ytdl-core --save
 npm i ffmpeg-static
-sudo npm i -s nekos.life
-sudo npm i megadb
-sudo npm i moment
-npm i dblapi.js
-npm i curse-text
-npm i puppeteer
+sudo npm install -g pnpm
+pnpm add lodash
+pnpm start
 sudo apt-get install gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 sudo sysctl -w kernel.unprivileged_userns_clone=1
 ```
