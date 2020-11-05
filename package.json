@@ -33,7 +33,7 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://github.com/SupahFox/Tomioka"
+    "url": "https://github.com/cratermaik"
   },
   "license": "MIT",
   "keywords": [
@@ -42,4 +42,3 @@
     "express"
   ]
 }
-
