@@ -15,7 +15,7 @@ try{
 }
 };
 module.exports.config = {
-command:"owoify",
-aliases:["owoify"],
+command:"zalgo",
+aliases:["zalgo"],
 cooldown: 5
 }
