@@ -1,7 +1,7 @@
 //DEFINIMOS DISCORD.JS Y LOS GATEWAY INTENTS
 const { Client, Intents } = require('discord.js');
-const myIntents = new Intents();
-myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES');
+//const myIntents = new Intents();
+//myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES');
 const config = require('./config.js');
 const Discord = require('discord.js');
 //const client = new Discord.Client({ ws: { intents: myIntents } });
@@ -10,15 +10,15 @@ const cooldown = require("./eventos/cooldown.js")
 const ytdl = require('ytdl-core');
 client.queue = new Map();
 const DBL = require("dblapi.js");
-const dbl = new DBL('dblapi TOKEN', client);
+const dbl = new DBL(config.dbltoken, client);
 
 // INTENTS NO PRIVILEGIADOS
 
-const otherIntents = new Intents(Intents.NON_PRIVILEGED);
-otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
+//const otherIntents = new Intents(Intents.NON_PRIVILEGED);
+//otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
 
-const otherIntents2 = new Intents(32509);
-otherIntents2.remove(1, 512);
+//const otherIntents2 = new Intents(32509);
+//otherIntents2.remove(1, 512);
 
 
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:
@@ -90,7 +90,7 @@ client.on(fileName, fileContents.bind(null, client));
 // <-- PROPIEDAD LOGIN: -->
 
 // Inicia sesión en Discord con el token definido en config.
-client.login("TOKEN") //agregamos las promesas de la propiedad login.
+client.login(config.discordtoken) //agregamos las promesas de la propiedad login.
   .then(() => { 
     console.log(`bot started ${client.user.tag}`);
     console.log("Node Version: " + process.version);
@@ -110,4 +110,3 @@ dbl.on('posted', () => {
 
 dbl.on('error', e => {
  console.log(`Error de la API de top.gg! ${e}`);
-})
