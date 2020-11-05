@@ -21,3 +21,4 @@ command:"colgate",
 aliases:["colgate"],
 cooldown: 5
 };
+

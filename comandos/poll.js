@@ -27,3 +27,6 @@ command:"poll",
 aliases:["poll"],
 cooldown: 5
 }
+
+
+

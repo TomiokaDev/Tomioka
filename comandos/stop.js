@@ -24,6 +24,7 @@ return message.channel.send("No hay ninguna canción reproduciendose")
   serverQueue.songs = [];
   serverQueue.connection.dispatcher.end();
   if(serverQueue) client.queue.delete(message.guild.id);
+  return message.channel.send("Ok!")
   message.member.voice.channel.leave();
 }
 }
