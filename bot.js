@@ -110,3 +110,4 @@ dbl.on('posted', () => {
 
 dbl.on('error', e => {
  console.log(`Error de la API de top.gg! ${e}`);
+})
