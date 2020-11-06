@@ -3,3 +3,4 @@ package-lock.json
 server.js
 bot.js
 config.js
+.env
