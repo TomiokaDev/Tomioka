@@ -5,7 +5,7 @@
   <a href="https://discord.js.org">
       <img src="https://img.shields.io/badge/discord-js-blue.svg" alt="discord.js.org">
   </a>
-   <a href="https://nodejs.org/#/">
+   <a href="https://nodejs.org">
     <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="Made with JavaScript">
   </a>
 </p>
