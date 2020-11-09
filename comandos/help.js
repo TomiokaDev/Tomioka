@@ -6,13 +6,12 @@ module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll`")
-    .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo`")
+    .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo` `ascii`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
     .addField("Comandos secretos", "Encuentralos owo")
-    .addField("Comandos de NSFW", "Para ver los comandos de este apartado, es necesario estar en un canal apropiado por razones de seguridad.")
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
     .setThumbnail(client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
@@ -20,7 +19,7 @@ module.exports = (client, message, args) => {
   
   const embednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll`")
-    .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo`")
+    .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo` `ascii`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
