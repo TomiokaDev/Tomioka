@@ -1,3 +1,4 @@
+![intro](https://cdn.discordapp.com/attachments/671170382010515466/775459377347035166/tomiokapng.png)
 # Tomioka
 TOMIOKA DISCORD.JS BOT
 
