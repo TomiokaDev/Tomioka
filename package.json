@@ -5,7 +5,7 @@
   "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "pnpm start"
+    "start": "node server.js"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
@@ -18,8 +18,10 @@
     "express": "^4.17.1",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
+    "figlet": "^1.5.0",
     "fluent-ffmpeg": "^2.1.2",
     "forever": "^3.0.0",
+    "lodash": "^4.17.20",
     "megadb": "^3.4.0",
     "moment": "^2.29.1",
     "nekos.life": "^2.0.7",
