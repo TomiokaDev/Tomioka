@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const config = require('../config.js');
 
 module.exports = (client, message, args) => {
-  let owner = message.guild.owner.user
   let amimir = ["https://cdn.discordapp.com/attachments/671170382010515466/733015830903914516/images.jpg", "https://cdn.discordapp.com/attachments/671170382010515466/737044302819229816/ESJX_9fXYAAodLI.jpg", "https://cdn.discordapp.com/attachments/671170382010515466/737046528547487865/A_mimir_1.gif"]
   let captura = amimir[Math.floor(amimir.length * Math.random())];
 

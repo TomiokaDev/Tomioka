@@ -22,7 +22,7 @@ dispatcher.on('start', () => {
     .setTitle("FUNNY CAT HAHA LOL")
     .setImage("https://cdn.discordapp.com/attachments/671170382010515466/766873710073610240/cat.gif")
     .setColor(config.color)
-    .setFooter(`Comando secreto! 3/3`, message.author.avatarURL())
+    .setFooter(`Comando secreto! 3/4`, message.author.avatarURL())
     return message.channel.send({ embed : embed });
 });
 

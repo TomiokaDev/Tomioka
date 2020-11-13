@@ -22,7 +22,7 @@ dispatcher.on('start', () => {
     .setTitle("MONKI")
     .setImage("https://cdn.discordapp.com/attachments/671170382010515466/760950452124123166/monkiswim.gif")
     .setColor(config.color)
-    .setFooter(`Comando secreto! 2/3`, message.author.avatarURL())
+    .setFooter(`Comando secreto! 2/4`, message.author.avatarURL())
     return message.channel.send({ embed : embed });
 });
 

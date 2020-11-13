@@ -10,7 +10,7 @@ const embed = new Discord.MessageEmbed()
     .setDescription("Encontraste al **walter** de la suerte :)")
     .setColor(config.color)
     .setImage(captura)
-    .setFooter(`Comando secreto! 1/3`, message.author.avatarURL())
+    .setFooter(`Comando secreto! 1/4`, message.author.avatarURL())
      message.channel.send({ embed: embed })
 }catch (err){
     console.log(err);
