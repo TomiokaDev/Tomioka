@@ -35,21 +35,19 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
             queueConst.songs.push(song);
 
             try {
-                let connection = message.member.voice.channel.join();
+                let connection = await message.member.voice.channel.join();
                 queueConst.connection = connection
-                const dispatcher = connection.playStream(ytdl(message.guild, queueConst.songs[0], client, message, {filter: "audioonly"}));
+                playSong(message.guild, queueConst.songs[0], client, message, {filter: "audioonly"});
+                const dispatcher = queueConst.connection
                 dispatcher.on('start', () => {
                 return message.channel.send(`Reproduciendo **${song.title}**!`)
                 });
 
                dispatcher.on('finish', () => {
                serverQueue.connection.dispatcher.end();
-               });
-            if(!serverQueue){
-             vc.leave();
-            }
-
-            } catch (error) {
+               vc.leave();
+               });          
+              } catch (error) {
                 console.log(error);
                 client.queue.delete(message.guild.id);
                 return message.channel.send("Hubo un error al reproducir el link. Error: " + error);
@@ -60,6 +58,28 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
         }
     }
 
+/**
+ * 
+ * @param {Discord.Guild} guild 
+ * @param {Object} song 
+ */
+async function playSong(guild, song, client, message) {
+    let serverQueue = client.queue.get(message.guild.id)
+
+    if(!song){
+        serverQueue.voiceChannel.leave();
+        client.queue.delete(guild.id);
+        return;
+    }
+
+    const dispatcher = serverQueue.connection.play(ytdl(song.url)).on('end', () => {
+        serverQueue.songs.shift();
+        playSong(guild, serverQueue.songs[0], client, message);
+ })
+    .on('error', () => {console.log(error)})
+
+    dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+}
 module.exports.config = {
 command:"play",
 aliases:["play"],
