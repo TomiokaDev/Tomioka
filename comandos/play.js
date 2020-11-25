@@ -37,17 +37,9 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
             try {
                 let connection = await message.member.voice.channel.join();
                 queueConst.connection = connection
-                playSong(message.guild, queueConst.songs[0], client, message, {filter: "audioonly"});
-                const dispatcher = queueConst.connection
-                dispatcher.on('start', () => {
+                playSong(message.guild, queueConst.songs[0], client, message, {filter: "audioonly"})
                 return message.channel.send(`Reproduciendo **${song.title}**!`)
-                });
-
-               dispatcher.on('finish', () => {
-               serverQueue.connection.dispatcher.end();
-               vc.leave();
-               });          
-              } catch (error) {
+            } catch (error) {
                 console.log(error);
                 client.queue.delete(message.guild.id);
                 return message.channel.send("Hubo un error al reproducir el link. Error: " + error);
