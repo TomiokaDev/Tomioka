@@ -67,7 +67,7 @@ if(search){
         };
       } catch (error) {
         console.error(error);
-        return message.reply("Ningun video fue encontrado con ese título").catch(console.error);
+        return message.reply("Ningún video fue encontrado con ese título.").catch(console.error);
       }
 }
 
@@ -116,7 +116,7 @@ return;
     }
   } else {
     serverQueue.songs.push(song);
-    return message.channel.send(`${song.title} fue añadido a la cola!`);
+    return message.channel.send(`**${song.title}** fue añadido a la cola!`);
   }
 
 
