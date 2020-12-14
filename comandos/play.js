@@ -21,7 +21,6 @@ const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
 const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
-const plValid = playlistPattern.test(args[0]);
 
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
@@ -45,7 +44,7 @@ if (urlValid) {
         }
 }
 
-//if (!urlValid && plValid) {
+//if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
 //    try {
 //        playlist = await youtube.getPlaylist(url, { part: "snippet" });
 //        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
@@ -63,7 +62,7 @@ if (urlValid) {
 //      }
 //}
 
-if(!urlValid && plValid){
+if(!videoPattern.test(args[0]) && playlistPattern.test(args[0])){
 message.channel.send("No es posible agregar playlists por el momento.")
 return;
 }
