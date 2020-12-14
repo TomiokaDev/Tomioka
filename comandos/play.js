@@ -16,10 +16,18 @@ const youtube = new YouTubeAPI(YTAPI);
 
 const search = args.join(" ");
 const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
 const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
 
+
+//PLAYLIST
+    if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
+      return message.client.commands.get("playlist").execute(message, args);
+    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+      return message.client.commands.get("playlist").execute(message, args);
+    }
 
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
