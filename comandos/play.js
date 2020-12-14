@@ -45,6 +45,30 @@ if (urlValid) {
         }
 }
 
+//if (videoPattern.test(url) && playlistPattern.test(url)) {
+//    try {
+//        playlist = await youtube.getPlaylist(url, { part: "snippet" });
+//        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
+//
+//       videos.forEach((video) => {
+//        let song = {
+//          title: video.videoDetails.title,
+//          url: video.videoDetails.video_url,
+//          duration: video.videoDetails.lengthSeconds
+//        }
+//     })
+//      } catch (error) {
+//        console.error(error);
+//        return message.reply("Playlist no encontrada.").catch(console.error);
+//      }
+//}
+
+if(!videoPattern.test(url) && playlistPattern.test(url)){
+message.channel.send("No es posible agregar playlists por el momento.")
+return;
+}
+
+
 if(search){
       try {
         const results = await youtube.searchVideos(search, 1);
@@ -80,32 +104,11 @@ return;
 }
 
 
-//PLAYLIST YT
-    if (!videoPattern.test(url) && playlistPattern.test(url)) {
-      try {
-        playlist = await youtube.getPlaylist(url, { part: "snippet" });
-        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
 
-       videos.forEach((video) => {
-        let song = {
-          title: video.videoDetails.title,
-          url: video.videoDetails.video_url,
-          duration: video.videoDetails.lengthSeconds
-        }
-     })
-      } catch (error) {
-        console.error(error);
-        return message.reply("Playlist no encontrada.").catch(console.error);
-      }
-    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+//    if (!videoPattern.test(url) && playlistPattern.test(url)) {
+//          } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
 //      return message.client.comandos.get("playlist").execute(message, args);
-    }
-
-//if(!videoPattern.test(url) && playlistPattern.test(url)){
-//message.channel.send("No es posible agregar playlists por el momento.")
-//return;
-//}
-
+//    }
 
 
   if (!serverQueue) {
