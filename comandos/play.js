@@ -59,8 +59,9 @@ if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.c
 
 function play(guild, song) {
   const serverQueue = client.queue.get(guild.id);
+  let vc = message.member.voice.channel;
   if (!song) {
-    serverQueue.voiceChannel.leave();
+    serverQueue.vc.leave();
     client.queue.delete(guild.id);
     return;
   }
