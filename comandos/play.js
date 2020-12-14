@@ -16,8 +16,10 @@ const youtube = new YouTubeAPI(YTAPI);
 let MAX_PLAYLIST_SIZE = 10;
 
 const search = args.join(" ");
-const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
-const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
+//const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+//const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
+const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
+const playlistPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube.com|youtu.be)\/(playlist)?(\?v=)?(\S+)?/
 const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
@@ -35,6 +37,34 @@ const urlValid = videoPattern.test(args[0]);
     );
   }
 
+//PLAYLIST YT
+//    if (!videoPattern.test(url) && playlistPattern.test(url)) {
+//    try {
+//      playlist = await youtube.getPlaylist(url, { part: "snippet" });
+//      videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
+//
+//     videos.forEach((videopl) => {
+//      let plInfo = ytdl.getInfo(url);
+//      let videopl = {
+//        title: plInfo.videoDetails.title,
+//        url: plInfo.videoDetails.video_url,
+//        duration: plInfo.videoDetails.lengthSeconds
+//      }
+//    })
+//    } catch (error) {
+//      console.error(error);
+//      return message.reply("Playlist no encontrada.").catch(console.error);
+//    }
+//  } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+//    return message.client.comandos.get("playlist").execute(message, args);
+//  }
+
+if(!videoPattern.test(url) && playlistPattern.test(url)){
+message.channel.send("No es posible agregar playlists por el momento.")
+return;
+}
+
+
 if (urlValid) {
         let songInfo = await ytdl.getInfo(url);
         let song = {
@@ -43,30 +73,6 @@ if (urlValid) {
           duration: songInfo.videoDetails.lengthSeconds
         }
 }
-
-//if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-//    try {
-//        playlist = await youtube.getPlaylist(url, { part: "snippet" });
-//        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
-//
-//       videos.forEach((video) => {
-//        let song = {
-//          title: video.videoDetails.title,
-//          url: video.videoDetails.video_url,
-//          duration: video.videoDetails.lengthSeconds
-//        }
-//     })
-//      } catch (error) {
-//        console.error(error);
-//        return message.reply("Playlist no encontrada.").catch(console.error);
-//      }
-//}
-
-if(!videoPattern.test(args[0]) && playlistPattern.test(args[0])){
-message.channel.send("No es posible agregar playlists por el momento.")
-return;
-}
-
 
 if(search){
       try {
@@ -101,13 +107,6 @@ if (scRegex.test(url)) {
 message.channel.send("No es posible agregar links de Soundcloud por el momento.")
 return;
 }
-
-
-
-//    if (!videoPattern.test(url) && playlistPattern.test(url)) {
-//          } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-//      return message.client.comandos.get("playlist").execute(message, args);
-//    }
 
 
   if (!serverQueue) {
