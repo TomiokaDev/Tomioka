@@ -23,33 +23,6 @@ const url = args[0];
 const urlValid = videoPattern.test(args[0]);
 
 
-//PLAYLIST YT
-//    if (!videoPattern.test(url) && playlistPattern.test(url)) {
-//      try {
-//        playlist = await youtube.getPlaylist(url, { part: "snippet" });
-//        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
-//
-//       videos.forEach((video) => {
-//        let song = {
-//          title: video.videoDetails.title,
-//          url: video.videoDetails.video_url,
-//          duration: video.videoDetails.lengthSeconds
-//        }
-//     })
-//      } catch (error) {
-//        console.error(error);
-//        return message.reply("Playlist no encontrada.").catch(console.error);
-//      }
-//    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-//      return message.client.comandos.get("playlist").execute(message, args);
-//    }
-
-if(!videoPattern.test(url) && playlistPattern.test(url)){
-message.channel.send("No es posible agregar playlists por el momento.")
-return;
-}
-
-
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
   if (!vc)
@@ -105,6 +78,34 @@ if (scRegex.test(url)) {
 message.channel.send("No es posible agregar links de Soundcloud por el momento.")
 return;
 }
+
+
+//PLAYLIST YT
+    if (!videoPattern.test(url) && playlistPattern.test(url)) {
+      try {
+        playlist = await youtube.getPlaylist(url, { part: "snippet" });
+        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
+
+       videos.forEach((video) => {
+        let song = {
+          title: video.videoDetails.title,
+          url: video.videoDetails.video_url,
+          duration: video.videoDetails.lengthSeconds
+        }
+     })
+      } catch (error) {
+        console.error(error);
+        return message.reply("Playlist no encontrada.").catch(console.error);
+      }
+    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+//      return message.client.comandos.get("playlist").execute(message, args);
+    }
+
+//if(!videoPattern.test(url) && playlistPattern.test(url)){
+//message.channel.send("No es posible agregar playlists por el momento.")
+//return;
+//}
+
 
 
   if (!serverQueue) {
