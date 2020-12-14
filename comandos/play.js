@@ -7,7 +7,7 @@ const YouTubeAPI = require("simple-youtube-api");
 module.exports = async(client, message, args) => {
 if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
 
-if(!args[0]) return message.channel.send("Escribe el nombre la canción o pon un link de YouTube!");
+if(!args[0]) return message.channel.send("Escribe el nombre de la canción o pon un link de YouTube!");
 
 YTAPI = config.youtubeapi;
 //SCID = config.SCID;
