@@ -22,12 +22,17 @@ const url = args[0];
 const urlValid = videoPattern.test(args[0]);
 
 
-//PLAYLIST
-    if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.client.commands.get("playlist").execute(message, args);
-    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-      return message.client.commands.get("playlist").execute(message, args);
-    }
+//PLAYLIST YT
+//    if (!videoPattern.test(url) && playlistPattern.test(url) {
+//      return message.client.commands.get("playlist").execute(message, args);
+//    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
+//      return message.client.commands.get("playlist").execute(message, args);
+//    }
+if(!videoPattern.test(url) && playlistPattern.test(url){
+message.channel.send("No es posible agregar playlists por el momento.")
+return;
+}
+
 
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
