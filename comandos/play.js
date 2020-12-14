@@ -63,7 +63,7 @@ if (urlValid) {
 //      }
 //}
 
-if(!videoPattern.test(url) && playlistPattern.test(url)){
+if(!urlValid && plValid){
 message.channel.send("No es posible agregar playlists por el momento.")
 return;
 }
