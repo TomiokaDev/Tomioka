@@ -21,7 +21,7 @@ const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
 const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
-
+const plValid = playlistPattern.test(args[0]);
 
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
@@ -45,7 +45,7 @@ if (urlValid) {
         }
 }
 
-//if (!videoPattern.test(url) && playlistPattern.test(url)) {
+//if (!urlValid && plValid) {
 //    try {
 //        playlist = await youtube.getPlaylist(url, { part: "snippet" });
 //        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
