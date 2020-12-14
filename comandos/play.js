@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../config.js');
 const ytdl = require('ytdl-core');
+const scdl = require("soundcloud-downloader");
 const YouTubeAPI = require("simple-youtube-api");
 
 module.exports = async(client, message, args) => {
@@ -9,11 +10,13 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
 if(!args[0]) return message.channel.send("Escribe el nombre la canción o pon un link de YouTube!");
 
 YTAPI = config.youtubeapi;
+//SCID = config.SCID;
 const youtube = new YouTubeAPI(YTAPI);
 
 
 const search = args.join(" ");
 const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
 
@@ -53,6 +56,25 @@ if(search){
         console.error(error);
         return message.reply("Ningun video fue encontrado con ese título").catch(console.error);
       }
+}
+
+//if (scRegex.test(url)) {
+//      try {
+//        const trackInfo = await scdl.getInfo(url, SCID);
+//        song = {
+//          title: trackInfo.title,
+//          url: trackInfo.permalink_url,
+//          duration: Math.ceil(trackInfo.duration / 1000)
+//        };
+//      } catch (error) {
+//        if (error.statusCode === 404)
+//          return message.reply("No se pudo encontrar esa pista de Soundcloud.").catch(console.error);
+//        return message.reply("Hubo un error al reproducir esa pista de Soundcloud.").catch(console.error);
+//      }
+
+if (scRegex.test(url)) {
+message.channel.send("No es posible agregar links de Soundcloud por el momento.")
+return;
 }
 
 
