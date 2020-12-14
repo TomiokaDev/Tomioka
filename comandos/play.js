@@ -13,6 +13,7 @@ YTAPI = config.youtubeapi;
 //SCID = config.SCID;
 const youtube = new YouTubeAPI(YTAPI);
 
+let MAX_PLAYLIST_SIZE = 10;
 
 const search = args.join(" ");
 const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
@@ -23,11 +24,26 @@ const urlValid = videoPattern.test(args[0]);
 
 
 //PLAYLIST YT
-//    if (!videoPattern.test(url) && playlistPattern.test(url) {
-//      return message.client.commands.get("playlist").execute(message, args);
+//    if (!videoPattern.test(url) && playlistPattern.test(url)) {
+//      try {
+//        playlist = await youtube.getPlaylist(url, { part: "snippet" });
+//        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
+//
+//       videos.forEach((video) => {
+//        let song = {
+//          title: video.videoDetails.title,
+//          url: video.videoDetails.video_url,
+//          duration: video.videoDetails.lengthSeconds
+//        }
+//     })
+//      } catch (error) {
+//        console.error(error);
+//        return message.reply("Playlist no encontrada.").catch(console.error);
+//      }
 //    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
-//      return message.client.commands.get("playlist").execute(message, args);
+//      return message.client.comandos.get("playlist").execute(message, args);
 //    }
+
 if(!videoPattern.test(url) && playlistPattern.test(url)){
 message.channel.send("No es posible agregar playlists por el momento.")
 return;
