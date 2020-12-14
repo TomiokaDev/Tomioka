@@ -45,7 +45,7 @@ if (urlValid) {
         }
 }
 
-//if (videoPattern.test(url) && playlistPattern.test(url)) {
+//if (!videoPattern.test(url) && playlistPattern.test(url)) {
 //    try {
 //        playlist = await youtube.getPlaylist(url, { part: "snippet" });
 //        videos = await playlist.getVideos(MAX_PLAYLIST_SIZE || 10, { part: "snippet" });
