@@ -28,7 +28,7 @@ const urlValid = videoPattern.test(args[0]);
 //    } else if (scdl.isValidUrl(url) && url.includes("/sets/")) {
 //      return message.client.commands.get("playlist").execute(message, args);
 //    }
-if(!videoPattern.test(url) && playlistPattern.test(url){
+if(!videoPattern.test(url) && playlistPattern.test(url)){
 message.channel.send("No es posible agregar playlists por el momento.")
 return;
 }
