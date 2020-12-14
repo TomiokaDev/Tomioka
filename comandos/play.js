@@ -16,10 +16,8 @@ const youtube = new YouTubeAPI(YTAPI);
 let MAX_PLAYLIST_SIZE = 10;
 
 const search = args.join(" ");
-//const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
-//const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
-const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
-const playlistPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube.com|youtu.be)\/(playlist)?(\?v=)?(\S+)?/
+const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
 const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
 const url = args[0];
 const urlValid = videoPattern.test(args[0]);
