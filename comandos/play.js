@@ -1,13 +1,22 @@
 const Discord = require('discord.js');
 const config = require('../config.js');
 const ytdl = require('ytdl-core');
+const YouTubeAPI = require("simple-youtube-api");
 
 module.exports = async(client, message, args) => {
 if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
 
-if(!args[0]) return message.channel.send("Necesitas poner un link de YouTube");
-let url = args.join(" ");
-if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.channel.send("Por favor pon un link de YouTube!");
+if(!args[0]) return message.channel.send("Escribe el nombre la canción o pon un link de YouTube!");
+
+YTAPI = config.youtubeapi;
+const youtube = new YouTubeAPI(YTAPI);
+
+
+const search = args.join(" ");
+const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+const url = args[0];
+const urlValid = videoPattern.test(args[0]);
+
 
  let serverQueue = client.queue.get(message.guild.id);
  let vc = message.member.voice.channel;
@@ -22,11 +31,31 @@ if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.c
     );
   }
 
+if (urlValid) {
         let songInfo = await ytdl.getInfo(url);
         let song = {
-            title: songInfo.videoDetails.title,
-            url: songInfo.videoDetails.video_url
+          title: songInfo.videoDetails.title,
+          url: songInfo.videoDetails.video_url,
+          duration: songInfo.videoDetails.lengthSeconds
         }
+}
+
+if(search){
+      try {
+        const results = await youtube.searchVideos(search, 1);
+        songInfo = await ytdl.getInfo(results[0].url);
+        song = {
+          title: songInfo.videoDetails.title,
+          url: songInfo.videoDetails.video_url,
+          duration: songInfo.videoDetails.lengthSeconds
+        };
+      } catch (error) {
+        console.error(error);
+        return message.reply("Ningun video fue encontrado con ese título").catch(console.error);
+      }
+}
+
+
   if (!serverQueue) {
     const queueConst = {
       textChannel: message.channel,
@@ -59,9 +88,8 @@ if(!url.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/)) return message.c
 
 function play(guild, song) {
   const serverQueue = client.queue.get(guild.id);
-  let vc = message.member.voice.channel;
   if (!song) {
-    serverQueue.vc.leave();
+    message.member.voice.channel.leave();
     client.queue.delete(guild.id);
     return;
   }
