@@ -8,7 +8,7 @@ module.exports = async(client, message, args) => {
 
  figlet(say, function(err, data) {
     if (err) {
-        message.channel.send("Hubo un error");
+        message.channel.send("Hubo un error al ejecutar el comando D: \n> **Error:** " + err);
         console.log(err);
         return;
       }

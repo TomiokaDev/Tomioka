@@ -28,7 +28,7 @@ module.exports = async (bot, message, args) => {
     });
   } catch (err) {
     console.log(err);
-    return message.reply("Hubo un error"); // estoo
+    return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err);
   }
 };
 module.exports.config = {
