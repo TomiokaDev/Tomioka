@@ -5,7 +5,7 @@ const cooldown = new Set();
 module.exports = (client, message, args) => {
   
   const embed = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll` `botsuggest` `status`")
     .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo` `ascii`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
@@ -18,7 +18,7 @@ module.exports = (client, message, args) => {
   if(!message.channel.nsfw) return message.channel.send({ embed: embed }) 
   
   const embednsfw = new Discord.MessageEmbed()
-    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll`")
+    .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll` `botsuggest` `status`")
     .addField("Comandos de interaccion", "`chocomilk` `cookie` `ask` `orientation` `microwave` `kiss` `pat` `poke` `slap` `tickle` `feed` `hug` `cuddle` `lasubeolabaja` `say` `owoify` `zalgo` `ascii`")
     .addField("Comandos de reacción","`tabien` `tamal` `tamaomeno` `tahelao` `amimir` `cyber` `trespingos`")
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")

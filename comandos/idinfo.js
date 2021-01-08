@@ -38,8 +38,8 @@ let flags = {
  .setColor(config.color)
  message.channel.send({ embed: embed })
 } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error. Parece que el comando está en mantenimiento o la id es inválida.");
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 };
 module.exports.config = {

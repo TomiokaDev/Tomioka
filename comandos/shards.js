@@ -16,9 +16,9 @@ values.forEach((value) => {
 // Send the final string in the channel
 message.channel.send(finalString);
 console.log(values)
-}catch (err) {
+} catch (err) {
   console.log(err);
-   return message.reply("Hubo un error"); // estoo
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 };
 module.exports.config = {
