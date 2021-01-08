@@ -23,10 +23,10 @@ module.exports = async (bot, message, args) => {
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }
     });
-  } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
-  }
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
 };
 module.exports.config = {
   command: "poke",

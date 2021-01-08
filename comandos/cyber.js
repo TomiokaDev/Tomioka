@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const config = require('../config.js'); 
 
-module.exports = (client, message, args) => {     
- let owner = message.guild.owner.user
+module.exports = (client, message, args) => {
  const embed = new Discord.MessageEmbed()
  .setDescription(`**${message.author.username}** dice que te vayas del cyber`)
  .setImage("https://cdn.discordapp.com/attachments/671170382010515466/723285277115940875/ya-vete-del-ciber01588483563.jpg")

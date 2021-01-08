@@ -4,6 +4,16 @@ const ytdl = require('ytdl-core');
 const scdl = require("soundcloud-downloader");
 const YouTubeAPI = require("simple-youtube-api");
 
+var SpotifyWebApi = require('spotify-web-api-node');
+ 
+// credentials are optional
+var spotifyApi = new SpotifyWebApi({
+  clientId: config.spotifyclient,
+  clientSecret: config.spotifysecret,
+  redirectUri: 'http://www.example.com/callback'
+});
+
+
 module.exports = async(client, message, args) => {
 if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
 

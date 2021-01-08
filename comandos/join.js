@@ -13,9 +13,9 @@ try {
 if(vc){
 message.member.voice.channel.join();
 }
-} catch (error) {
-console.log(error);
-return message.channel.send("Hubo un error al meterse al canal. " + error);
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al intentar meterme al canal D: \n> **Error:** " + err); // estoo
 }
 }
 module.exports.config = {

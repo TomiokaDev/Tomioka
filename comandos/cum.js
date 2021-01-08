@@ -17,7 +17,7 @@ module.exports = async (bot, message, args) => {
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
     if(!canalnsfw) return message.channel.send('No hay ningun canal definido. Definelo con tk!setnsfw <#CANAL>');
-if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
+if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal NSFW para hacer eso, por favor ve a <#' + canalnsfw + ">")
    
    if (member === message.author) return message.channel.send("No es necesario mencionarte a ti mismo para correrte owo"); // estoo
     if (member === bot.user) return message.channel.send("owo atrevido!"); // estoo
@@ -38,10 +38,10 @@ if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un can
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }
     });
-  } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
-  }
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
 };
 module.exports.config = {
   command: "cum",

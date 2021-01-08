@@ -16,10 +16,10 @@ module.exports = async (client, message, args) => {
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
     return message.channel.send({ embed : embed });
-  } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
-  }
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
 };
 module.exports.config = {
   command: "fox",

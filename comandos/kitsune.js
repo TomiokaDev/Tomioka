@@ -17,7 +17,7 @@ let kitsune = await neko.nsfw.kitsune();
     console.log(canalnsfw)
     //Operador ternario, nsfwChannel tiene la id del server ? si la tiene la variable es dicha id : no la tiene el valor de la variable es Null
    if(!canalnsfw) return message.channel.send('No hay ningun canal definido. Definelo con tk!setnsfw <#CANAL>');
-   if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal Nsfw para hacer eso, por favor ve a <#' + canalnsfw + ">")
+   if(!message.channel.nsfw) return message.channel.send('Necesitas estar en un canal NSFW para hacer eso, por favor ve a <#' + canalnsfw + ">")
 
 const embed = new Discord.MessageEmbed()
     .setTitle("Acá tenés uwu")
@@ -26,8 +26,8 @@ const embed = new Discord.MessageEmbed()
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
      message.channel.send({ embed: embed })
 } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 };
 module.exports.config = {

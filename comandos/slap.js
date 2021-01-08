@@ -8,7 +8,7 @@ module.exports = async (bot, message, args) => {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
   try {
-    if (member === message.author) return message.channel.send("No estÃ¡s en un sueÃ±o, estÃ¡s en la vida real :D"); // estoo
+    if (member === message.author) return message.channel.send("No estás en un sueño, estás en la vida real :D"); // estoo
     if (member === bot.user) return message.channel.send(`**${message.member.displayName}**, nooooo que me duele :(`); // estoo
 
     let slap = await neko.sfw.slap();
@@ -26,10 +26,10 @@ module.exports = async (bot, message, args) => {
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }
     });
-  } catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
-  }
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
 };
 module.exports.config = {
   command: "slap",

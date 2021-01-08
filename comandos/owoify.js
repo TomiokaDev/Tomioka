@@ -12,9 +12,9 @@ try{
  if(say.length > 200) return message.reply("Debes ingresar algo menor a 200 caracteres!")
   console.log(owoify)
  message.channel.send(`**${message.member.displayName}** dice: ${owoify.owo}`)
-}catch (err) {
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 };
 module.exports.config = {

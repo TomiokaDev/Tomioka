@@ -12,9 +12,9 @@ const embed = new Discord.MessageEmbed()
     .setImage(captura)
     .setFooter(`Comando secreto! 1/4`, message.author.avatarURL())
      message.channel.send({ embed: embed })
-}catch (err){
-    console.log(err);
-    return message.reply("Hubo un error"); // estoo
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 };
 module.exports.config = {
