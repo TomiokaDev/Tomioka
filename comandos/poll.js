@@ -17,10 +17,10 @@ const embed = new Discord.MessageEmbed()
     embed.react('✅')
     embed.react('❌')
   });
-}catch (err){
-   console.log(err);
-   return message.reply("Hubo un error");
-}
+  } catch (err) {
+    console.log(err);
+    return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err);
+  }
 };
 module.exports.config = {
 command:"poll",
