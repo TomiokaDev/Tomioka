@@ -15,7 +15,7 @@ fetch(url).then(res => res.json()).then(body => {
    const id = body.response.steamid;
    const summaries = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${config.steamapi}&steamids=${id}`;
    const bans = `http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${config.steamapi}&steamids=${id}`
-   const state = ["Offline", "Online", "Busy", "Away", "Snooze", "Looking to trade", "Looking to play"];
+   const state = ["Offline", "Online", "Ocupado", "Ausente", "Durmiendo", "Looking to trade", "Looking to play"];
 
      fetch(summaries).then(res => res.json()).then(body => {
      if(!body.response) return message.channel.send("No fui capaz de encontrar un perfil con ese nombre!");
