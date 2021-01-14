@@ -21,7 +21,7 @@ const embed = new Discord.MessageEmbed()
 }
 };
 module.exports.config = {
-command:"perritos",
-aliases:["perritos"],
+command:"dog",
+aliases:["dog"],
 cooldown: 5
 }
