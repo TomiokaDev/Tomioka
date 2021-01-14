@@ -3,7 +3,8 @@ module.exports = {
   color: "#ff4803",
   youtubeapi: "API",
   discordtoken: "TOKEN",
-  dbltoken: "DBLTOKEN"
+  dbltoken: "DBLTOKEN",
+  steamapi: "STEAMAPITOKEN"
 }
 
 //By: Night#0880, en colaboración con Mcdonalds Inc.
