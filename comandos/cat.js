@@ -21,7 +21,7 @@ const embed = new Discord.MessageEmbed()
 }
 };
 module.exports.config = {
-command:"gatito",
-aliases:["gatito"],
+command:"cat",
+aliases:["cat"],
 cooldown: 5
 }
