@@ -11,6 +11,7 @@ module.exports = (client, message, args) => {
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
+    .addField("Steam", "`steamid`")
     .addField("Comandos secretos", "Encuentralos owo")
     .setColor(config.color)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
@@ -24,6 +25,7 @@ module.exports = (client, message, args) => {
     .addField("Comandos random", "`owo` `uwu` `pan` `like`")
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
+    .addField("Steam", "`steamid`")
     .addField("Comandos secretos", "Encuentralos owo")
     .addField("Comandos de NSFW", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
     .setColor(config.color)
@@ -36,3 +38,4 @@ command:"help",
 aliases:["help"],
 cooldown: 5
 }
+
