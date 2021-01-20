@@ -8,6 +8,9 @@
    <a href="https://nodejs.org">
     <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="Made with JavaScript">
   </a>
+  <a href="https://top.gg/bot/531408067993141248">
+    <img src="https://top.gg/api/widget/531408067993141248.svg" alt="Tomioka" />
+</a>
 </p>
 
 ### Programas usados
