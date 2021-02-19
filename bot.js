@@ -9,8 +9,13 @@ const client = new Discord.Client();
 const cooldown = require("./eventos/cooldown.js")
 const ytdl = require('ytdl-core');
 client.queue = new Map();
-const DBL = require("dblapi.js");
-const dbl = new DBL(config.dbltoken, client);
+//const DBL = require("dblapi.js");
+//const dbl = new DBL(config.dbltoken, client);
+
+
+
+const dbl = require('topgg-autoposter');
+const ap = dbl(config.dbltoken, client);
 
 // INTENTS NO PRIVILEGIADOS
 
@@ -30,8 +35,7 @@ let scooldown = new Map();
 
 //Creamos una colección para Discordjs llamada 'comandos':
 client.cooldown = new Discord.Collection();
-client.comandos = new Discord.Collection();
- 
+client.comandos = new Discord.Collection(); 
 
 // <-- AQUI EL CONTROLADOR DE COMANDOS: -->
 
@@ -104,10 +108,10 @@ client.login(config.discordtoken) //agregamos las promesas de la propiedad login
 
   });
 
-dbl.on('posted', () => {
+ap.on('posted', () => {
   console.log('Server count posted!');
 })
 
-dbl.on('error', e => {
+ap.on('error', e => {
  console.log(`Error de la API de top.gg! ${e}`);
 })
