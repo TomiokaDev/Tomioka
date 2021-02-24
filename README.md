@@ -37,6 +37,9 @@ sudo apt -y  install gcc g++ make
 node --version
 npm --version
 sudo npm install forever -g
+sudo apt install build-essential
+npm install -g node-gyp
+sudo apt install git-all
 npm i ffmpeg-static
 sudo npm install -g pnpm
 pnpm add lodash
