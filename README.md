@@ -43,4 +43,6 @@ npm i canvas
 npm i forever -g
 npm i
 npm start
+
+Forever: forever start -o out.log -e err.log server.js
 ```
