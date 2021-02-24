@@ -38,6 +38,8 @@ node --version
 npm --version
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 sudo apt install git-all
+npm i -g node-gyp
+npm i canvas
 npm install
 npm start
 ```
