@@ -10,52 +10,16 @@ const cooldown = require("./eventos/cooldown.js")
 const ytdl = require('ytdl-core');
 client.queue = new Map();
 
-const fs = require('fs-extra');
-const path = require('path');
-const objectPath = require("object-path");
-const chalk = require('chalk');
-
-const osu = require('./osu.js');
-const helper = require('./helper.js');
-
-client.on('error del helper.js', helper.error);
-
-//OSU
-
-let user_ign = {};
-
-if(helper.getItem('user_ign')){
-	user_ign = JSON.parse(helper.getItem('user_ign'));
-}else{
-	helper.setItem("user_ign", JSON.stringify(user_ign));
-}
-
-let last_beatmap = {};
-
-if(helper.getItem('last_beatmap')){
-	last_beatmap = JSON.parse(helper.getItem('last_beatmap'));
-}else{
-	helper.setItem('last_beatmap', JSON.stringify(last_beatmap));
-}
-
-let last_message = {}
-
-if(helper.getItem('last_message')){
-	last_message = JSON.parse(helper.getItem('last_message'));
-}else{
-	helper.setItem('last_message', JSON.stringify(last_message));
-}
-
-if(config.credentials.osu_api_key && config.credentials.osu_api_key.length > 0)
-    osu.init(client, config.credentials.osu_api_key, last_beatmap);
-
 //const DBL = require("dblapi.js");
 //const dbl = new DBL(config.dbltoken, client);
 
-
-
 const dbl = require('topgg-autoposter');
 const ap = dbl(config.dbltoken, client);
+
+
+const constant = require('./node_modules/discord.js/src/util/Constants.js')
+constant.DefaultOptions.ws.properties.$browser = `Discord iOS`
+
 
 // INTENTS NO PRIVILEGIADOS
 
