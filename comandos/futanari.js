@@ -9,6 +9,9 @@ const neko = new nekoslife();
 
 module.exports = async(client, message, args) => {
 try {
+
+if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
+
 let futa = await neko.nsfw.futanari();
 
  let guild = message.guild

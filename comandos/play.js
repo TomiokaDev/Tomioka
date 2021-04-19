@@ -138,7 +138,7 @@ return;
     } catch (err) {
       console.log(err);
       client.queue.delete(message.guild.id);
-      return message.channel.send(err);
+      return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
     }
   } else {
     serverQueue.songs.push(song);

@@ -30,4 +30,3 @@ command:"serverinfo",
 aliases:["serverinfo"],
 cooldown: 5
 }
-
