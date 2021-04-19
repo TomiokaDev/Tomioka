@@ -22,7 +22,7 @@ dispatcher.on('start', () => {
     .setTitle("Tylko jedno w głowie mam. Koksu pięć gram, odlecieć sam")
     .setImage("https://cdn.discordapp.com/attachments/671170382010515466/775845670287835186/tenor.gif")
     .setColor(config.color)
-    .setFooter(`Comando secreto! 3/4`, message.author.avatarURL())
+    .setFooter(`Comando secreto! 4/6`, message.author.avatarURL())
     return message.channel.send({ embed : embed });
 });
 

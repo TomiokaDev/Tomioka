@@ -3,6 +3,7 @@ const config = require('../config.js');
 const ytdl = require('ytdl-core');
 
 module.exports = async(client, message, args) => {
+try{
 if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) return;
 let serverQueue = client.queue.get(message.guild.id);
 if (!message.member.voice.channel)
@@ -26,6 +27,10 @@ return message.channel.send("No hay ninguna canción reproduciendose")
   if(serverQueue) client.queue.delete(message.guild.id);
   return message.channel.send("Ok!")
   message.member.voice.channel.leave();
+}
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
 }
 module.exports.config = {
