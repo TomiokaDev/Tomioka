@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const config = require('../config.js'); 
 
 module.exports = (client, message, args) => {
-  
+ try{
 
   const ownerembednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll` `botsuggest` `status`")
@@ -62,7 +62,12 @@ module.exports = (client, message, args) => {
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
     .setThumbnail(client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
   if(message.channel.nsfw) return message.channel.send({ embed: embednsfw })
- 
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"help",

@@ -3,7 +3,8 @@ const fetch = require("node-fetch");
 const config = require('../config.js');
 
 
-module.exports = (client, message, args) => { 
+module.exports = async(client, message, args) => {
+try{
  const embed = new Discord.MessageEmbed()
  .setTitle("Donaciones")
  .setDescription("Nos encantaría que nos dones para mantener este bot!")
@@ -14,6 +15,12 @@ module.exports = (client, message, args) => {
  .setColor(config.color)
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
   message.channel.send({ embed: embed })
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"donate",

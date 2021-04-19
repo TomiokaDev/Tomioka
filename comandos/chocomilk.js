@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const config = require('../config.js'); 
 
 module.exports = (client, message, args) => {
+try{
   let persona = message.mentions.users.first()                                                    //tk!punch
     const embednopersona = new Discord.MessageEmbed() 
     .setTitle("Creo que es medio egoista no compartir tu chocomilk >:(")
@@ -14,7 +15,13 @@ module.exports = (client, message, args) => {
     .setColor(config.color)
     .setImage("https://cdn.discordapp.com/attachments/710648492791431238/711378070786932826/ENdaoP_WoAEs7WH.jpg")
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL());
-        message.channel.send({ embed: embedpersona }) 
+        message.channel.send({ embed: embedpersona })
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"chocomilk",

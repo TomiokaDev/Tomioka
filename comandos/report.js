@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const config = require('../config.js');
 
 module.exports = async (client, message, args) => {
-
+try{
 message.delete({timeout: 5000})                                                                     
     let creador = client.users.cache.get("178651638209314816")
     let sugerencia = message.content.split(' ').slice(1).join(' ')
@@ -21,6 +21,12 @@ message.delete({timeout: 5000})
   .setFooter(`Servidor: ${message.guild}`, message.guild.iconURL())
  .setThumbnail(message.author.avatarURL({ dynamic:false , format: 'png', size: 1024 }))
   return message.channel.send({ embed: res })
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"report",
