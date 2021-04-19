@@ -31,10 +31,12 @@ dispatcher.on('finish', () => {
 });
 
 }
+
 } catch (err) {
   console.log(err);
   return message.reply("Hubo un error al intentar meterme al canal D: \n> **Error:** " + err); // estoo
 }
+
 }
 module.exports.config = {
 command:"amogus",

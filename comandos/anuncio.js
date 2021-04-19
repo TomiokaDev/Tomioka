@@ -14,10 +14,12 @@ const embed = new Discord.MessageEmbed()
 .setFooter(`Responsable: ${message.author.tag}`, message.author.avatarURL())
  .setThumbnail(message.author.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
     message.channel.send({ embed: embed })
+
 } catch (err) {
     console.log(err);
     return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
  }
+
 };
 module.exports.config = {
 command:"anuncio",

@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const megadb = require("megadb");
 
 module.exports = async (client, message, args) => {
+try{
   let canalnsfw = await nsfwchannel.get(`${message.guild.id}`)
   let channel = message.mentions.channels.first() || client.channels.cache.get(args[0])
 
@@ -24,6 +25,12 @@ message.channel.send(embed).then(async m => {
   await nsfwchannel.set(`${message.guild.id}`,channel.id);
 })
 }
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"setnsfw",

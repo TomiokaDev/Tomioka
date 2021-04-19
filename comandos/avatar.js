@@ -10,10 +10,12 @@ try{
  .setImage(user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
 message.channel.send({ embed: embed })
+
 } catch (err) {
   console.log(err);
   return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
  }
+
 };
 module.exports.config = {
 command:"avatar",

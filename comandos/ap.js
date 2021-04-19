@@ -18,14 +18,15 @@ try{
  .setColor(config.color)
  .setFooter(`Ejecutado por: ${message.author.tag}`)
  message.channel.send({ embed: embed })
+
 }catch (err) {
   console.log(err);
   return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
+
 }
 module.exports.config = {
 command:"ap",
 aliases:["ap"],
 cooldown: 5
 }
-

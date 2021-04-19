@@ -2,6 +2,7 @@ const db = require("megadb"); //db del dia
 const bl = new db.crearDB("blacklist"); //"base de datos" bl
  
 module.exports  = async (client, message, args) => {
+try{
   let reason = args[2] ? args.slice(2).join(" ") : "No hay razón especificada"//la reason tomara despues de los dos primeros argumentos
 //args[0] add o remove
 //args[1] la ID del usuario a ingregar a la bl
@@ -32,6 +33,12 @@ module.exports  = async (client, message, args) => {
       message.channel.send(`\`${user.tag}\` no se encuentra en la blacklist`); //si el usuario no esta en la db
     }
   }
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"blacklist",

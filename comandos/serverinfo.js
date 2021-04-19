@@ -3,6 +3,7 @@ const config = require('../config.js');
 const moment = require("moment");
 
 module.exports = (client, message, args, guild) => {
+try{
   let createdAt = moment(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a');
  let owner = message.guild.owner.user
 
@@ -24,6 +25,12 @@ const a = client.guilds.cache.get(message.guild.id).memberCount;
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  .setColor(config.color)
  message.channel.send({ embed: embed })
+
+} catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando \n> **Error:** " + err); // estoo
+}
+
 };
 module.exports.config = {
 command:"serverinfo",

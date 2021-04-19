@@ -15,10 +15,12 @@ const embed = new Discord.MessageEmbed()
     .setImage(woof.url)
     .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
      message.channel.send({ embed: embed })
+
 } catch (err) {
   console.log(err);
   return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
 }
+
 };
 module.exports.config = {
 command:"dog",
