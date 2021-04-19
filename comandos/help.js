@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const config = require('../config.js'); 
-const cooldown = new Set();
 
 module.exports = (client, message, args) => {
   
