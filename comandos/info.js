@@ -3,6 +3,7 @@ const config = require('../config.js');
 
 module.exports = async (client, message, args) => {
 
+try{
 const promises = [
          client.shard.fetchClientValues('guilds.cache.size'),
          client.shard.broadcastEval('this.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)'),
@@ -34,7 +35,11 @@ Promise.all(promises).then(results => {
  .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
  message.channel.send({ embed: embed })
 })
-};
+}catch (err) {
+  console.log(err);
+  return message.reply("Hubo un error al ejecutar el comando D: \n> **Error:** " + err); // estoo
+}
+}
 module.exports.config = {
 command:"info",
 aliases:["info"],
