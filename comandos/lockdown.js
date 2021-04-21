@@ -3,9 +3,9 @@ const config = require('../config.js');
 
 module.exports = async(client, message, args) => {
 try{
-if(["803367323493990421"].includes(message.guild.id)){
+if(["803367323493990421", "812795996391473162", "678756451581427743"].includes(message.guild.id)){
 
-if(!message.member.permissions.has("ADMINISTRATOR")) return;
+if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send('No tienes permisos.');
 
 if(!args[0]) return message.channel.send('INTERNAL DEV CMD\n``tk!lockdown`` ON OFF');
 
@@ -51,3 +51,4 @@ command:"lockdown",
 aliases:["lockdown"],
 cooldown: 5
 };
+
