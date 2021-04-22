@@ -1,0 +1,10 @@
+{
+  "prefix": "tk!",
+  "color": "#ff4803",
+  "youtubeapi": "YTTOKEN",
+  "discordtoken": "TOKEN",
+  "dbltoken": "TOPGGTOKEM",
+  "steamapi": "STEAMAPITOKEN",
+  "auth": "WEBHOOKAUTH,
+  "devID": "OWNERID"
+}
