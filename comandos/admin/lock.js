@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('../config.js'); 
+const config = require('../../config.json');
 
 module.exports = {
 	name: 'lock',
@@ -9,11 +9,11 @@ module.exports = {
 	cooldown: 5,
 	execute(message, args) {
 
-if(["803367323493990421", "812795996391473162", "678756451581427743"].includes(message.guild.id)){
+if(!["178651638209314816", "251897216300613632"].includes(message.author.id)) return;
 
 if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send('No tienes permisos.');
 
-if(!args[0]) return message.channel.send('INTERNAL DEV CMD\n``tk!lockdown`` ON OFF');
+if(!args[0]) return message.channel.send('INTERNAL DEV CMD\n``tk!lock`` ON OFF');
 
 const query = args[0].toLowerCase();
 
@@ -41,10 +41,6 @@ const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category
             })
             return message.channel.send('Todos los canales han sido desbloqueados!')
         }
-
- }else{
-  return message.channel.send("Este comando está en desarrollo.")
- }
 
 },
 };
