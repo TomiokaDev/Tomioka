@@ -6,5 +6,15 @@
   "dbltoken": "TOPGGTOKEM",
   "steamapi": "STEAMAPITOKEN",
   "auth": "WEBHOOKAUTH,
-  "devID": "OWNERID"
+  "devID": "OWNERID",
+  "emoji": {
+    "play": "▶️",
+    "stop": "⏹️",
+    "queue": "📄",
+    "success": "☑️",
+    "repeat": "🔁",
+    "error": "❌",
+    "pause": "⏸️",
+    "resume": "⏯️"
+  }  
 }
