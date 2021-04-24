@@ -6,20 +6,22 @@ const Discord = require('discord.js');
 //const client = new Discord.Client({ ws: { intents: myIntents } });
 const client = new Discord.Client();
 const ytdl = require('ytdl-core');
+const DisTube = require('distube');
 client.queue = new Map();
 const fs = require('fs');
 const { token } = require('./config.json');
 const config = require('./config.json');
+client.distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, leaveOnFinish: true });
+client.emotes = config.emoji;
 
 
 client.comandos = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
-
 //const DBL = require("dblapi.js");
 //const dbl = new DBL(config.dbltoken, client);
 
-const dbl = require('topgg-autoposter');
-const ap = dbl(config.dbltoken, client);
+//const dbl = require('topgg-autoposter');
+//const ap = dbl(config.dbltoken, client);
 
 
 const constant = require('./node_modules/discord.js/src/util/Constants.js')
@@ -97,7 +99,38 @@ for (const folder of commandFolders) {
 	//client.on(guildMemberAdd, event.bind(null, client));
 	  //delete require.cache[require.resolve(`./eventos/${file}`)]; 
 
-  
+
+
+
+
+
+//MUSIC
+
+const status = queue => `Volumen: \`${queue.volume}%\` | Filtro: \`${queue.filter || 'Off'}\` | Repetir: \`${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : 'Off'}\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``;
+client.distube
+    .on('playSong', (message, queue, song) => message.channel.send(
+        `${client.emotes.play} | Escuchando \`${song.name}\` - \`${song.formattedDuration}\`\nPor: ${song.user}\n${status(queue)}`,
+    ))
+    .on('addSong', (message, queue, song) => message.channel.send(
+        `${client.emotes.success} | Añadido ${song.name} - \`${song.formattedDuration}\` a la queue por: ${song.user}`,
+    ))
+    .on('playList', (message, queue, playlist, song) => message.channel.send(
+        `${client.emotes.play} | Escuchando \`${playlist.title}\` playlist (${playlist.total_items} canciones).\nPor:: ${song.user}\nEscuchando: \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`,
+    ))
+    .on('addList', (message, queue, playlist) => message.channel.send(
+        `${client.emotes.success} | Añadido \`${playlist.title}\` playlist (${playlist.total_items} canciones) a la queue\n${status(queue)}`,
+    ))
+    // DisTubeOptions.searchSongs = true
+    .on('searchResult', (message, result) => {
+        let i = 0;
+		const embed = new Discord.MessageEmbed()
+		.setTitle('Elige una de estas canciones')
+		.setDescription(`${result.map(song => `**${++i}**. [${song.name}](${song.url}) - \`${song.formattedDuration}\``).join('\n')}\n*Tienes 60 segundos para elegir, para cancelar escribe algo que no sea un numero*`);
+        message.channel.send(embed);
+    })
+    // DisTubeOptions.searchSongs = true
+    .on('searchCancel', message => message.channel.send(`${client.emotes.error} | Busqueda cancelada`))
+    .on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
   
   // <-- PROPIEDAD LOGIN: -->
   
@@ -116,12 +149,12 @@ for (const folder of commandFolders) {
   
 	});
   
- ap.on('posted', () => {
-	console.log('Server count posted!');
-  })
+// ap.on('posted', () => {
+//	console.log('Server count posted!');
+//  })
   
-  ap.on('error', e => {
-   console.log(`Error de la API de top.gg! ${e}`);
-  })
+//  ap.on('error', e => {
+//   console.log(`Error de la API de top.gg! ${e}`);
+//  })
 // entra a discord con el token de tu app
 client.login(config.discordtoken);

@@ -13,15 +13,15 @@ module.exports = {
 		// ejemplo de evento message esto envia en la consola el nombre del autor del mensaje, lo que envio y donde lo envió
 		// si el usuario es un bot
 
-		if(message.author.bot) {
-			const response = ' respondió "';
-			console.log(message.author.tag + response + message.content + '" en #' + message.channel.name);
-		}
+		//if(message.author.bot) {
+		//	const response = ' respondió "';
+		//	console.log(message.author.tag + response + message.content + '" en #' + message.channel.name);
+		//}
 		// si el usuario no es un bot
-		if(!message.author.bot) {
-			const response = ' envió "';
-			console.log(message.author.tag + response + message.content + '" en #' + message.channel.name);
-		}
+		//if(!message.author.bot) {
+		//	const response = ' envió "';
+		//	console.log(message.author.tag + response + message.content + '" en #' + message.channel.name);
+		//}
 
 		if (!message.content.startsWith(prefix) || message.author.bot) return;
         
@@ -33,7 +33,7 @@ module.exports = {
 
       //BLACKLIST DENY
       //if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot. Para más información contacta con ${creador.tag}.\n> **Razón:** ${reason}`);
-	  if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${message.client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot.\n> **Razón:** ${reason}`);
+	if(checkBlackList(message)) return message.channel.send(`\`${message.author.tag}\` No puedes usar los comandos de ${message.client.user.username} porque te encuentras en la \`blacklist\` por un mal uso del bot.\n> **Razón:** ${reason}`);
 
 
 		const command = message.client.comandos.get(commandName)
@@ -64,6 +64,8 @@ module.exports = {
 			return message.channel.send(reply);
 
 		}
+
+		if (command.voiceOnly && !message.member.voice.channel) return message.channel.send(`${message.client.emotes.error} | Debes estar en un canal de voz para hacer eso!`);
 
 		if (command.devOnly) {
 			if(devID.length === 0) return message.channel.send('El dueño del bot no ha especificado su `ID` aún así que esos comandos estan deshabilitados.');
