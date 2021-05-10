@@ -106,20 +106,59 @@ for (const folder of commandFolders) {
 
 //MUSIC
 
-const status = queue => `Volumen: \`${queue.volume}%\` | Filtro: \`${queue.filter || 'Off'}\` | Repetir: \`${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : 'Off'}\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``;
 client.distube
-    .on('playSong', (message, queue, song) => message.channel.send(
-        `${client.emotes.play} | Escuchando \`${song.name}\` - \`${song.formattedDuration}\`\nPor: ${song.user}\n${status(queue)}`,
-    ))
-    .on('addSong', (message, queue, song) => message.channel.send(
-        `${client.emotes.success} | Añadido ${song.name} - \`${song.formattedDuration}\` a la queue por: ${song.user}`,
-    ))
-    .on('playList', (message, queue, playlist, song) => message.channel.send(
-        `${client.emotes.play} | Escuchando \`${playlist.title}\` playlist (${playlist.total_items} canciones).\nPor:: ${song.user}\nEscuchando: \`${song.name}\` - \`${song.formattedDuration}\`\n${status(queue)}`,
-    ))
-    .on('addList', (message, queue, playlist) => message.channel.send(
-        `${client.emotes.success} | Añadido \`${playlist.title}\` playlist (${playlist.total_items} canciones) a la queue\n${status(queue)}`,
-    ))
+    .on('playSong', (message, queue, song) => {
+    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+	const embed = new Discord.MessageEmbed()
+	.setTitle('Añadido a la queue!')
+	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	.setImage(song.thumbnail)
+	.addField("Escuchando", "``" + song.name + "``")
+	.addField("Duración", "``" + song.formattedDuration + "``")
+	.addField("Pedido por", song.user)
+	.setFooter(status)
+	message.channel.send(embed);
+	})
+    .on('addSong', (message, queue, song) => {
+
+	const embed = new Discord.MessageEmbed()
+	.setTitle('Añadido a la queue!')
+	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	.setImage(song.thumbnail)
+	.addField("Escuchando", "``" + song.name + "``")
+	.addField("Duración", "``" + song.formattedDuration + "``")
+	.addField("Por", song.user)
+	.setFooter(status)
+	message.channel.send(embed);
+	})
+
+    .on('playList', (message, queue, playlist, song) => {
+		const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+	const embedplaylist = new Discord.MessageEmbed()
+	.setTitle('Playlist añadida a la queue!')
+	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	.addField("Nombre de playlist", "``" + playlist.title + "``")
+	.addField("Tamaño de la playlist", "``" + playlist.total_items + "`` " + "canciones")
+	.setImage(song.thumbnail)
+	.addField("Escuchando", "``" + song.name + "``")
+	.addField("Duración", "``" + song.formattedDuration + "``")
+	.addField("Por", song.user)
+	.setFooter(status)
+	message.channel.send(embedplaylist);
+
+	})
+
+    .on('addList', (message, queue, playlist) => {
+	    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+		const embedplaylist = new Discord.MessageEmbed()
+		.setTitle('Playlist añadida a la queue!')
+		.addField("Nombre de playlist", "``" + playlist.title + "``")
+		.addField("Tamaño de la playlist", "``" + playlist.total_items + "`` " + "canciones")
+		.addField("Duración", "``" + song.formattedDuration + "``")
+		.addField("Por", song.user)
+		.setFooter(status)
+		message.channel.send(embedplaylist);
+	})
     // DisTubeOptions.searchSongs = true
     .on('searchResult', (message, result) => {
         let i = 0;
