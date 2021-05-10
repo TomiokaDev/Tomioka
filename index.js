@@ -20,8 +20,8 @@ client.cooldowns = new Discord.Collection();
 //const DBL = require("dblapi.js");
 //const dbl = new DBL(config.dbltoken, client);
 
-//const dbl = require('topgg-autoposter');
-//const ap = dbl(config.dbltoken, client);
+const dbl = require('topgg-autoposter');
+const ap = dbl(config.dbltoken, client);
 
 
 const constant = require('./node_modules/discord.js/src/util/Constants.js')
@@ -108,7 +108,7 @@ for (const folder of commandFolders) {
 
 client.distube
     .on('playSong', (message, queue, song) => {
-    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+	const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embed = new Discord.MessageEmbed()
 	.setTitle('Añadido a la queue!')
 	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
@@ -120,7 +120,7 @@ client.distube
 	message.channel.send(embed);
 	})
     .on('addSong', (message, queue, song) => {
-
+        const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embed = new Discord.MessageEmbed()
 	.setTitle('Añadido a la queue!')
 	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
@@ -133,7 +133,7 @@ client.distube
 	})
 
     .on('playList', (message, queue, playlist, song) => {
-		const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+	const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embedplaylist = new Discord.MessageEmbed()
 	.setTitle('Playlist añadida a la queue!')
 	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
@@ -149,7 +149,7 @@ client.distube
 	})
 
     .on('addList', (message, queue, playlist) => {
-	    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+		const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 		const embedplaylist = new Discord.MessageEmbed()
 		.setTitle('Playlist añadida a la queue!')
 		.addField("Nombre de playlist", "``" + playlist.title + "``")
@@ -188,12 +188,12 @@ client.distube
   
 	});
   
-// ap.on('posted', () => {
-//	console.log('Server count posted!');
-//  })
+ ap.on('posted', () => {
+	console.log('Server count posted!');
+  })
   
-//  ap.on('error', e => {
-//   console.log(`Error de la API de top.gg! ${e}`);
-//  })
+  ap.on('error', e => {
+   console.log(`Error de la API de top.gg! ${e}`);
+  })
 // entra a discord con el token de tu app
 client.login(config.discordtoken);
