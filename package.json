@@ -1,11 +1,10 @@
-{
+
   "name": "TOMIOKA",
   "version": "0.0.1",
   "description": "DISCORD.JS v12",
   "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "npx npm-force-resolutions",
     "start": "node server.js"
   },
   "resolutions": {
@@ -21,21 +20,22 @@
     "dateformat": "^4.5.1",
     "dblapi.js": "^2.4.1",
     "discord.js": "12.5.3",
-    "distube": "^2.8.12",
+    "distube": "^2.8.13",
     "exports": "0.0.1",
     "express": "^4.17.1",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.3.0",
     "figlet": "^1.5.0",
     "fluent-ffmpeg": "^2.1.2",
-    "forever": "^3.0.4",
+    "forever": "^0.10.10",
     "lodash": "^4.17.21",
     "megadb": "^3.4.0",
     "moment": "^2.29.1",
+    "ms": "^2.1.3",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
-    "pnpm": "^6.0.2",
-    "puppeteer": "^9.0.0",
+    "pnpm": "^6.3.0",
+    "puppeteer": "^9.1.1",
     "python": "^0.0.4",
     "request": "^2.88.2",
     "semver": "^7.3.5",
@@ -43,14 +43,14 @@
     "soundcloud-downloader": "^1.0.0",
     "spotify-web-api-node": "^5.0.2",
     "topgg-autoposter": "^1.1.10",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.7.0"
   },
   "engines": {
     "node": ">=12",
     "pnpm": ">=4"
   },
   "repository": {
-    "url": "https://github.com/cratermaik"
+    "url": "https://github.com/SupahFox"
   },
   "license": "MIT",
   "keywords": [
@@ -58,4 +58,3 @@
     "glitch",
     "express"
   ]
-}
