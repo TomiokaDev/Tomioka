@@ -18,8 +18,8 @@ module.exports = {
 			const users = results[1].reduce((acc, memberCount) => acc + memberCount, 0);
    
 			setInterval(function () {
-			     var estados = [`tk!help |v1.4.0| Estoy en ${guilds} servers.`, `tk!report por algun fallo o sugerencia.`, `tk!invite |v1.5.0| Estoy en ${guilds} servers.`, `tk!invite |v1.5.0| Veo ${users} usuarios.`, `Mayoría de los problemas arreglados!`]
-		           //var estados = [`uzk!help |v1.4.0| Estoy en ${guilds} servers.`, `uzk!report por algun fallo o sugerencia.`, `uzk!invite |v1.5.0| Estoy en ${guilds} servers.`, `uzk!invite |v1.5.0| Veo ${users} usuarios.`, `Mayoría de los problemas arreglados!`]
+			     var estados = [`tk!help |v1.6.0| Estoy en ${guilds} servers.`, `tk!report por algun fallo o sugerencia.`, `tk!invite |v1.6.0| Estoy en ${guilds} servers.`, `tk!invite |v1.6.0| Veo ${users} usuarios.`, `Mayoría de los problemas arreglados!`]
+		           //var estados = [`uzk!help |v1.6.0| Estoy en ${guilds} servers.`, `uzk!report por algun fallo o sugerencia.`, `uzk!invite |v1.6.0| Estoy en ${guilds} servers.`, `uzk!invite |v1.6.0| Veo ${users} usuarios.`, `Mayoría de los problemas arreglados!`]
    
 			   let estado = estados[Math.floor(estados.length * Math.random())];
    
