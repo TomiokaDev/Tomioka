@@ -129,7 +129,7 @@ client.distube
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Por", song.user)
 	.setFooter(status)
-	message.channel.send(embed);
+	message.channel.send(embed).then(message => message.delete({timeout: 20000}));
 	})
 
     .on('playList', (message, queue, playlist, song) => {
