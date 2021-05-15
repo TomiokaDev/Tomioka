@@ -10,6 +10,10 @@ module.exports = {
 	async execute(message, args) {
 
 		message.client.distube.setVolume(message, args[0]);
-		message.channel.send("Volumen cambiado! :speaker:");
+		if(args >= 1000){
+			message.channel.send(`Volumen cambiado a ${args}%! EARRAPE ACTIVADO :speaker:`);
+		}else{
+		message.channel.send(`Volumen cambiado a ${args}%! :speaker:`);
+		}
 	},
 };
