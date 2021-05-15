@@ -117,7 +117,7 @@ client.distube
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Pedido por", song.user)
 	.setFooter(status)
-	message.channel.send(embed);
+	message.channel.send(embed).then(message => message.delete({timeout: 40000}));
 	})
     .on('addSong', (message, queue, song) => {
         const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
@@ -144,7 +144,7 @@ client.distube
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Por", song.user)
 	.setFooter(status)
-	message.channel.send(embedplaylist);
+	message.channel.send(embedplaylist).then(message => message.delete({timeout: 60000}));
 
 	})
 
@@ -157,7 +157,7 @@ client.distube
 		.addField("Duración", "``" + song.formattedDuration + "``")
 		.addField("Por", song.user)
 		.setFooter(status)
-		message.channel.send(embedplaylist);
+		message.channel.send(embedplaylist).then(message => message.delete({timeout: 60000}));
 	})    
      // DisTubeOptions.searchSongs = true
     .on('searchResult', (message, result) => {
