@@ -108,9 +108,9 @@ for (const folder of commandFolders) {
 
 client.distube
     .on('playSong', (message, queue, song) => {
-	const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embed = new Discord.MessageEmbed()
-	.setTitle('Añadido a la queue!')
+	.setTitle('Reproduciendo canción!')
 	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
 	.setImage(song.thumbnail)
 	.addField("Escuchando", "``" + song.name + "``")
@@ -133,7 +133,7 @@ client.distube
 	})
 
     .on('playList', (message, queue, playlist, song) => {
-	const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+        const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embedplaylist = new Discord.MessageEmbed()
 	.setTitle('Playlist añadida a la queue!')
 	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
@@ -149,7 +149,7 @@ client.distube
 	})
 
     .on('addList', (message, queue, playlist) => {
-		const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
+	    const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 		const embedplaylist = new Discord.MessageEmbed()
 		.setTitle('Playlist añadida a la queue!')
 		.addField("Nombre de playlist", "``" + playlist.title + "``")
@@ -158,8 +158,8 @@ client.distube
 		.addField("Por", song.user)
 		.setFooter(status)
 		message.channel.send(embedplaylist);
-	})
-    // DisTubeOptions.searchSongs = true
+	})    
+     // DisTubeOptions.searchSongs = true
     .on('searchResult', (message, result) => {
         let i = 0;
 		const embed = new Discord.MessageEmbed()
@@ -169,7 +169,8 @@ client.distube
     })
     // DisTubeOptions.searchSongs = true
     .on('searchCancel', message => message.channel.send(`${client.emotes.error} | Busqueda cancelada`))
-    .on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
+  //.on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
+    .on('error', (message, err) => message.channel.send(`Hubo un error al ejecutar el comando D: \n> **Error:** ${err}`));
   
   // <-- PROPIEDAD LOGIN: -->
   
@@ -195,5 +196,5 @@ client.distube
   ap.on('error', e => {
    console.log(`Error de la API de top.gg! ${e}`);
   })
-// entra a discord con el token de tu app
+//entra a discord con el token de tu app
 client.login(config.discordtoken);
