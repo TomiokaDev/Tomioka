@@ -1,11 +1,25 @@
 // cuando el cliente se enciende corre esto
 // este evento solo se llama una vez cuando el cliente se enciende
 
+const mongo = require('../mongo.js');
+
 module.exports = {
 	name: 'ready',
 	once: true,
 	execute(client) {
 		console.log(`Listo! soy ${client.user.tag}`);
+		
+		await mongo().then(mongoose => {
+			try{
+			  console.log("Parece que mongoDB está funcionando!")
+  
+			}catch(e){
+			  console.log(`Hubo un error al conectarse a mongoDB! ${e}`)
+			}finally{
+			  console.log(`Cerrando conexión`);
+			  mongoose.connection.close();
+			}
+		})
 		
 		const promises = [
 			client.shard.fetchClientValues('guilds.cache.size'),
