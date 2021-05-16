@@ -7,6 +7,7 @@
   "steamapi": "STEAMAPITOKEN",
   "auth": "WEBHOOKAUTH,
   "devID": "OWNERID",
+  "mongoPath": "mongodb://IP:27017",
   "emoji": {
     "play": "▶️",
     "stop": "⏹️",
