@@ -17,12 +17,10 @@ client.emotes = config.emoji;
 
 client.comandos = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
-//const DBL = require("dblapi.js");
-//const dbl = new DBL(config.dbltoken, client);
 
-const dbl = require('topgg-autoposter');
-const ap = dbl(config.dbltoken, client);
 
+const { AutoPoster } = require('topgg-autoposter')
+const ap = AutoPoster(config.dbltoken, client)
 
 const constant = require('./node_modules/discord.js/src/util/Constants.js')
 constant.DefaultOptions.ws.properties.$browser = `Discord iOS`
