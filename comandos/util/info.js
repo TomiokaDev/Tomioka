@@ -3,13 +3,13 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'info',
-	description: 'InformaciÃ³n tÃ©cnica y general del bot',
+	description: 'Información técnica y general del bot',
 	aliases: ['botinfo'],
 	guildOnly: true,
 	cooldown: 5,
 	async execute(message, args) {
 
- let support = `${message.client.guilds.cache.get("178651985015209984")} [entra aquÃ­](https://discord.gg/yzaTfgU)`
+ let support = `${message.client.guilds.cache.get("178651985015209984")} [entra aquí](https://discord.gg/yzaTfgU)`
  let creador = await message.client.users.fetch("178651638209314816")
  let colaborador = await message.client.users.fetch("706694530497380463")
  let colaborador2 = await message.client.users.fetch("696481341566615664")
@@ -27,12 +27,12 @@ const promises = [
 
  const embed = new Discord.MessageEmbed()
  .setTitle("Bot info")
- .setDescription("InformaciÃ³n tÃ©cnica y general del bot")
+ .setDescription("Información técnica y general del bot")
  .addField("Nombre:", "``" + message.client.user.username + "``")
  .addField("Desarrolladores:", "``" + creador.tag + "`` " + "``" + colaborador2.tag + "``")
  .addField("Colaboradores:", "``" + colaborador3.tag + "``")
  .addField("Servidores:", `\`${guilds}\``)
- .addField("LibrerÃ­a", "``Discord.js " + Discord.version +"``")
+ .addField("Librería", "``Discord.js " + Discord.version +"``")
  .addField("Lenguaje", "`Spanish (Uruguay)` `English`")
  .addField("Etiquetas:", "`DiversiÃ³n` `Memes` `Anime`")
  .setThumbnail(message.client.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
