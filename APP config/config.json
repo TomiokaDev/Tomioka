@@ -1,0 +1,16 @@
+{
+	"prefix": "tk!",
+	"token": "NzEwMjM2NzMzMjExNjcyNjkw.XrxhgA.uTEvsSmpLLYS9d92JeZxeEEgnUM",
+	"devID": "696481341566615664",
+	"youtubeKey": "AIzaSyAOT95Zf0we5yrpvWrVZTMLKHtPo-aHWWw",
+	"emoji": {
+        "play": "▶️",
+        "stop": "⏹️",
+        "queue": "📄",
+        "success": "☑️",
+        "repeat": "🔁",
+        "error": "❌",
+		"pause": "⏸️",
+		"resume": "⏯️"
+    }
+}
