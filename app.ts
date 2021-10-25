@@ -3,22 +3,22 @@ const fs = require('fs');
 // llama al modulo de discord.js
 const Discord = require('discord.js');
 const DisTube = require('distube');
-const config = require('./APP config/config.json');
+const { config, token } = require('./APP config/config.json');
 
 // crea un nuevo cliente de Discord
 const client = new Discord.Client();
-client.config = require('./config.json');
-client.emotes = config.emoji;
+client.config = require('./APP config/config.json');
+client.emotes = client.config.emoji;
 client.distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, leaveOnFinish: true });
 client.queue = new Map();
-const eventFiles = fs.readdirSync('./eventos').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('./APP events').filter(file => file.endsWith('.js'));
 client.comandos = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 // lee la carpeta ./comandos
-const commandFolders = fs.readdirSync('./comandos');
+const commandFolders = fs.readdirSync('./APP commands');
 // lee la carpeta ./eventos
 for (const file of eventFiles) {
-	const event = require(`./eventos/${file}`);
+	const event = require(`./APP events/${file}`);
 	if (event.once) {
        client.once(event.name, (...args) => event.execute(...args, client));
 	}
@@ -29,10 +29,10 @@ for (const file of eventFiles) {
 for (const folder of commandFolders) {
     // !! no se pueden dejar archivos sin subcategoria asignada
     // lee subcarpetas de el directorio ./comandos
-	const commandFiles = fs.readdirSync(`./comandos/${folder}`).filter(file => file.endsWith('.js'));
+	const commandFiles = fs.readdirSync(`./APP commands/${folder}`).filter(file => file.endsWith('.js'));
 	for (const file of commandFiles) {
         // llama al archivo js en cada subcategoria
-		const command = require(`./comandos/${folder}/${file}`);
+		const command = require(`./APP commands/${folder}/${file}`);
 		client.comandos.set(command.name, command);
 	}
 }
@@ -71,4 +71,4 @@ client.distube
     .on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
 
 // entra a discord con el token de tu app
-client.login(config.token);
+client.login(token);
