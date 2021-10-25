@@ -1,9 +1,5 @@
 const Discord = require('discord.js');
-const { prefix, devID } = require('../config.json');
-const mensajes = require('../mensajes.json');
-const { crearDB } = require('megadb');
-const account = new crearDB('cuenta', 'lenguaje');
-
+const { prefix, devID } = require('./../APP config/config.json');
 module.exports = {
 	name: 'message',
 	// eslint-disable-next-line no-unused-vars
@@ -96,17 +92,8 @@ module.exports = {
 		timestamps.set(message.author.id, now);
 		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
-		const Cuenta = await account.get(message.author.id);
-		let language;
-		if (command.multiLanguage) {
-			language = mensajes.español;
-
-			if(Cuenta === 'english') {
-				language = mensajes.english;
-			}
-		}
 		try {
-			command.execute(message, args, language);
+			command.execute(message, args);
 		}
 		catch (error) {
 			console.error(error);
