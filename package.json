@@ -1,0 +1,22 @@
+{
+  "name": "tomiokaremastered",
+  "version": "1.0.0",
+  "description": "TomiokaBot remastered ",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomiokaDev/TomiokaRemastered.git"
+  },
+  "author": "Supah & Hath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomiokaDev/TomiokaRemastered/issues"
+  },
+  "homepage": "https://github.com/TomiokaDev/TomiokaRemastered#readme",
+  "dependencies": {
+    "discord.js": "^13.2.0"
+  }
+}
