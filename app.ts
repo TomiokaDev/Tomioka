@@ -3,8 +3,7 @@ const fs = require('fs');
 // llama al modulo de discord.js
 const Discord = require('discord.js');
 const DisTube = require('distube');
-const { token } = require('./config.json');
-const config = require('./config.json');
+const config = require('./APP config/config.json');
 
 // crea un nuevo cliente de Discord
 const client = new Discord.Client();
@@ -72,4 +71,4 @@ client.distube
     .on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
 
 // entra a discord con el token de tu app
-client.login(token);
+client.login(config.token);
