@@ -1,2 +1,3 @@
 # TomiokaRemastered
-Sì
+Esto se sincroniza? lololoololl
+
