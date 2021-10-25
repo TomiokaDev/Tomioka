@@ -1,7 +1,7 @@
 {
-  "name": "TomiokaBot in TypeScript",
+  "name": "tomiokaremastered",
   "version": "1.0.0",
-  "description": "TomiokaBot Remastered",
+  "description": "TomiokaBot remastered ",
   "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
