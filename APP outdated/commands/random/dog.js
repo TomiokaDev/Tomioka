@@ -5,22 +5,22 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-  name: 'dog',
-  description: 'Comando para mostrar perros',
-  aliases: ['doggo', 'perritos'],
-  guildOnly: true,
-  cooldown: 5,
-  async execute(message, args) {
+	name: 'dog',
+	description: 'Comando para mostrar perros',
+	aliases: ['doggo', 'perritos'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
 
-    let woof = await neko.sfw.woof();
+let woof = await neko.sfw.woof();
 
 
-    const embed = new Discord.MessageEmbed()
-      .setTitle("Perritos!")
-      .setColor(config.color)
-      .setImage(woof.url)
-      .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    message.channel.send({ embed: embed })
+const embed = new Discord.MessageEmbed()
+    .setTitle("Perritos!")
+    .setColor(config.color)
+    .setImage(woof.url)
+    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+     message.channel.send({ embed: embed })
 
   },
 };

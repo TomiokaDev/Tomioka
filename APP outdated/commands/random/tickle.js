@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-  name: 'tickle',
-  description: 'Comando para hacer cosquillas',
-  aliases: ['tck'],
-  guildOnly: true,
-  cooldown: 5,
-  async execute(message, args) {
+	name: 'tickle',
+	description: 'Comando para hacer cosquillas',
+	aliases: ['tck'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
 
-    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
     if (member === message.author) return message.channel.send("Mmmmm creo que no es lo mismo que hacerle cosquillas a alguien"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, AJAJAJAJAJAJAJAJAJAA >.<`); // estoo
@@ -33,5 +33,5 @@ module.exports = {
       }
     });
 
-  },
+},
 };
