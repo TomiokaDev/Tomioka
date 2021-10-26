@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
-const Discord = require('discord.js');
-const djs = require('../../package.json');
+import Discord = require('discord.js');
 module.exports = {
 	name: 'ping',
 	description: 'Ping!',
@@ -12,6 +11,5 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setDescription('[language.commands.ping.yes](https://www.youtube.com/watch?v=RO9gQB1xYVo)');
 		message.channel.send(embed);
-		message.channel.send(djs.dependencies['discord.js']);
 	},
 };
