@@ -71,4 +71,9 @@ client.distube
     .on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
 
 // entra a discord con el token de tu app
-client.login(token);
+client.login(token).then(() => {
+    console.log(`bot started ${client.user.tag}`);
+    console.log("Node Version: " + process.version);
+    console.log("Discord.js Version: " + Discord.version);
+
+  })
