@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const config = require('../../config.json');
+import Discord = require('discord.js');
+const config = require('./APP config/config.json');
 
 module.exports = {
 	name: 'colgate',
@@ -25,4 +25,3 @@ module.exports = {
 
 	},
 };
-
