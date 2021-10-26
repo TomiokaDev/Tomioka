@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'hug',
-	description: 'Comando secreto para dar un abrazo',
-	aliases: ['abrazo'],
-	guildOnly: true,
-	cooldown: 5,
-	async execute(message, args) {
+  name: 'hug',
+  description: 'Comando secreto para dar un abrazo',
+  aliases: ['abrazo'],
+  guildOnly: true,
+  cooldown: 5,
+  async execute(message, args) {
 
-  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
     if (member === message.author) return message.channel.send("Veo que te estás abrazando vos solo, mencioná a alguien :D"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, Ayyyy nwn me encantan los abrazos!`); // estoo
@@ -33,5 +33,5 @@ module.exports = {
       }
     });
 
-},
+  },
 };
