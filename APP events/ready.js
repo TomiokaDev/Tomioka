@@ -1,8 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 // cuando el cliente se enciende corre esto
 // este evento solo se llama una vez cuando el cliente se enciende
-
-
 module.exports = {
 	name: 'ready',
 	once: true,
