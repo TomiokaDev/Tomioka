@@ -1,5 +1,5 @@
 /* eslint-disable no-inline-comments */
-const db = require('megadb'); // db del dia
+import db = require('megadb'); // db del dia
 const bl = new db.crearDB('blacklist'); // "base de datos" bl
 
 module.exports = {
