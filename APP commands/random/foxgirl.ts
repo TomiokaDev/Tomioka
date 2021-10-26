@@ -1,7 +1,6 @@
-const Discord = require('discord.js');
-const client = require('nekos.life');
-const neko = new client();
-const config = require('../../config.json');
+import Discord = require('discord.js');
+import neko = require('nekos.life');
+const config = require('../../APP config/config.json');
 
 module.exports = {
 	name: 'foxgirl',

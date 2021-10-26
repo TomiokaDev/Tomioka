@@ -1,10 +1,9 @@
 /* eslint-disable no-inline-comments */
 /* eslint-disable no-unused-vars */
-const Discord = require('discord.js');
-const fetch = require('node-fetch');
-const client = require('nekos.life');
-const neko = new client();
-const config = require('../../config.json');
+import Discord = require('discord.js');
+import fetch = require('node-fetch');
+import neko = require('nekos.life');;
+const config = require('../../APP config/config.json');
 
 module.exports = {
 	name: 'hug',

@@ -1,6 +1,5 @@
 /* eslint-disable no-inline-comments */
-const client = require('nekos.life');
-const neko = new client();
+import neko = require('nekos.life');
 
 module.exports = {
 	name: 'pat',

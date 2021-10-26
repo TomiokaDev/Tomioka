@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
-const db = require('megadb');
-const Discord = require('discord.js');
-const fetch = require('node-fetch');
+import db = require('megadb');
+import Discord = require('discord.js');
+import fetch = require('node-fetch');
 const nsfwchannel = new db.crearDB('canales_nsfw');
 const client = new Discord.Client();
-const nekoslife = require('nekos.life');
-const neko = new nekoslife();
-const config = require('../../config.json');
+import neko = require('nekos.life');
+const config = require('../../APP config/config.json');
 
 module.exports = {
 	name: 'trap',
