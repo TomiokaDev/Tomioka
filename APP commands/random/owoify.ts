@@ -1,5 +1,4 @@
-const nekoslife = require('nekos.life');
-const neko = new nekoslife();
+import neko = require('nekos.life');
 
 module.exports = {
 	name: 'owoify',
