@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'cuddle',
-	description: 'Comando para dar mimos',
-	aliases: ['mimos', 'caricias'],
-	guildOnly: true,
-	cooldown: 5,
-	async execute(message, args) {
+  name: 'cuddle',
+  description: 'Comando para dar mimos',
+  aliases: ['mimos', 'caricias'],
+  guildOnly: true,
+  cooldown: 5,
+  async execute(message, args) {
 
-  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
 
     if (member === message.author) return message.channel.send("Menciona a alguien más para hacerle mimos!"); // estoo
@@ -33,6 +33,6 @@ module.exports = {
         color: message.guild ? message.guild.me.displayColor : "#00e059"
       }
     });
-    
+
   },
 };
