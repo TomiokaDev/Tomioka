@@ -39,7 +39,6 @@
     "forever": "^4.0.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "nekos.life": "^2.0.7",
     "node-fetch": "^3.0.0",
     "npm-check-updates": "^11.8.5",
     "pnpm": "^6.15.2",
