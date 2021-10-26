@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-  name: 'feed',
-  description: 'Comando para dar de comer',
-  aliases: ['comer'],
-  guildOnly: true,
-  cooldown: 5,
-  async execute(message, args) {
-
-    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+	name: 'feed',
+	description: 'Comando para dar de comer',
+	aliases: ['comer'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
+    
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
     if (member === message.author) return message.channel.send("Está rico no?"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, No gracias ya comí :3`); // estoo

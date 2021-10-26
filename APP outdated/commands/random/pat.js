@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-  name: 'pat',
-  description: 'Comando para hacer caricias en la cabeza a alguien',
-  aliases: ['patting'],
-  guildOnly: true,
-  cooldown: 5,
-  async execute(message, args) {
+	name: 'pat',
+	description: 'Comando para hacer caricias en la cabeza a alguien',
+	aliases: ['patting'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
 
-    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
     if (member === message.author) return message.channel.send("Un poco de caricias a uno mismo ayuda a calmarse uwu"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, ayyyyy nwn`); // estoo

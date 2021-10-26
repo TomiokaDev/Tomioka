@@ -5,14 +5,14 @@ const neko = new client();
 const config = require('../../config.json');
 
 module.exports = {
-  name: 'slap',
-  description: 'Comando para pegarle una cachetada a alguien',
-  aliases: ['slp'],
-  guildOnly: true,
-  cooldown: 5,
-  async execute(message, args) {
+	name: 'slap',
+	description: 'Comando para pegarle una cachetada a alguien',
+	aliases: ['slp'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
 
-    var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
+  var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
 
     if (member === message.author) return message.channel.send("No est�s en un sue�o, est�s en la vida real :D"); // estoo
@@ -34,5 +34,5 @@ module.exports = {
       }
     });
 
-  },
+},
 };
