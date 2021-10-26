@@ -1,6 +1,4 @@
 /* eslint-disable no-inline-comments */
-const client = require('nekos.life');
-const neko = new client();
 
 module.exports = {
 	name: 'cuddle',

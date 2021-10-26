@@ -1,7 +1,7 @@
-const Discord = require('discord.js');
-const client = require('nekos.life');
+import Discord = require('discord.js');
+import client = require('nekos.life');
 const neko = new client();
-const config = require('../../config.json');
+const config = require('../../APP config/config.json');
 
 module.exports = {
 	name: 'nekogif',
