@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import Discord = require('discord.js');
-
+//import Discord = require('discord.js');
+const Discord = require("discord.js")
 module.exports = {
 	name: 'zalgo',
 	description: 'Comando para corromper tu texto!',

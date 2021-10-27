@@ -1,5 +1,7 @@
-import Discord = require('discord.js');
-import fetch = require('node-fetch');
+//import Discord = require('discord.js');
+//import fetch = require('node-fetch');
+const fetch = require('node-fetch');
+const Discord = require("discord.js")
 const config = require('../../APP config/config.json');
 
 module.exports = {

@@ -1,17 +1,20 @@
 /* eslint-disable indent */
-const fs = require('fs');
+
+
+const fs = require("fs")
 // llama al modulo de discord.js
 const Discord = require('discord.js');
-const DisTube = require('distube');
-const { config, token } = require('./APP config/config.json');
+const DisTube = require("distube");
+const { token } = require("./APP config/config.json");
+
 
 // crea un nuevo cliente de Discord
 const client = new Discord.Client();
-client.config = require('./APP config/config.json');
-client.emotes = client.config.emoji;
+client.addons = require('./APP config/addons.json');
+client.emotes = client.addons.emoji;
 client.distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, leaveOnFinish: true });
 client.queue = new Map();
-const eventFiles = fs.readdirSync('./APP events').filter(file => file.endsWith('.js'));
+const eventFiles = fs.readdirSync('./APP events').filter(file => file.endsWith('.ts'));
 client.comandos = new Discord.Collection();
 client.cooldowns = new Discord.Collection();
 // lee la carpeta ./comandos
@@ -29,7 +32,7 @@ for (const file of eventFiles) {
 for (const folder of commandFolders) {
     // !! no se pueden dejar archivos sin subcategoria asignada
     // lee subcarpetas de el directorio ./comandos
-	const commandFiles = fs.readdirSync(`./APP commands/${folder}`).filter(file => file.endsWith('.js'));
+	const commandFiles = fs.readdirSync(`./APP commands/${folder}`).filter(file => file.endsWith('.ts'));
 	for (const file of commandFiles) {
         // llama al archivo js en cada subcategoria
 		const command = require(`./APP commands/${folder}/${file}`);
@@ -73,7 +76,7 @@ client.distube
 // entra a discord con el token de tu app
 client.login(token).then(() => {
     console.log(`bot started ${client.user.tag}`);
-    console.log("Node Version: " + process.version);
-    console.log("Discord.js Version: " + Discord.version);
+    console.log('Node Version: ' + process.version);
+    console.log('Discord.js Version: ' + Discord.version);
 
-  })
+  });

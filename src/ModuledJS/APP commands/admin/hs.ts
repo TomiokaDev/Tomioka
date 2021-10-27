@@ -1,5 +1,6 @@
-import Discord = require('discord.js');
-const config = require('../../APP config/config.json');
+//import Discord = require('discord.js');
+const Discord = require("discord.js")
+const config = require('./../../APP config/config.json')
 
 module.exports = {
 	name: 'hs',
