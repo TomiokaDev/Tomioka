@@ -25,5 +25,10 @@ if(!trusted.accs.includes(message.author.id)) return;
  .setFooter(`texto de abajo`, message.author.avatarURL())
  message.channel.send(embed)
 
-},
-};
+ module.exports = {
+	name: 'ap',
+	description: 'Muestra la gente que pertenece a atención personalizada.',
+	aliases: ['retard'],
+	guildOnly: true,
+	cooldown: 5,
+	async execute(message, args) {
