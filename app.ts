@@ -73,7 +73,7 @@ client.distube
 // entra a discord con el token de tu app
 client.login(token).then(() => {
     console.log(`bot started ${client.user.tag}`);
-    console.log("Node Version: " + process.version);
-    console.log("Discord.js Version: " + Discord.version);
+    console.log('Node Version: ' + process.version);
+    console.log('Discord.js Version: ' + Discord.version);
 
-  })
+  });
