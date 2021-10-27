@@ -1,5 +1,6 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
-import Discord = require('discord.js');
+// import Discord = require('discord.js');
+	const Discord = require("discord.js")
 const { prefix, devID } = require('./../APP config/config.json');
 module.exports = {
 	name: 'message',

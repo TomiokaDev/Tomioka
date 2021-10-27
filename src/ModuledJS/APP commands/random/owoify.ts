@@ -1,5 +1,5 @@
-import neko = require('nekos.life');
-
+//import neko = require('nekos.life');
+const neko = require('nekos.life');
 module.exports = {
 	name: 'owoify',
 	description: 'Te transforma lo que digas a una manera muy kawaii',

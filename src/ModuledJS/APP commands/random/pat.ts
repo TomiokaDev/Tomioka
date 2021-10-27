@@ -1,6 +1,6 @@
 /* eslint-disable no-inline-comments */
-import neko = require('nekos.life');
-
+//import neko = require('nekos.life');
+const neko = require('nekos.life');
 module.exports = {
 	name: 'pat',
 	description: 'Comando para hacer caricias en la cabeza a alguien',
