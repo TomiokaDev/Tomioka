@@ -10,9 +10,9 @@ module.exports = {
 	cooldown: 5,
 	execute(message, args) {
 
-if(!["178651638209314816", "251897216300613632", "434888018067980288"].includes(message.author.id)) return;
 
-if(!["178651638209314816"].includes(message.author.id)){
+        let trusted = require("./../../APP config/trusted.json")
+        if(!trusted.accs.includes(message.author.id)){
 
 if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send('No tienes permisos.');
 

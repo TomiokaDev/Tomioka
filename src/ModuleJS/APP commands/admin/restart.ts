@@ -8,7 +8,8 @@ module.exports = {
 	cooldown: 5,
 	async execute(message, args) {
 
-     if(!["178651638209314816", "312342505033170948", "696481341566615664"].includes(message.author.id)) return message.channel.send("Acceso denegado. Debes ser un ``desarrollador del bot`` para poder ejecutar este comando.");
+      let trusted = require("./../../APP config/trusted.json")
+      if(!trusted.accs.includes(message.author.id)) return message.channel.send("Acceso denegado. Debes ser un ``desarrollador del bot`` para poder ejecutar este comando.");
 
      message.channel.send("Reiniciando...").then(async msg => {
         msg.edit("Restarting...")
