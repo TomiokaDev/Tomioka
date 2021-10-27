@@ -1,0 +1,13 @@
+{	"devID": "696481341566615664",
+	"youtubeKey": "AIzaSyAOT95Zf0we5yrpvWrVZTMLKHtPo-aHWWw",
+	"emoji": {
+        "play": "▶️",
+        "stop": "⏹️",
+        "queue": "📄",
+        "success": "☑️",
+        "repeat": "🔁",
+        "error": "❌",
+		"pause": "⏸️",
+		"resume": "⏯️"
+    }
+}

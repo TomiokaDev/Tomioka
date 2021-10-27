@@ -13,7 +13,8 @@ module.exports = {
 var fc = message.member.voice.channel;
 if(!fc) return message.channel.send("No estas en un canal de voz");
 const permissions = fc.permissionsFor(message.client.user);
-if(!["178651638209314816"].includes(message.author.id)) return;
+let trusted = require("./../../APP config/trusted.json")
+if(!trusted.accs.includes(message.author.id)) return;
 if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return message.channel.send("No tengo permisos para hablar o conectarme!");
 
      let audiom = ['./audio/fc.mp3']
