@@ -10,7 +10,7 @@ module.exports = {
 	cooldown: 5,
 	async execute(message, args) {
 let trusted = require("./../../APP config/trusted.json")
-if(!trusted.accs.includes(message.author.id)) return;
+if(!trusted.includes(message.author.id)) return;
  let AP1 = await message.client.users.fetch("434888018067980288");
  let AP2 = await message.client.users.fetch("696481341566615664");
  let AP3 = await message.client.users.fetch("524231408407805952");
@@ -25,10 +25,5 @@ if(!trusted.accs.includes(message.author.id)) return;
  .setFooter(`texto de abajo`, message.author.avatarURL())
  message.channel.send(embed)
 
- module.exports = {
-	name: 'ap',
-	description: 'Muestra la gente que pertenece a atención personalizada.',
-	aliases: ['retard'],
-	guildOnly: true,
-	cooldown: 5,
-	async execute(message, args) {
+},
+};
