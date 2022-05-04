@@ -1,0 +1,20 @@
+{
+  "prefix": "tk!",
+  "color": "#ff4803",
+  "youtubeapi": "",
+  "discordtoken": "",
+  "dbltoken": "",
+  "steamapi": "",
+  "auth": "",
+  "devID": "",
+  "emoji": {
+    "play": "▶️",
+    "stop": "⏹️",
+    "queue": "📄",
+    "success": "✅",
+    "repeat": "🔁",
+    "error": "❌",
+    "pause": "⏸️",
+    "resume": "⏯️"
+  }
+}
