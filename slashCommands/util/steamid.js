@@ -20,13 +20,12 @@ module.exports = {
         required: true
     }
 ],
-	run: (client, interaction) => {
 
-const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAMAPI}&vanityurl=${this.options}`;
+run: (client, interaction) => {
+const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAMAPI}&vanityurl=${this.options.value}`;
 
 fetch(url).then(res => res.json()).then(body => {
  if(body.response.success === 42) return interaction.reply("No fui capaz de encontrar un perfil con ese nombre!");
-
    const id = body.response.steamid;
    const summaries = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAMAPI}&steamids=${id}`;
    const bans = `http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${process.env.STEAMAPI}&steamids=${id}`
