@@ -41,22 +41,22 @@ module.exports = (client) => {
 
 	(async () => {
 			try {
-                rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: [] })
+                /*rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: [] })
 				.then(() => console.log('Successfully deleted all guild commands.'))
 				.catch(console.error);
 
 				// for global commands
 				rest.put(Routes.applicationCommands(process.env.CLIENT_ID), { body: [] })
 				.then(() => console.log('Successfully deleted all application commands.'))
-				.catch(console.error);
+				.catch(console.error);*/
 
-				/*await rest.put(
+				await rest.put(
 					process.env.GUILD_ID ?
 					Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
 					Routes.applicationCommands(CLIENT_ID), 
 					{ body: slashCommands }
 				);
-				console.log('Slash Commands • Registered')*/
+				console.log('Slash Commands • Registered')
                 
 
 			} catch (error) {

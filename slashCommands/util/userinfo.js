@@ -8,7 +8,7 @@ module.exports = {
 	aliases: ['3pingos'],
 	guildOnly: true,
 	cooldown: 5,
-	async run: (client, interaction) => {
+	run: async(client, interaction) => {
 
 let usuario = await message.mentions.users.first() || message.author;
 
