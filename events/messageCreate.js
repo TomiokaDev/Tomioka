@@ -24,13 +24,13 @@ client.on('messageCreate', async message => {
 						const userPerms = new EmbedBuilder()
 						.setDescription(`🚫 ${message.author}, You don't have \`${command.userPerms}\` permissions to use this command!`)
 						.setColor('Red')
-						return message.reply({ embeds: [userPerms] })
+						return interaction.reply({ embeds: [userPerms] })
 					}
 					if(!message.guild.members.cache.get(client.user.id).permissions.has(PermissionsBitField.resolve(command.botPerms || []))) {
 						const botPerms = new EmbedBuilder()
 						.setDescription(`🚫 ${message.author}, I don't have \`${command.botPerms}\` permissions to use this command!`)
 						.setColor('Red')
-						return message.reply({ embeds: [botPerms] })
+						return interaction.reply({ embeds: [botPerms] })
 					}
 				}
 
@@ -45,14 +45,14 @@ client.on('messageCreate', async message => {
 						const userPerms = new EmbedBuilder()
 						.setDescription(`🚫 ${message.author}, You don't have \`${command.userPerms}\` permissions to use this command!`)
 						.setColor('Red')
-						return message.reply({ embeds: [userPerms] })
+						return interaction.reply({ embeds: [userPerms] })
 					}
 				
 					if(!message.guild.members.cache.get(client.user.id).permissions.has(PermissionsBitField.resolve(command.botPerms || []))) {
 						const botPerms = new EmbedBuilder()
 						.setDescription(`🚫 ${message.author}, I don't have \`${command.botPerms}\` permissions to use this command!`)
 						.setColor('Red')
-						return message.reply({ embeds: [botPerms] })
+						return interaction.reply({ embeds: [botPerms] })
 					}
 			}
 			command.run(client, message, args)

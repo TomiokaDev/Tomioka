@@ -7,7 +7,7 @@ module.exports = {
 	aliases: ['botinfo'],
 	guildOnly: true,
 	cooldown: 5,
-	async run: (client, interaction) => {
+	run: async (client, interaction) => {
 
  let support = `${message.client.guilds.cache.get("178651985015209984")} [entra aquí](https://discord.gg/yzaTfgU)`
  let creador = await message.client.users.fetch("178651638209314816")

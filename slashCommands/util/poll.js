@@ -10,7 +10,7 @@ module.exports = {
 	run: (client, interaction) => {
 
  let poll = message.content.split(' ').slice(1).join(' ')
- if(!poll) return message.reply("Debes poner algo!");
+ if(!poll) return interaction.reply("Debes poner algo!");
 
 const embed = new Discord.MessageEmbed()
  .setTitle(`Encuesta!`)

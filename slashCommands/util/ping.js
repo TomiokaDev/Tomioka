@@ -7,7 +7,7 @@ module.exports = {
 	aliases: ['pong'],
 	guildOnly: true,
 	cooldown: 5,
-	async run: (client, interaction) => {
+	run: (client, interaction) => {
 
     var mping = Date.now() - message.createdTimestamp + " ms"
     let ping = Math.floor(message.client.ws.ping) + " ms"

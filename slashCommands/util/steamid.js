@@ -1,7 +1,7 @@
+let fetch = import('node-fetch')
 const Discord = require('discord.js');
 const { stripIndents } = require("common-tags");
-const fetch = require("node-fetch");
-const dateFormat = require("dateformat");
+const date = require('date-and-time');
 const config = require('../../config.json');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
 	aliases: ['steam'],
 	guildOnly: true,
 	cooldown: 5,
-	async run: (client, interaction) => {
+	run: (client, interaction) => {
 
 if(!args[0]) return interaction.reply("Por favor pon el id de un usuario de Steam!")
 const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${config.steamapi}&vanityurl=${args.join(" ")}`;
@@ -40,11 +40,11 @@ fetch(url).then(res => res.json()).then(body => {
     .setDescription(stripIndents`**Nombre real:** ${realname || "No especificado"}
      **Estado:** ${state[personastate]}
      **País:** :flag_${loccountrycode ? loccountrycode.toLowerCase() : "white"}:
-     **Fecha de creación:** ${dateFormat(timecreated * 1000, "dd/mm/yyyy (h:MM:ss TT)")}
+     **Fecha de creación:** ${date.format(timecreated * 1000, "dd/mm/yyyy (h:MM:ss TT)")}
      **Bans:** VAC: ${NumberOfVACBans}, Game: ${NumberOfGameBans}
      **Link:** [link del perfil](${profileurl})`)
     .setColor(config.color)
-   .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
+    .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
       interaction.reply({ embeds: [embed] })
 
      })

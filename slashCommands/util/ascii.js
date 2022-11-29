@@ -10,7 +10,7 @@ module.exports = {
 
  var figlet = require('figlet');
  let say = message.content.split(' ').slice(1).join(' ');
- if(!say) return message.reply("Debes poner algo para que lo convierta en formato ascii");
+ if(!say) return interaction.reply("Debes poner algo para que lo convierta en formato ascii");
 
  figlet(say, function(err, data) {
     if (err) {
