@@ -1,5 +1,6 @@
-let fetch = import('node-fetch')
+const fetch =  require('node-fetch');
 const Discord = require('discord.js');
+const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { stripIndents } = require("common-tags");
 const date = require('date-and-time');
 const config = require('../../config.json');
@@ -10,17 +11,25 @@ module.exports = {
 	aliases: ['steam'],
 	guildOnly: true,
 	cooldown: 5,
+  type: ApplicationCommandType.ChatInput,
+  options: [
+    {
+        name: 'steamid',
+        description: 'La ID de Steam',
+        type: ApplicationCommandOptionType.String,
+        required: true
+    }
+],
 	run: (client, interaction) => {
 
-if(!args[0]) return interaction.reply("Por favor pon el id de un usuario de Steam!")
-const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${config.steamapi}&vanityurl=${args.join(" ")}`;
+const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAMAPI}&vanityurl=${this.options}`;
 
 fetch(url).then(res => res.json()).then(body => {
  if(body.response.success === 42) return interaction.reply("No fui capaz de encontrar un perfil con ese nombre!");
 
    const id = body.response.steamid;
-   const summaries = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${config.steamapi}&steamids=${id}`;
-   const bans = `http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${config.steamapi}&steamids=${id}`
+   const summaries = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAMAPI}&steamids=${id}`;
+   const bans = `http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${process.env.STEAMAPI}&steamids=${id}`
    const state = ["Offline", "Online", "Ocupado", "Ausente", "Durmiendo", "Looking to trade", "Looking to play"];
 
      fetch(summaries).then(res => res.json()).then(body => {
