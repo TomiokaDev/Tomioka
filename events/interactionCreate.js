@@ -1,6 +1,6 @@
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
 const ms = require('ms');
-const client = require('..');
+const client = require('./../bot.js');
 const config = require('../config.json');
 
 const cooldown = new Collection();
