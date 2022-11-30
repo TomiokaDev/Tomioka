@@ -4,7 +4,7 @@ const client = require('..');
 client.on("ready", () => {
 client.user.setPresence({
   activities: [{ name: `Release soon!`, type: ActivityType.Playing }],
-  status: 'dnd',
+  status: 'online',
 });
 	/*
     const activities = [

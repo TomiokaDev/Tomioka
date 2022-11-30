@@ -51,12 +51,14 @@ module.exports = (client) => {
 				.catch(console.error);*/
 
 				await rest.put(
+					//process.env.GUILD_ID ?
+					//Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
 					process.env.GUILD_ID ?
 					Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
-					Routes.applicationCommands(CLIENT_ID), 
+					Routes.applicationCommands(CLIENT_ID),
 					{ body: slashCommands }
 				);
-				console.log('Slash Commands • Registered')
+				console.log('Slash Commands registrados')
                 
 
 			} catch (error) {
