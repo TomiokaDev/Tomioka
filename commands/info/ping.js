@@ -5,7 +5,7 @@ module.exports = {
 	userPerms: [],
 	botPerms: [],
 	run: async (client, message, args) => {
-		const msg = await message.reply('Pinging...')
+		const msg = await interaction.reply('Pinging...')
 		await msg.edit(`Pong! **${client.ws.ping} ms**`)
 	}
 };

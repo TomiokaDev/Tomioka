@@ -87,7 +87,7 @@ client.distube
  //DisTubeOptions.searchSongs = true
  .on("searchResult", (message, results) => {
     let i = 0
-     message.reply(
+     interaction.reply(
          `**Choose an option from below**\n${results
            .map(song => `**${++i}**. ${song.name} - \`${song.formattedDuration}\``)
              .join("\n")}\n*Enter anything else or wait 60 seconds to cancel*`

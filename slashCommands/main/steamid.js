@@ -51,7 +51,7 @@ fetch(url).then(res => res.json()).then(body => {
      **Link:** [link del perfil](${profileurl})`)
     .setColor(config.color)
     .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-      interaction.reply({ embeds: [embed] })
+    interaction.reply({ embeds: [embed] })
      })
   })
 })

@@ -23,6 +23,6 @@ module.exports = {
 			.setURL(inviteUrl)
 			.setStyle(5)
 		])
-		message.reply({ embeds: [embed], components: [actionRow] })
+		interaction.reply({ embeds: [embed], components: [actionRow] })
 	}
 };
