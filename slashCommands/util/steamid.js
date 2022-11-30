@@ -2,13 +2,12 @@ const fetch =  require('node-fetch');
 const Discord = require('discord.js');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { stripIndents } = require("common-tags");
-const date = require('date-and-time');
+const date = require('moment');
 const config = require('../../config.json');
 
 module.exports = {
 	name: 'steamid',
 	description: 'Comando para mostrar un perfil de Steam por la ID',
-	aliases: ['steam'],
 	guildOnly: true,
 	cooldown: 5,
   type: ApplicationCommandType.ChatInput,
@@ -22,8 +21,7 @@ module.exports = {
 ],
 	run: (client, interaction) => {
 
-const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAMAPI}&vanityurl=${this.options}`;
-
+const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.STEAMAPI}&vanityurl=${interaction.options.get('steamid').value}`;
 fetch(url).then(res => res.json()).then(body => {
  if(body.response.success === 42) return interaction.reply("No fui capaz de encontrar un perfil con ese nombre!");
 
@@ -44,18 +42,17 @@ fetch(url).then(res => res.json()).then(body => {
 
 
      const embed = new EmbedBuilder()
-    .setAuthor(`Steam Web API | ${personaname}`, avatarfull)
+    .setAuthor({name: `Steam Web API | ${personaname}`, iconURL: avatarfull})
     .setThumbnail(avatarfull)
     .setDescription(stripIndents`**Nombre real:** ${realname || "No especificado"}
      **Estado:** ${state[personastate]}
      **País:** :flag_${loccountrycode ? loccountrycode.toLowerCase() : "white"}:
-     **Fecha de creación:** ${date.format(timecreated * 1000, "dd/mm/yyyy (h:MM:ss TT)")}
+     **Fecha de creación:** ${date.unix(timecreated).format("DD/MM/YYYY HH:mm:SS")}
      **Bans:** VAC: ${NumberOfVACBans}, Game: ${NumberOfGameBans}
      **Link:** [link del perfil](${profileurl})`)
     .setColor(config.color)
     .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
       interaction.reply({ embeds: [embed] })
-
      })
   })
 })
