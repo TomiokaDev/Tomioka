@@ -1,5 +1,5 @@
 const { EmbedBuilder, PermissionsBitField } = require('discord.js');
-const client = require('..');
+const client = require('./../bot.js');
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isButton()) return;

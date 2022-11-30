@@ -1,5 +1,5 @@
 const { ActivityType } = require('discord.js');
-const client = require('..');
+const client = require('./../bot.js');
 
 client.on("ready", () => {
 client.user.setPresence({
