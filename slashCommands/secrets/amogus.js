@@ -11,9 +11,9 @@ module.exports = {
 	run: async (client, interaction) => {
           
 var amogus = message.member.voice.channel;
-if(!amogus) return message.channel.send("No estas en un canal de voz");
+if(!amogus) return interaction.reply("No estas en un canal de voz");
 const permissions = amogus.permissionsFor(message.client.user);
-if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return message.channel.send("No tengo permisos para hablar o conectarme!");
+if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return interaction.reply("No tengo permisos para hablar o conectarme!");
 
      let audiom = ['./audio/amogus.mp3']
     
