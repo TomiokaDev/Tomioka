@@ -6,10 +6,8 @@ const config = require('../../config.json');
 module.exports = {
 	name: 'fox',
 	description: 'Comando para mostar zorros',
-	aliases: ['zorros'],
 	guildOnly: true,
 	cooldown: 5,
-  type: ApplicationCommandType.ChatInput,
 run: async(client, interaction) => {
 
 
@@ -21,6 +19,6 @@ run: async(client, interaction) => {
     .setImage(foximg.image)
     .setColor(config.color)
     .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-    return interaction.reply({ embed : embed });
+    return interaction.reply({ embeds : [embed] });
   },
 };

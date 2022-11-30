@@ -10,9 +10,9 @@ module.exports = {
 	cooldown: 5,
 	run: async (client, interaction) => {
           
-var amogus = message.member.voice.channel;
+var amogus = interaction.member.voice.channel;
 if(!amogus) return interaction.reply("No estas en un canal de voz");
-const permissions = amogus.permissionsFor(message.client.user);
+const permissions = amogus.permissionsFor(client.user);
 if(!permissions.has("CONNECT") || !permissions.has("SPEAK")) return interaction.reply("No tengo permisos para hablar o conectarme!");
 
      let audiom = ['./audio/amogus.mp3']
@@ -27,8 +27,9 @@ const connection = await joinVoiceChannel({
      adapterCreator: interaction.guild.voiceAdapterCreator,
 });
 
-//const dispatcher = connection.play(random);
 
+//connection.playOpusPacket(random);
+const subscription = connection.subscribe(random);
 //dispatcher.on('start', () => {
      const embed = new Discord.EmbedBuilder()
     .setTitle("SUS")

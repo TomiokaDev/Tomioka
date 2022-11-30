@@ -21,12 +21,10 @@ module.exports = {
 ],
 run: async(client, interaction) => {
 
- let say = interaction.options.get('twxto').value;
+ let say = interaction.options.get('texto').value;
  let owoify = await neko.OwOify({text: say});
- message.delete({ timeout: 100 })
  if(!say) return interaction.reply("debes ponerme algo para que lo repita owo");
  if(say.length > 200) return interaction.reply("Debes ingresar algo menor a 200 caracteres!")
-  console.log(owoify)
  interaction.reply(`**${interaction.member.displayName}** dice: ${owoify.owo}`)
 },
 };
