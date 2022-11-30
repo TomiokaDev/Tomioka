@@ -8,18 +8,8 @@ const config = require('../../config.json');
 module.exports = {
 	name: 'foxgirl',
 	description: 'Comando para mostar gifs de foxgirls',
-	aliases: ['zorros'],
 	guildOnly: true,
 	cooldown: 5,
-  type: ApplicationCommandType.ChatInput,
-  options: [
-    {
-        name: 'texto',
-        description: 'La ID de Steam',
-        type: ApplicationCommandOptionType.String,
-        required: true
-    }
-],
 run: async(client, interaction) => {
 
 let foxgirl = await neko.foxGirl();

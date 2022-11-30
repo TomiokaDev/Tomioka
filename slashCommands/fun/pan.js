@@ -20,7 +20,7 @@ run: (client, interaction) => {
     .setImage(captura)
     .setColor(config.color)
     .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-    return interaction.reply({ embed : embed });
+    return interaction.reply({ embeds : [embed] });
   },
 };
  
