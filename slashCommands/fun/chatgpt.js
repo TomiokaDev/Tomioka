@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-import { ChatGPTAPI } from 'chatgpt'
+const{ ChatGPTAPI } = require('chatgpt');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const config = require('../../config.json');
 
