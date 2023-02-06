@@ -31,3 +31,15 @@ chmod +x setup.sh
 ```
 Forever: forever start -o out.log -e err.log server.js
 ```
+
+### ENV
+
+```
+TOKEN =
+CLIENT_ID =
+GUILD_ID =
+YOUTUBEAPI =
+DBLTOKEN =
+STEAMAPI =
+AUTH =
+```
