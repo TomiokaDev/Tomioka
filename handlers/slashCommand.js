@@ -15,11 +15,11 @@ const rest = new REST({ version: '9' }).setToken(TOKEN);
 module.exports = (client) => {
 	const slashCommands = []; 
 
-	fs.readdirSync('./slashCommands/').forEach(async dir => {
-		const files = fs.readdirSync(`./slashCommands/${dir}/`).filter(file => file.endsWith('.js'));
+	fs.readdirSync('./commands/').forEach(async dir => {
+		const files = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
 
 		for(const file of files) {
-				const slashCommand = require(`../slashCommands/${dir}/${file}`);
+				const slashCommand = require(`../commands/${dir}/${file}`);
 				slashCommands.push({
 					name: slashCommand.name,
 					description: slashCommand.description,
@@ -57,7 +57,6 @@ module.exports = (client) => {
 					{ body: slashCommands }
 				);
 				console.log('Slash Commands registrados')
-                
 
 			} catch (error) {
 				console.log(error);
