@@ -19,8 +19,8 @@ const embed = new EmbedBuilder()
     .setTitle("Gatitoooo uwu")
     .setColor(config.color)
     .setImage(gatito.url)
-    .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-     interaction.reply({ embeds: [embed] })
-
+    //Mostrar el footer con el nuevo formato de usuarios de discord. "Ejecutado por @usuario"
+    .setFooter({text: `Ejecutado por: ${interaction.member.user.name}`, iconURL: interaction.member.user.avatarURL()})
+     interaction.reply({ embeds: [embed] });
     },
   };
