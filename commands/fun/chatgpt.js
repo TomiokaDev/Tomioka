@@ -35,13 +35,13 @@ module.exports = {
             apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
           })
 
-        const response = await api.getChat(texto);
+        const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
         if (response) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
-                .setDescription(response)
+                .setDescription(res)
                 .setColor('RANDOM')
                 .setFooter('Powered by ChatGPT')
                 .setTimestamp();
