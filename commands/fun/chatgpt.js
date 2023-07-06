@@ -49,12 +49,12 @@ module.exports = {
                 .setDescription(res.text)
                 .setColor(config.color)
                 .setFooter({text: 'Powered by ChatGPT'})
-            return interaction.reply({ embeds: [embed]});
+            return interaction.reply({ embeds: [embed] });
         }
     }
     catch (error) {
         console.log(error);
-        interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.'});
+        interaction.reply({ content: 'Ha ocurrido un error al ejecutar el comando.'});
     }
 }
 }
