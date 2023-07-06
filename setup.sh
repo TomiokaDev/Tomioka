@@ -14,4 +14,4 @@ echo "Dependencias actualizadas"
 npm i forever -g
 echo "forever instalado"
 clear
-echo "Copyright © TomiokaBot Development 2019 - 2022. All rights reserved."
+echo "Copyright © TomiokaBot Development 2019 - 2023. All rights reserved."
