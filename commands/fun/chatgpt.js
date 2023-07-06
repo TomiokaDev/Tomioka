@@ -38,7 +38,7 @@ module.exports = {
         const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
-        if (response) {
+        if (res) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
                 .setDescription(res)
