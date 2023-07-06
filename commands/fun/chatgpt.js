@@ -6,6 +6,7 @@
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const fs = require('fs');
 require('dotenv').config()
+const wait = require('node:timers/promises').setTimeout;
 //module exports en es6
 module.exports = {
     name: 'chatgpt',
@@ -38,8 +39,10 @@ module.exports = {
         const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
+        interaction.reply('Contactando con el servicio de ChatGPT');
 
-        setTimeout(function(){
+        await wait(10000);
+
         if (res) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
@@ -48,16 +51,7 @@ module.exports = {
                 .setFooter('Powered by ChatGPT')
                 .setTimestamp();
 
-            const row = new ActionRowBuilder()
-                .addComponents(
-                    new ButtonBuilder()
-                        .setStyle('LINK')
-                        .setLabel('Ver en ChatGPT')
-                        .setURL('https://chatgpt.com/')
-                );
-
-            interaction.reply({ embeds: [embed], components: [row] });
+            await interaction.edit({ embeds: [embed], ephemeral:  true});
         }
-        }, 10000); //10 segundos de cooldown por el proxy
     }
 }
