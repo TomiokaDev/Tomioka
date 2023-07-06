@@ -49,7 +49,7 @@ module.exports = {
                 .setDescription(res.text)
                 .setColor(config.color)
                 .setFooter({text: 'Powered by ChatGPT'})
-            interaction.reply({ embeds: [embed]});
+            return interaction.reply({ embeds: [embed]});
         }
     }
     catch (error) {
