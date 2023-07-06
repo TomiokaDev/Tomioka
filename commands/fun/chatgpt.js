@@ -24,7 +24,7 @@ module.exports = {
     ],
     run: async (client, interaction, args) => {
         //Pedir el texto en interaction
-        const texto = interaction.options.getString('texto').value;
+        let texto = interaction.options.get('texto').value;
 
         //Si no hay texto, enviar error
         if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
