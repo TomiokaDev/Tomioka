@@ -44,7 +44,7 @@ module.exports = (client) => {
 		
 	});
 
-	(async () => {
+	async () => {
 			try {
 
 				//CON ESTO LO BORRO POR SI LA CAGO
@@ -71,5 +71,5 @@ module.exports = (client) => {
 			} catch (error) {
 				console.log(error);
 			}
-	})();
+	};
 };
