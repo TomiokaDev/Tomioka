@@ -1,6 +1,13 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Amogus command
+
 const Discord = require('discord.js');
 const { PermissionFlagsBits } = require('discord.js')
-const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require('@discordjs/voice');
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, StreamType,  VoiceConnectionStatus, AudioPlayerStatus } = require('@discordjs/voice');
+const { createReadStream } = require('node:fs');
+const { join } = require('node:path');
+const player = createAudioPlayer();
 const config = require('../../config.json');
 
 module.exports = {
@@ -24,13 +31,17 @@ const connection = joinVoiceChannel({
 if (!interaction.member.permissions.has(PermissionFlagsBits.CONNECT)) return interaction.reply('No tengo permisos para conectarme a ese canal de voz.');
 if (!interaction.member.permissions.has(PermissionFlagsBits.SPEAK)) return interaction.reply('No tengo permisos para hablar en ese canal de voz.');
 
-//conectar al canal de voz
-const player = createAudioPlayer();
-const audio = createAudioResource('../../audio/amogus.mp3');
-const subscription = connection.subscribe(player);
+//LA CONCHA PUTA DE TU MADRE CAMBIAN TODO EL PUTO TIEMPO LA API AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+let audio = createAudioResource(join(__dirname, '../../audio/amogus.mp3'), { 
+     inlineVolume: true 
+});
+audio.volume.setVolume(0.5);
+
 player.play(audio);
 
-     player.on(AudioPlayerStatus.Playing, () => {
+const subscription = connection.subscribe(player);
+
+     player.on(AudioPlayerStatus.Playing, (oldState, newState) => {
           const embed = new Discord.EmbedBuilder()
           .setTitle("SUS")
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/831525001235529728/cover5.jpg")
@@ -38,15 +49,14 @@ player.play(audio);
           .setFooter({text: `Comando secreto! 5/6`, iconURL: interaction.member.user.avatarURL()})
           return interaction.reply({ embeds : [embed] });
      });
-     //Desconectarse luego de terminar de reproducir
-     connection.on('stateChange', (oldState, newState) => {
-          if (newState.status === 'Disconnected') {
-               subscription.unsubscribe();
-               connection.destroy();
-          }
+     
+     //Desconectarse luego de terminar de reproducir el audio 
+     player.on(AudioPlayerStatus.Idle, () => {
+          connection.destroy();
      });
+     
      player.on('error', error => {
-	     console.error(error);
+	     console.error('Error:', error.message);
           connection.destroy();
      });
 }

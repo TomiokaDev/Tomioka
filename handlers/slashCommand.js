@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Slash Command Handler
+
 const fs = require('fs');
 
 const { PermissionsBitField } = require('discord.js');
@@ -41,6 +45,9 @@ module.exports = (client) => {
 
 	(async () => {
 			try {
+
+				//CON ESTO LO BORRO POR SI LA CAGO
+
                 /*rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: [] })
 				.then(() => console.log('Successfully deleted all guild commands.'))
 				.catch(console.error);
@@ -50,13 +57,15 @@ module.exports = (client) => {
 				.then(() => console.log('Successfully deleted all application commands.'))
 				.catch(console.error);*/
 
+				//Agrega los comandos slash
 				await rest.put(
-					//process.env.GUILD_ID ?
-					//Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
+					process.env.GUILD_ID ?
+					Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
 					Routes.applicationCommands(CLIENT_ID),
-					{ body: slashCommands }
-				);
-				console.log('Slash Commands registrados')
+					{ body: slashCommands }).then(() =>
+					console.log('Slash Commands registrados'))
+				.catch(console.error);
+				
 
 			} catch (error) {
 				console.log(error);

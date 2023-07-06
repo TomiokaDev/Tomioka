@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Evento de interacción
+
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
 const ms = require('ms');
 const client = require('./../bot.js');

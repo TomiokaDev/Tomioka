@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Generador de Texto por AI
+
 const Discord = require('discord.js');
 const { ChatGPTAPI } = import('chatgpt');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');

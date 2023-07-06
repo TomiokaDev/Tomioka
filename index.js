@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Index and sharding file
+
 const { ShardingManager } = require('discord.js');
 const Topgg = require("@top-gg/sdk");
 const express = require("express");

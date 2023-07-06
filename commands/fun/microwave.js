@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: MMMMMMMMMMMMMMMMMMM PIIIII PIIIII PIIIII
+
 const Discord = require('discord.js');
 const config = require('../../config.json');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
