@@ -3,10 +3,9 @@
 //Description: Generador de Texto por AI
 
 //Usar dynamic import para importar el módulo
-
-const { ChatGPTUnofficialProxyAPI } =  import('chatgpt')
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
-
+const fs = require('fs');
+require('dotenv').config()
 //module exports en es6
 module.exports = {
     name: 'chatgpt',
@@ -23,6 +22,7 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
+        const { ChatGPTUnofficialProxyAPI } = await import('chatgpt')
         //Pedir el texto en interaction
         let texto = interaction.options.get('texto').value;
 
@@ -31,7 +31,8 @@ module.exports = {
 
         //Si hay texto, enviarlo a la API
         const api = new ChatGPTUnofficialProxyAPI({
-            accessToken: process.env.OPENAI_ACCESS_TOKEN
+            accessToken: process.env.OPENAI_ACCESS_TOKEN,
+            apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
           })
 
         const response = await api.getChat(texto);
