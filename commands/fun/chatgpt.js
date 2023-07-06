@@ -40,7 +40,8 @@ module.exports = {
         //Enviar mensaje de espera
         interaction.reply('Contactando con el servicio de ChatGPT...')
         const res = await api.sendMessage(texto);
-        wait(10000).then(interaction.deleteReply());
+        wait(10000)
+        interaction.deleteReply();
 
         //Si hay respuesta, enviarla
         if (res) {
@@ -49,7 +50,6 @@ module.exports = {
                 .setDescription(res.text)
                 .setColor(config.color)
                 .setFooter({text: 'Powered by ChatGPT'})
-
             await interaction.editReply({ embeds: [embed]});
         }
     }
