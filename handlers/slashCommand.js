@@ -44,9 +44,6 @@ module.exports = (client) => {
 		
 	});
 
-	async () => {
-			try {
-
 				//CON ESTO LO BORRO POR SI LA CAGO
 
                 /*rest.put(Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID), { body: [] })
@@ -58,18 +55,33 @@ module.exports = (client) => {
 				.then(() => console.log('Successfully deleted all application commands.'))
 				.catch(console.error);*/
 
-				//Agrega los comandos slash
-				await rest.put(
-					process.env.GUILD_ID ?
-					Routes.applicationGuildCommands(CLIENT_ID, process.env.GUILD_ID) :
-					Routes.applicationCommands(CLIENT_ID),
-					{ body: slashCommands }).then(() =>
-					console.log('Slash Commands registrados'))
-				.catch(console.error);
-				
+(async () => {
+	try {
+		console.log(`Started refreshing ${slashCommands.length} application (/) commands.`);
 
-			} catch (error) {
-				console.log(error);
-			}
-	};
+		// Refresh and register all commands
+		const data = await rest.put(
+			//GUILD
+			//Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+			//{ body: slashCommands },
+
+			//GLOBAL
+			Routes.applicationCommands(process.env.CLIENT_ID),
+			{ body: slashCommands },
+
+			//DELETE GUILD
+			//Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+			//{ body: [] },
+
+			//DELETE GLOBAL
+			//Routes.applicationCommands(process.env.CLIENT_ID),
+			//{ body: [] },
+		);
+
+		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+	} catch (error) {
+		// And of course, make sure you catch and log any errors!
+		console.error(error);
+	}
+})();
 };
