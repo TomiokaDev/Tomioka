@@ -4,3 +4,4 @@ out.log
 err.log
 package-lock.json
 .env
+.code-workspace
