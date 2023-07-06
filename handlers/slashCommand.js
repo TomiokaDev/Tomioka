@@ -20,7 +20,8 @@ module.exports = (client) => {
 	const slashCommands = []; 
 
 	fs.readdirSync('./commands/').forEach(async dir => {
-		const files = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
+		//si el archivo termina en .js y en .mjs
+		const files = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js') || file.endsWith('.mjs'));
 
 		for(const file of files) {
 				const slashCommand = require(`../commands/${dir}/${file}`);

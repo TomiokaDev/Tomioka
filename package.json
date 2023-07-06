@@ -17,6 +17,7 @@
     "@discordjs/voice": "^0.16.0",
     "@top-gg/sdk": "^3.1.5",
     "ascii-table": "^0.0.9",
+    "chatgpt": "^5.2.5",
     "common-tags": "^1.8.2",
     "curse-text": "^0.0.2",
     "discord-api-types": "^0.37.47",
