@@ -23,12 +23,17 @@ module.exports = {
         }
     ],
     run: async (client, interaction, args) => {
+        try{
         const { ChatGPTUnofficialProxyAPI } = await import('chatgpt')
         //Pedir el texto en interaction
         let texto = interaction.options.get('texto').value;
 
         //Si no hay texto, enviar error
         if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
+
+
+        interaction.reply('Contactando con el servicio de ChatGPT');
+
 
         //Si hay texto, enviarlo a la API
         const api = new ChatGPTUnofficialProxyAPI({
@@ -39,19 +44,23 @@ module.exports = {
         const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
-        interaction.reply('Contactando con el servicio de ChatGPT');
 
         await wait(10000);
 
         if (res) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
-                .setDescription(res)
+                .setDescription(res.text)
                 .setColor('RANDOM')
                 .setFooter('Powered by ChatGPT')
                 .setTimestamp();
 
-            await interaction.edit({ embeds: [embed], ephemeral:  true});
+            await interaction.editReply({ embeds: [embed]});
         }
     }
+    catch (error) {
+        console.log(error);
+        interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.'});
+    }
+}
 }
