@@ -53,8 +53,7 @@ module.exports = {
                 .setTitle('ChatGPT')
                 .setDescription(res.text)
                 .setColor(config.color)
-                .setFooter('Powered by ChatGPT')
-                .setTimestamp();
+                .setFooter({text: 'Powered by ChatGPT'})
 
             await interaction.editReply({ embeds: [embed]});
         }
