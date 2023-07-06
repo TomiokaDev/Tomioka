@@ -38,6 +38,8 @@ module.exports = {
         const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
+
+        setTimeout(function(){
         if (res) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
@@ -56,5 +58,6 @@ module.exports = {
 
             interaction.reply({ embeds: [embed], components: [row] });
         }
+        }, 10000); //10 segundos de cooldown por el proxy
     }
 }
