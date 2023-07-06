@@ -35,5 +35,6 @@ client.user.setPresence({
 		client.user.setStatus(status[s])
 		s++;
 	}, 30000); */
-	console.log(`Logged in as ${client.user.tag}!`)
+	console.log(`Logueado como ${client.user.tag}!`)
+	console.log(`Versión de node ${process.version}`)
 });
