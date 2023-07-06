@@ -14,9 +14,17 @@ module.exports = {
     guildOnly: true,
 	cooldown: 5,
     type: ApplicationCommandType.ChatInput,
+    options: [
+        {
+            name: 'texto',
+            description: 'Escribe cualquier cosa',
+            type: ApplicationCommandOptionType.String,
+            required: true
+        }
+    ],
     run: async (client, interaction, args) => {
         //Pedir el texto en interaction
-        const texto = interaction.options.getString('texto');
+        const texto = interaction.options.getString('texto').value;
 
         //Si no hay texto, enviar error
         if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });

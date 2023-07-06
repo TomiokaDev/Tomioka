@@ -18,7 +18,7 @@ module.exports = {
   options: [
     {
         name: 'texto',
-        description: 'La ID de Steam',
+        description: 'Escribe cualquier cosa',
         type: ApplicationCommandOptionType.String,
         required: true
     }
