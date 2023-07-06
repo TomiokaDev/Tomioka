@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para que Sonic te diga que le chupa tres pingos
+
 const Discord = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const config = require('../../config.json');

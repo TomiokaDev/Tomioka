@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para mostrar gatos!
+
 const Discord = require('discord.js');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const fetch = require("node-fetch");

@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para que Goku diga que ta mal
+
 const Discord = require('discord.js');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 module.exports = {

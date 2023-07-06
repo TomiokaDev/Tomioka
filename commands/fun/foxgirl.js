@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para mostar gifs de foxgirls
+
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
 const client = require('nekos.life');

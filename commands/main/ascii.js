@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: "Convierte el texto a formato ASCII"
+
 const Discord = require('discord.js');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 const figlet = require('figlet');

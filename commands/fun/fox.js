@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para mostar zorros
+
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');

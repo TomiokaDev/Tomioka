@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando del meme del cyber
+
 const Discord = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const config = require('../../config.json');

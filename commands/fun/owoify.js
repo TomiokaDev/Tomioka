@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Te transforma lo que digas a una manera muy kawaii
+
 const Discord = require('discord.js');
 const nekoslife = require('nekos.life');
 const neko = new nekoslife();

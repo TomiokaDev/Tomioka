@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Preguntale al bot y el te responderá
+
 const Discord = require('discord.js');
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 module.exports = {

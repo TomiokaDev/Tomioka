@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Comando para mostrar perros
+
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
 const client = require('nekos.life');

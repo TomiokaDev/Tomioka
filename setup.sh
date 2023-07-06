@@ -1,11 +1,12 @@
 #!/bin/bash
+
+# TomiokaBot Setup Script
+# Coded by: @SupahFox
 clear
 sudo apt update
 echo "Repositorios actualizados"
 sudo apt -y upgrade
 echo "Sistema actualizado"
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
 sudo apt-get -y install nodejs
 echo "Node instalado"
 npm i

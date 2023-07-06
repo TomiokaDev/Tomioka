@@ -1,3 +1,7 @@
+//TomiokaBot
+//By @SupahFox
+//Description: Evento ready
+
 const { ActivityType } = require('discord.js');
 const client = require('./../bot.js');
 
