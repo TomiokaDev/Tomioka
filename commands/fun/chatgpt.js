@@ -37,11 +37,10 @@ module.exports = {
             accessToken: process.env.OPENAI_ACCESS_TOKEN,
             apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
           })
-        //Enviar mensaje de espera
-        interaction.reply('Contactando con el servicio de ChatGPT...')
+
+        //Esperar 5 segundos
         const res = await api.sendMessage(texto);
-        wait(10000)
-        interaction.deleteReply();
+        await wait(5000);
 
         //Si hay respuesta, enviarla
         if (res) {
@@ -50,7 +49,7 @@ module.exports = {
                 .setDescription(res.text)
                 .setColor(config.color)
                 .setFooter({text: 'Powered by ChatGPT'})
-            await interaction.editReply({ embeds: [embed]});
+            await interaction.reply({ embeds: [embed]});
         }
     }
     catch (error) {
