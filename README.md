@@ -29,7 +29,7 @@ chmod +x setup.sh
 ### Forever
 
 ```
-Forever: forever start -o out.log -e err.log server.js
+Forever: forever start -o out.log -e err.log index.js
 ```
 
 ### ENV
