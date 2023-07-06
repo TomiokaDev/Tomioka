@@ -1,5 +1,6 @@
 const { Events, Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
 const { joinVoiceChannel } = require('@discordjs/voice');
+const { generateDependencyReport } = require('@discordjs/voice');
 
 const client = new Client({
 	intents: [
@@ -26,5 +27,5 @@ module.exports = client;
 fs.readdirSync('./handlers').forEach((handler) => {
   require(`./handlers/${handler}`)(client)
 });
-
+console.log(generateDependencyReport());
 client.login(process.env.TOKEN)
