@@ -7,6 +7,7 @@ const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, A
 const fs = require('fs');
 require('dotenv').config()
 const wait = require('node:timers/promises').setTimeout;
+const config = require('../../config.json');
 //module exports en es6
 module.exports = {
     name: 'chatgpt',
@@ -51,7 +52,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
                 .setDescription(res.text)
-                .setColor('RANDOM')
+                .setColor(config.color)
                 .setFooter('Powered by ChatGPT')
                 .setTimestamp();
 
