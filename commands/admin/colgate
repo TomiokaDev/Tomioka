@@ -9,6 +9,8 @@ module.exports = {
 	cooldown: 5,
 	run: async (client, interaction) => {
 let guild = client.guilds.cache.get('178651985015209984');
+//Statement para comprobar solo la guild
+if (interaction.guild.id !== guild.id) return
 let colgate = ["https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/d2/d22416ac2d89e040641ab36be8cf331006a1bcd5_full.jpg"]
 let random = colgate[Math.floor(colgate.length * Math.random())];
 const embed = new EmbedBuilder()

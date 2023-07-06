@@ -3,9 +3,10 @@ const { joinVoiceChannel } = require('@discordjs/voice');
 
 const client = new Client({
 	intents: [
+    //Intent para verificar si un usuario está en un canal de voz
+    GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildVoiceStates,
-	], 
-partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] 
+	],
 });
 
 const fs = require('fs');
