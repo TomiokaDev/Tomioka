@@ -9,6 +9,7 @@ module.exports = {
 	aliases: ['sus', 'sussy'],
 	guildOnly: true,
 	cooldown: 5,
+
 run: async(client, interaction) => {
 //obtener canal de voz usando discord.js v14
 const voiceChannel = interaction.member.voice.channel;
@@ -22,8 +23,6 @@ const connection = joinVoiceChannel({
 //Comprobar permisos del bot
 if (!interaction.member.permissions.has(PermissionFlagsBits.CONNECT)) return interaction.reply('No tengo permisos para conectarme a ese canal de voz.');
 if (!interaction.member.permissions.has(PermissionFlagsBits.SPEAK)) return interaction.reply('No tengo permisos para hablar en ese canal de voz.');
-
-//Cargar audio
 
 //conectar al canal de voz
 const player = createAudioPlayer();
@@ -40,13 +39,15 @@ player.play(audio);
           return interaction.reply({ embeds : [embed] });
      });
      //Desconectarse luego de terminar de reproducir
-     player.on(AudioPlayerStatus.Idle, () => {
-          player.stop();
-          connection.destroy();
+     connection.on('stateChange', (oldState, newState) => {
+          if (newState.status === 'Disconnected') {
+               subscription.unsubscribe();
+               connection.destroy();
+          }
      });
      player.on('error', error => {
 	     console.error(error);
+          connection.destroy();
      });
 }
-}
-
+};
