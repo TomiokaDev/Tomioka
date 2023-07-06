@@ -4,7 +4,7 @@
 
 //Usar dynamic import para importar el módulo
 
-const { ChatGPTAPI } = import('chatgpt');
+const { ChatGPTUnofficialProxyAPI } =  import('chatgpt')
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 //module exports en es6
@@ -30,8 +30,11 @@ module.exports = {
         if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
 
         //Si hay texto, enviarlo a la API
-        const chatgpt = new ChatGPTAPI(process.env.CHATGPT_TOKEN);
-        const response = await chatgpt.getChat(texto);
+        const api = new ChatGPTUnofficialProxyAPI({
+            accessToken: process.env.OPENAI_ACCESS_TOKEN
+          })
+
+        const response = await api.getChat(texto);
 
         //Si hay respuesta, enviarla
         if (response) {
