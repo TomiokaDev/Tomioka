@@ -32,10 +32,6 @@ module.exports = {
         //Si no hay texto, enviar error
         if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
 
-
-        interaction.reply('Contactando con el servicio de ChatGPT');
-
-
         //Si hay texto, enviarlo a la API
         const api = new ChatGPTUnofficialProxyAPI({
             accessToken: process.env.OPENAI_ACCESS_TOKEN,
@@ -45,9 +41,7 @@ module.exports = {
         const res = await api.sendMessage(texto);
 
         //Si hay respuesta, enviarla
-
-        await wait(10000);
-
+        interaction.reply('Contactando con el servicio de ChatGPT').wait(10000).then(interaction.deleteReply());
         if (res) {
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
