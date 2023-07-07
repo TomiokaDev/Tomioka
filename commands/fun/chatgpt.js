@@ -43,7 +43,8 @@ module.exports = {
             });
 
             python.on('exit', (code) => {
-                //console.log(`child process close all stdio with code ${code}, dataToSend: ${dataToSend}`);
+                console.log('ChatGPT');
+                console.log(`child process close all stdio with code ${code}`);
             });
 
             //Obtener accessToken (No quiero pagar la API, manga de hdps)
