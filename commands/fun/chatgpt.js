@@ -39,7 +39,7 @@ module.exports = {
             })
 
             //Delay de 10 segundos antes de enviar la respuesta
-            await interaction.deferReply({content: 'Conectando a la API de ChatGPT'});
+            await interaction.deferReply();
             await wait(10000);
             const res = await api.sendMessage(texto);
 
@@ -56,7 +56,7 @@ module.exports = {
             }
 
             if(!res) {
-                await interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.', ephemeral: true });
+                await interaction.editReply({ content: 'Ha ocurrido un error al conectarse a la API de ChatGPT', ephemeral: true });
             }
 
         }
