@@ -1,3 +1,7 @@
+//TomiokaBot
+//By: @SupahFox @HathHub
+//Description: event handler
+
 const fs = require('fs');
 var AsciiTable = require('ascii-table')
 var table = new AsciiTable()
