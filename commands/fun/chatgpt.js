@@ -55,7 +55,7 @@ module.exports = {
     }
     catch (error) {
         console.log(error);
-        interaction.reply({ content: 'Ha ocurrido un error al ejecutar el comando.'});
+        interaction.send('Ha ocurrido un error al ejecutar el comando.');
     }
 }
 }
