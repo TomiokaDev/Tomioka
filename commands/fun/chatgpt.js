@@ -8,6 +8,10 @@ const fs = require('fs');
 require('dotenv').config()
 const wait = require('node:timers/promises').setTimeout;
 const config = require('../../config.json');
+
+//Para python
+const {spawn} = require('child_process');
+
 //module exports en es6
 module.exports = {
     name: 'chatgpt',
@@ -25,27 +29,40 @@ module.exports = {
     ],
     run: async (client, interaction, args) => {
         try {
-            //Obtener accessToken (No quiero pagar la API, manga de hdps)
-            const Authenticator = import('openai-token')
-            const auth = new Authenticator(process.env.OPENAI_EMAIL, process.env.PASSWORD)
-            await auth.begin()
-            const token = await auth.getAccessToken()
+            await interaction.deferReply();
+            const python = spawn('python', ['python/openai.py']);
 
+            var dataToSend; // Inicializar como una cadena vacía
+
+            python.stdout.on('data', function(data) {
+                dataToSend = data.toString(); // Concatenar los datos recibidos en lugar de reemplazarlos
+            });
+            
+            python.stderr.on('data', (data) => {
+                console.error(`child stderr:\n${data}`);
+            });
+
+            python.on('exit', (code) => {
+            //    console.log(`child process close all stdio with code ${code}, dataToSend: ${dataToSend}`);
+            });
+
+            //Obtener accessToken (No quiero pagar la API, manga de hdps)
             const { ChatGPTUnofficialProxyAPI } = await import('chatgpt')
+
+
             //Pedir el texto en interaction
             let texto = interaction.options.get('texto').value;
 
             //Si no hay texto, enviar error
             if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
 
-            //Si hay texto, enviarlo a la API
+            //Si hay token
+            if (dataToSend) {
             const api = new ChatGPTUnofficialProxyAPI({
-                accessToken: token,
+                accessToken: dataToSend,
                 apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
             })
-
             //Delay de 10 segundos antes de enviar la respuesta
-            await interaction.deferReply();
             await wait(10000);
             const res = await api.sendMessage(texto);
 
@@ -64,7 +81,7 @@ module.exports = {
             if(!res) {
                 await interaction.editReply({ content: 'Ha ocurrido un error al conectarse a la API de ChatGPT', ephemeral: true });
             }
-
+        }
         }
         catch (error) {
             console.log(error);
