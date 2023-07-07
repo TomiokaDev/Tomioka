@@ -21,9 +21,16 @@ Node.js v18 LTS o superior
 python 3.10 o superior
 ```
 ### Instalación en GNU/Linux
+Instalar automáticamente
 ```
 chmod +x setup.sh
 ./setup.sh
+```
+Instalar manualmente
+```
+npm i
+npm i -g forever
+pip install -r requirements.txt
 ```
 
 ### Requisitos para Windows
@@ -32,7 +39,8 @@ Node.js LTS v18 con build dependencys
 python 3.10 o superior
 ```
 
-### Instalación en Windows (Powershell script in progress)
+### Instalación en Windows
+Se puede instalar con el archivo setup.cmd o manualmente con los siguientes comandos
 ```
 npm i -g forever
 npm i
