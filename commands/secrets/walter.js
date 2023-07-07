@@ -23,10 +23,10 @@ module.exports = {
     let captura = walter[Math.floor(walter.length * Math.random())];
 
     const embed = new Discord.EmbedBuilder()
-    .setDescription("Encontraste al **walter** de la suerte :)")
-    .setColor(config.color)
-    .setImage(captura)
-    .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
+        .setDescription("Encontraste al **walter** de la suerte :)")
+        .setColor(config.color)
+        .setImage(captura)
+        .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
     await interaction.reply({ embeds : [embed] });
-    },
+},
 };

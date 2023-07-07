@@ -10,20 +10,20 @@ const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, A
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'foxgirl',
-	description: 'Comando para mostar gifs de foxgirls',
-	guildOnly: true,
-	cooldown: 5,
-run: async(client, interaction) => {
+  name: 'foxgirl',
+  description: 'Comando para mostar gifs de foxgirls',
+  guildOnly: true,
+  cooldown: 5,
+  run: async (client, interaction) => {
 
-let foxgirl = await neko.foxGirl();
+    let foxgirl = await neko.foxGirl();
 
 
-const embed = new EmbedBuilder()
-    .setTitle("OwO")
-    .setColor(config.color)
-    .setImage(foxgirl.url)
-    .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-     interaction.reply({ embeds: [embed] })
+    const embed = new EmbedBuilder()
+      .setTitle("OwO")
+      .setColor(config.color)
+      .setImage(foxgirl.url)
+      .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+    interaction.reply({ embeds: [embed] })
   },
 };

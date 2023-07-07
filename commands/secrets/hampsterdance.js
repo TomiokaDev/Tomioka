@@ -51,12 +51,12 @@ module.exports = {
      //Desconectarse luego de terminar de reproducir el audio 
      player.on(AudioPlayerStatus.Idle, () => {
         connection.destroy();
-   });
+     });
    
-   player.on('error', error => {
-       console.error('Error:', error.message);
-        connection.destroy();
-   });
+     player.on('error', error => {
+          console.error('Error:', error.message);
+          connection.destroy();
+     });
 } catch (error) {
      console.log(error)
      interaction.reply('Ha ocurrido un error al ejecutar este comando.');

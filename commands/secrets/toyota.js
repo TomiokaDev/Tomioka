@@ -47,16 +47,16 @@ module.exports = {
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/832307332180475904/toyota.gif")
           .setColor(config.color)
           .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
-         await interaction.reply({ embeds : [embed] });
+     await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 
      player.on(AudioPlayerStatus.Idle, () => {
-        connection.destroy();
-   });
+          connection.destroy();
+     });
    
    player.on('error', error => {
-       console.error('Error:', error.message);
-        connection.destroy();
+          console.error('Error:', error.message);
+          connection.destroy();
    });
 } catch (error) {
      console.log(error);

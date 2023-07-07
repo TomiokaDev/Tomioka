@@ -43,20 +43,20 @@ module.exports = {
 
 
     const embed = new Discord.EmbedBuilder()
-    .setTitle("Tylko jedno w głowie mam. Koksu pięć gram, odlecieć sam")
-    .setImage("https://cdn.discordapp.com/attachments/671170382010515466/775845670287835186/tenor.gif")
-    .setColor(config.color)
-    .setFooter({text: `Comando secreto! 4/6`, iconURL: interaction.member.user.avatarURL()})
+          .setTitle("Tylko jedno w głowie mam. Koksu pięć gram, odlecieć sam")
+          .setImage("https://cdn.discordapp.com/attachments/671170382010515466/775845670287835186/tenor.gif")
+          .setColor(config.color)
+          .setFooter({text: `Comando secreto! 4/6`, iconURL: interaction.member.user.avatarURL()})
     await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 
      player.on(AudioPlayerStatus.Idle, () => {
-        connection.destroy();
-   });
+          connection.destroy();
+     });
    
    player.on('error', error => {
-       console.error('Error:', error.message);
-        connection.destroy();
+          console.error('Error:', error.message);
+          connection.destroy();
    });
 } catch (error) {
      console.log(error);
