@@ -37,9 +37,11 @@ module.exports = {
                 accessToken: process.env.OPENAI_ACCESS_TOKEN,
                 apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
             })
-            //Enviar mensaje
+
+            //Delay de 10 segundos antes de enviar la respuesta
+            await interaction.deferReply({content: 'Conectando a la API de ChatGPT'});
+            await wait(10000);
             const res = await api.sendMessage(texto);
-            wait(5000);
 
             //Si hay respuesta, enviarla
             if (res) {
@@ -50,12 +52,17 @@ module.exports = {
                     .setDescription(res.text)
                     .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
                     .setTimestamp();
-                interaction.reply({ embeds: [embed] });
+                await interaction.editReply({ embeds: [embed] });
             }
+
+            if(!res) {
+                await interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.', ephemeral: true });
+            }
+
         }
         catch (error) {
             console.log(error);
-            interaction.reply('Ha ocurrido un error al ejecutar el comando.');
+            await interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.', ephemeral: true});
         }
     }
 }
