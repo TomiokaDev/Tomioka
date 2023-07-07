@@ -14,7 +14,6 @@ echo "Dependencias actualizadas"
 npm i forever -g
 echo "forever instalado"
 echo "Instalando dependencias de python"
-pip install OpenAIAuth
-pip install python-dotenv
+pip install -r requirements.txt
 clear
 echo "Copyright © TomiokaBot Development 2019 - 2023. All rights reserved."
