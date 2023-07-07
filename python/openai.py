@@ -1,3 +1,8 @@
+//TomiokaBot
+//Autor: @SupahFox
+//Description: ChatGPT accessToken grabber
+
+
 from OpenAIAuth import Auth0
 # Declarar para leer envs
 from dotenv import load_dotenv
