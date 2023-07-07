@@ -11,7 +11,7 @@ sudo apt-get -y install nodejs
 echo "Node instalado"
 npm i
 echo "Dependencias actualizadas"
-npm i forever -g
+sudo npm i forever -g
 echo "forever instalado"
 echo "Instalando dependencias de python"
 pip install -r requirements.txt
