@@ -17,6 +17,7 @@ module.exports = {
 	guildOnly: true,
 	cooldown: 5,
 	run: async(client, interaction) => {
+     try{
                //obtener canal de voz usando discord.js v14
                const voiceChannel = interaction.member.voice.channel;
                //obtener conexion de voz usando discord.js v14
@@ -40,14 +41,12 @@ module.exports = {
                
                const subscription = connection.subscribe(player);
    
-   player.on(AudioPlayerStatus.Playing, (oldState, newState) => {
-       const embed = new Discord.EmbedBuilder()
-       .setTitle("FUNNY CAT HAHA LOL")
-       .setImage("https://cdn.discordapp.com/attachments/671170382010515466/766873710073610240/cat.gif")
-       .setColor(config.color)
-       .setFooter({text: `Comando secreto! 3/6`, iconURL: interaction.member.user.avatarURL()})
-         return interaction.reply({ embeds : [embed] });
-    });
+     const embed = new Discord.EmbedBuilder()
+          .setTitle("FUNNY CAT HAHA LOL")
+          .setImage("https://cdn.discordapp.com/attachments/671170382010515466/766873710073610240/cat.gif")
+          .setColor(config.color)
+          .setFooter({text: `Comando secreto! 3/6`, iconURL: interaction.member.user.avatarURL()})
+     await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 
      player.on(AudioPlayerStatus.Idle, () => {
@@ -58,5 +57,9 @@ module.exports = {
        console.error('Error:', error.message);
         connection.destroy();
    });
+} catch (error) {
+     console.log(error)
+     interaction.reply('Ha ocurrido un error al ejecutar este comando.');
 }
-};
+}
+}

@@ -27,6 +27,6 @@ module.exports = {
     .setColor(config.color)
     .setImage(captura)
     .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
-    return interaction.reply({ embeds : [embed] });
+    await interaction.reply({ embeds : [embed] });
     },
 };
