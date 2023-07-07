@@ -30,7 +30,7 @@ module.exports = {
     run: async (client, interaction, args) => {
         try {
             await interaction.deferReply();
-            const python = spawn('python', ['python/openai.py']);
+            const python = spawn('python3', ['python/openai.py']);
 
             var dataToSend; // Inicializar como una cadena vacía
 
@@ -43,7 +43,7 @@ module.exports = {
             });
 
             python.on('exit', (code) => {
-                console.log('ChatGPT');
+                console.log('ChatGPT')
                 console.log(`child process close all stdio with code ${code}`);
             });
 
