@@ -49,7 +49,6 @@ module.exports = {
             //Obtener accessToken (No quiero pagar la API, manga de hdps)
             const { ChatGPTUnofficialProxyAPI } = await import('chatgpt')
 
-
             //Pedir el texto en interaction
             let texto = interaction.options.get('texto').value;
 
