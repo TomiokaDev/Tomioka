@@ -13,19 +13,31 @@
 </a>
 </p>
 
-### Requisitos previos
+### Requisitos para Linux
 
 ```
 Distro de GNU/Linux basada en Debian
-npm
-node 16.x o superior
+Node.js v18 LTS o superior
+python 3.10 o superior
 ```
-
-### Instalación
+### Instalación en linux
 ```
 chmod +x setup.sh
 ./setup.sh
 ```
+
+### Requisitos para Windows
+```
+Node.js LTS v18 con build dependencys
+python 3.10 o superior
+```
+
+### Instalación en Windows (Powershell script in progress)
+```
+npm i -g forever
+npm i
+```
+
 ### Forever
 
 ```
@@ -42,4 +54,6 @@ YOUTUBEAPI =
 DBLTOKEN =
 STEAMAPI =
 AUTH =
+OPENAI_EMAIL =
+OPENAI_PASSWORD =
 ```
