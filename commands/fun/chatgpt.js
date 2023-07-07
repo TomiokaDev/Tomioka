@@ -43,7 +43,7 @@ module.exports = {
             });
 
             python.on('exit', (code) => {
-            //    console.log(`child process close all stdio with code ${code}, dataToSend: ${dataToSend}`);
+                //console.log(`child process close all stdio with code ${code}, dataToSend: ${dataToSend}`);
             });
 
             //Obtener accessToken (No quiero pagar la API, manga de hdps)
@@ -56,14 +56,12 @@ module.exports = {
             //Si no hay texto, enviar error
             if (!texto) return interaction.reply({ content: 'Debes escribir algo.', ephemeral: true });
 
-            //Si hay token
-            if (dataToSend) {
-            const api = new ChatGPTUnofficialProxyAPI({
+            await wait(5000);
+            const api =  new ChatGPTUnofficialProxyAPI({
                 accessToken: dataToSend,
                 apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
             })
-            //Delay de 10 segundos antes de enviar la respuesta
-            await wait(10000);
+            //Enviar el texto a la API
             const res = await api.sendMessage(texto);
 
             //Si hay respuesta, enviarla
@@ -81,7 +79,6 @@ module.exports = {
             if(!res) {
                 await interaction.editReply({ content: 'Ha ocurrido un error al conectarse a la API de ChatGPT', ephemeral: true });
             }
-        }
         }
         catch (error) {
             console.log(error);
