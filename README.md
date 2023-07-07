@@ -13,14 +13,14 @@
 </a>
 </p>
 
-### Requisitos para Linux
+### Requisitos para GNU/Linux
 
 ```
 Distro de GNU/Linux basada en Debian
 Node.js v18 LTS o superior
 python 3.10 o superior
 ```
-### Instalación en linux
+### Instalación en GNU/Linux
 ```
 chmod +x setup.sh
 ./setup.sh
