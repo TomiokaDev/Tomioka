@@ -1,5 +1,5 @@
 //TomiokaBot
-//By @SupahFox
+//By @SupahFox @HathHub
 //Description: Evento ready
 
 const { ActivityType } = require('discord.js');
