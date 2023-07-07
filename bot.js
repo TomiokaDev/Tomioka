@@ -1,5 +1,5 @@
 //TomiokaBot
-//By @SupahFox
+//By @SupahFox @HathHub
 //Description: Main file
 
 const { Events, Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
