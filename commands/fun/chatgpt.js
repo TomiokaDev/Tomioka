@@ -25,6 +25,12 @@ module.exports = {
     ],
     run: async (client, interaction, args) => {
         try {
+            //Obtener accessToken (No quiero pagar la API, manga de hdps)
+            const Authenticator = import('openai-token')
+            const auth = new Authenticator(process.env.OPENAI_EMAIL, process.env.PASSWORD)
+            await auth.begin()
+            const token = await auth.getAccessToken()
+
             const { ChatGPTUnofficialProxyAPI } = await import('chatgpt')
             //Pedir el texto en interaction
             let texto = interaction.options.get('texto').value;
@@ -34,7 +40,7 @@ module.exports = {
 
             //Si hay texto, enviarlo a la API
             const api = new ChatGPTUnofficialProxyAPI({
-                accessToken: process.env.OPENAI_ACCESS_TOKEN,
+                accessToken: token,
                 apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
             })
 
