@@ -1,5 +1,5 @@
 //TomiokaBot
-//By @SupahFox
+//By @SupahFox @HathHub
 //Description: Evento de interacción
 
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
