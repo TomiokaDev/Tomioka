@@ -1,5 +1,5 @@
 //TomiokaBot
-//By @SupahFox
+//By @SupahFox @HathHub
 //Description: Slash Command Handler
 
 const fs = require('fs');
