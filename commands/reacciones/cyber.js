@@ -18,7 +18,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setDescription(`**${interaction.member.displayName}** dice que te vayas del cyber`)
 			.setImage("https://cdn.discordapp.com/attachments/671170382010515466/723285277115940875/ya-vete-del-ciber01588483563.jpg")
-			.setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+			.setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
 			.setColor(config.color)
 		interaction.reply({ embeds: [embed] })
 

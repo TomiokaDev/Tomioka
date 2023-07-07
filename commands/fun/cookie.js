@@ -16,7 +16,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setDescription(`**${interaction.member.displayName}** se come una galletita uwu`)
 			.setImage("https://cdn.discordapp.com/attachments/671170382010515466/716421764401332254/31d1baa26c7c31e22b2e065f7dd4493abeb9ae5a_hq.gif")
-			.setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+			.setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
 			.setColor(config.color)
 		interaction.reply({ embeds: [embed] })
 	},

@@ -54,7 +54,7 @@ module.exports = {
      **Bans:** VAC: ${NumberOfVACBans}, Game: ${NumberOfGameBans}
      **Link:** [link del perfil](${profileurl})`)
             .setColor(config.color)
-            .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+            .setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
           interaction.reply({ embeds: [embed] })
         })
       })

@@ -47,7 +47,7 @@ const subscription = connection.subscribe(player);
      .setTitle("SUS")
      .setImage("https://cdn.discordapp.com/attachments/671170382010515466/831525001235529728/cover5.jpg")
      .setColor(config.color)
-     .setFooter({text: `Comando secreto! 5/6`, iconURL: interaction.member.user.avatarURL()})
+     .setFooter({text: `Ejecutado por ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
      await interaction.reply({ embeds : [embed] });
      
      //Desconectarse luego de terminar de reproducir el audio 

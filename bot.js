@@ -33,4 +33,4 @@ fs.readdirSync('./handlers').forEach((handler) => {
 });
 
 client.login(process.env.TOKEN)
-console.log(generateDependencyReport());
+//console.log(generateDependencyReport());
