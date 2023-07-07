@@ -3,7 +3,7 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'walter',
-	description: 'Comando secreto! 1/6',
+	description: 'Walter de la suerte',
 	aliases: ['walterdog'],
 	guildOnly: true,
 	cooldown: 5,
@@ -26,7 +26,7 @@ module.exports = {
         .setDescription("Encontraste al **walter** de la suerte :)")
         .setColor(config.color)
         .setImage(captura)
-        .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
+        .setFooter({text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
     await interaction.reply({ embeds : [embed] });
 },
 };

@@ -12,7 +12,7 @@ const config = require('../../config.json');
 
 module.exports = {
     name: 'hampsterdance',
-	description: 'Comando secreto! 3/6',
+	description: 'dibidibadebidoudou',
 	aliases: ['dibidibadebidoudou'],
 	guildOnly: true,
 	cooldown: 5,
@@ -45,7 +45,7 @@ module.exports = {
           .setTitle("FUNNY CAT HAHA LOL")
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/766873710073610240/cat.gif")
           .setColor(config.color)
-          .setFooter({text: `Comando secreto! 3/6`, iconURL: interaction.member.user.avatarURL()})
+          .setFooter({text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
      await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 
