@@ -12,7 +12,7 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'cow',
-	description: 'Comando secreto! 4/6',
+	description: 'cow',
 	aliases: ['polish', 'cowmeme'],
 	guildOnly: true,
 	cooldown: 5,
@@ -46,7 +46,7 @@ module.exports = {
           .setTitle("Tylko jedno w głowie mam. Koksu pięć gram, odlecieć sam")
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/775845670287835186/tenor.gif")
           .setColor(config.color)
-          .setFooter({text: `Comando secreto! 4/6`, iconURL: interaction.member.user.avatarURL()})
+          .setFooter({text: `Ejecutado por ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
     await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 

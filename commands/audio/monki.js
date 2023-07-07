@@ -12,7 +12,7 @@ const config = require('../../config.json');
 
 module.exports = {
 	name: 'monki',
-	description: 'Comando secreto! 2/6',
+	description: 'Mono chistoso',
 	aliases: ['monkee', 'monke', 'mono', 'primate'],
 	guildOnly: true,
 	cooldown: 5,
@@ -31,7 +31,7 @@ module.exports = {
                if (!interaction.member.permissions.has(PermissionFlagsBits.CONNECT)) return interaction.reply('No tengo permisos para conectarme a ese canal de voz.');
                if (!interaction.member.permissions.has(PermissionFlagsBits.SPEAK)) return interaction.reply('No tengo permisos para hablar en ese canal de voz.');
                
-               let audioarray = ['../../audio/monki.mp3', '../../audio/monkiflip.mp3']
+               let audioarray = ['../../audio/monki.mp3', '../../audio/monkiflip.mp3', '../../audio/funnymonkee.m4a']
     
                let random = audioarray[Math.floor(audioarray.length * Math.random())];
 
@@ -50,7 +50,7 @@ module.exports = {
           .setTitle("MONKI")
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/760950452124123166/monkiswim.gif")
           .setColor(config.color)
-          .setFooter({text: `Comando secreto! 2/6`, iconURL: interaction.member.user.avatarURL()})
+          .setFooter({text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
      await interaction.reply({ embeds : [embed] });
     
 

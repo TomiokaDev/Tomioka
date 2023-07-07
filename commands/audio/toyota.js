@@ -46,7 +46,7 @@ module.exports = {
           .setTitle("T O Y O T A")
           .setImage("https://cdn.discordapp.com/attachments/671170382010515466/832307332180475904/toyota.gif")
           .setColor(config.color)
-          .setFooter({text: `Comando secreto! 6/6`, iconURL: interaction.member.user.avatarURL()})
+          .setFooter({text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL()})
      await interaction.reply({ embeds : [embed] });
 
      //Desconectarse luego de terminar de reproducir el audio 
