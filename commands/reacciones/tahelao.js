@@ -14,12 +14,12 @@ module.exports = {
 	cooldown: 5,
 	run: async (client, interaction) => {
 
-  const embed = new EmbedBuilder()
- .setDescription(`**${interaction.member.displayName}** dijo que ta helao :cold_face:`)
- .setImage("https://cdn.discordapp.com/attachments/671170382010515466/733014743064903750/G6ngIKtSbmfr-ORq.jpg")
- .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
- .setColor(config.color)
- interaction.reply({ embeds: [embed] })
+		const embed = new EmbedBuilder()
+			.setDescription(`**${interaction.member.displayName}** dijo que ta helao :cold_face:`)
+			.setImage("https://cdn.discordapp.com/attachments/671170382010515466/733014743064903750/G6ngIKtSbmfr-ORq.jpg")
+			.setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+			.setColor(config.color)
+		interaction.reply({ embeds: [embed] })
 
-},
+	},
 };

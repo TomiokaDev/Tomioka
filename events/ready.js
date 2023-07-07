@@ -6,12 +6,12 @@ const { ActivityType } = require('discord.js');
 const client = require('./../bot.js');
 
 client.on("ready", () => {
-client.user.setPresence({
-  activities: [{ name: `Release soon!`, type: ActivityType.Playing }],
-  status: 'online',
-});
+	client.user.setPresence({
+		activities: [{ name: `Release soon!`, type: ActivityType.Playing }],
+		status: 'online',
+	});
 	/*
-    const activities = [
+	const activities = [
 		{ name: `${client.guilds.cache.size} Servers`, type: ActivityType.Listening },
 		{ name: `${client.channels.cache.size} Channels`, type: ActivityType.Playing },
 		{ name: `${client.users.cache.size} Users`, type: ActivityType.Watching },

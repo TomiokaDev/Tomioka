@@ -8,21 +8,21 @@ const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, A
 const config = require('../../config.json');
 
 module.exports = {
-	name: 'fox',
-	description: 'Comando para mostar zorros',
-	guildOnly: true,
-	cooldown: 5,
-run: async(client, interaction) => {
+  name: 'fox',
+  description: 'Comando para mostar zorros',
+  guildOnly: true,
+  cooldown: 5,
+  run: async (client, interaction) => {
 
 
-     let fox = await fetch("https://randomfox.ca/floof/"),
-     foximg = await fox.json();
-    
+    let fox = await fetch("https://randomfox.ca/floof/"),
+      foximg = await fox.json();
+
     const embed = new EmbedBuilder()
-    .setTitle("Zorritos!")
-    .setImage(foximg.image)
-    .setColor(config.color)
-    .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
-    return interaction.reply({ embeds : [embed] });
+      .setTitle("Zorritos!")
+      .setImage(foximg.image)
+      .setColor(config.color)
+      .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+    return interaction.reply({ embeds: [embed] });
   },
 };
