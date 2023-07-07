@@ -1,6 +1,6 @@
-//TomiokaBot
-//Autor: @SupahFox
-//Description: ChatGPT accessToken grabber
+# TomiokaBot
+# Autor: @SupahFox
+# Description: ChatGPT accessToken grabber
 
 
 from OpenAIAuth import Auth0
