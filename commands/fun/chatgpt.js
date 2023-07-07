@@ -37,25 +37,25 @@ module.exports = {
             accessToken: process.env.OPENAI_ACCESS_TOKEN,
             apiReverseProxyUrl: 'https://ai.fakeopen.com/api/conversation'
           })
-        //Enviar mensaje de espera
-        interaction.reply('Contactando con el servicio de ChatGPT...')
+        //Enviar mensaje
         const res = await api.sendMessage(texto);
-        await wait(5000)
-        interaction.deleteReply();
+        wait(5000);
 
         //Si hay respuesta, enviarla
         if (res) {
+            //Crear embed
             const embed = new EmbedBuilder()
                 .setTitle('ChatGPT')
-                .setDescription(res.text)
                 .setColor(config.color)
-                .setFooter({text: 'Powered by ChatGPT'})
-            await interaction.reply({ embeds: [embed] });
+                .setDescription(res.text)
+                .setFooter({text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL()})
+                .setTimestamp();
+            interaction.reply({ embeds: [embed] });
         }
     }
     catch (error) {
         console.log(error);
-        interaction.send('Ha ocurrido un error al ejecutar el comando.');
+        interaction.reply('Ha ocurrido un error al ejecutar el comando.');
     }
 }
 }
