@@ -23,7 +23,7 @@ module.exports = {
       .setDescription("pan")
       .setImage(captura)
       .setColor(config.color)
-      .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+      .setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
     return interaction.reply({ embeds: [embed] });
   },
 };

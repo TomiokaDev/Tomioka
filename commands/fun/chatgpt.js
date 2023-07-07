@@ -50,7 +50,7 @@ module.exports = {
                     .setTitle('ChatGPT')
                     .setColor(config.color)
                     .setDescription(res.text)
-                    .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+                    .setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
                     .setTimestamp();
                 await interaction.editReply({ embeds: [embed] });
             }

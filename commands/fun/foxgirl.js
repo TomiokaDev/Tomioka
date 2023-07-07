@@ -23,7 +23,7 @@ module.exports = {
       .setTitle("OwO")
       .setColor(config.color)
       .setImage(foxgirl.url)
-      .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+      .setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
     interaction.reply({ embeds: [embed] })
   },
 };

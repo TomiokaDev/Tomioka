@@ -19,7 +19,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setDescription(`A mimir, dijo **${interaction.member.displayName}** uwu`)
 			.setImage(captura)
-			.setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+			.setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
 			.setColor(config.color)
 		interaction.reply({ embeds: [embed] })
 

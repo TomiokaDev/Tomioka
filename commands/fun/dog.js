@@ -24,7 +24,7 @@ module.exports = {
       .setTitle("Perritos!")
       .setColor(config.color)
       .setImage(woof.url)
-      .setFooter({ text: `Ejecutado por: ${interaction.member.user.tag}`, iconURL: interaction.member.user.avatarURL() })
+      .setFooter({ text: `Ejecutado por: ${interaction.member.user.username}`, iconURL: interaction.member.user.avatarURL() })
     interaction.reply({ embeds: [embed] })
 
   },
