@@ -34,6 +34,7 @@
     "nekos.life": "^3.0.0",
     "node-fetch": "^2.6.12",
     "npm-check-updates": "^16.10.13",
+    "opusscript": "^0.0.8",
     "sodium-native": "^4.0.4"
   }
 }

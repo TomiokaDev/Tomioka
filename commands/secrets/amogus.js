@@ -18,6 +18,7 @@ module.exports = {
 	cooldown: 5,
 
 run: async(client, interaction) => {
+try {
 //obtener canal de voz usando discord.js v14
 const voiceChannel = interaction.member.voice.channel;
 //obtener conexion de voz usando discord.js v14
@@ -41,14 +42,13 @@ player.play(audio);
 
 const subscription = connection.subscribe(player);
 
-     player.on(AudioPlayerStatus.Playing, (oldState, newState) => {
-          const embed = new Discord.EmbedBuilder()
-          .setTitle("SUS")
-          .setImage("https://cdn.discordapp.com/attachments/671170382010515466/831525001235529728/cover5.jpg")
-          .setColor(config.color)
-          .setFooter({text: `Comando secreto! 5/6`, iconURL: interaction.member.user.avatarURL()})
-          return interaction.reply({ embeds : [embed] });
-     });
+     
+     const embed = new Discord.EmbedBuilder()
+     .setTitle("SUS")
+     .setImage("https://cdn.discordapp.com/attachments/671170382010515466/831525001235529728/cover5.jpg")
+     .setColor(config.color)
+     .setFooter({text: `Comando secreto! 5/6`, iconURL: interaction.member.user.avatarURL()})
+     await interaction.reply({ embeds : [embed] });
      
      //Desconectarse luego de terminar de reproducir el audio 
      player.on(AudioPlayerStatus.Idle, () => {
@@ -59,5 +59,9 @@ const subscription = connection.subscribe(player);
 	     console.error('Error:', error.message);
           connection.destroy();
      });
+} catch (error) {
+     console.log(error);
+     
 }
-};
+}
+}
