@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -29,7 +29,6 @@
     "fs": "^0.0.1-security",
     "humanize-duration": "^3.28.0",
     "megadb": "^3.4.0",
-    "mocha": "^10.2.0",
     "moment": "^2.29.4",
     "ms": "^2.1.3",
     "nekos.life": "^3.0.0",
