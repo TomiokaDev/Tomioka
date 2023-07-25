@@ -1,5 +1,5 @@
 //TomiokaBot
-//By: @SupahFox @HathHub
+//By: @HathHub
 //Description: event handler
 
 const fs = require('fs');
