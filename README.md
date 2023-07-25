@@ -39,7 +39,7 @@ Node.js LTS v18 con build dependencys
 python 3.10 o superior
 ```
 
-### Instalación en Windows
+### Instalación en Windows (SE RECOMIENDA EJECUTAR EL SCRIPT COMO ADMINISTRADOR)
 Se puede instalar con el archivo setup.cmd o manualmente con los siguientes comandos
 ```
 npm i -g forever
