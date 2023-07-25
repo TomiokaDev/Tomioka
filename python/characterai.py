@@ -3,11 +3,13 @@
 # Description: character.ai integration
 
 # TODO: ESTA COSA
-
 from characterai import PyCAI
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-client = PyCAI('TOKEN')
-
+token = os.getenv("CHARACTERAI_TOKEN")
+client = PyCAI(token)
 while True:
     message = input('You: ')
     
