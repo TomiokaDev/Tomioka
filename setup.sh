@@ -9,9 +9,10 @@ sudo apt -y upgrade
 echo "Sistema actualizado"
 sudo apt-get -y install nodejs
 echo "Node instalado"
-npm i
+sudo npm i -g pnpm
+pnpm i
 echo "Dependencias actualizadas"
-sudo npm i forever -g
+sudo pnpm i forever
 echo "forever instalado"
 echo "Instalando dependencias de python"
 pip install -r requirements.txt
