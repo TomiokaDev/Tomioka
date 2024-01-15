@@ -17,4 +17,4 @@ echo "forever instalado"
 echo "Instalando dependencias de python"
 pip install -r requirements.txt
 clear
-echo "Copyright © TomiokaBot Development 2019 - 2023. All rights reserved."
+echo "Copyright © TomiokaBot Development 2019 - 2024. All rights reserved."
