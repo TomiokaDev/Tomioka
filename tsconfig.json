@@ -1,8 +1,16 @@
 {
     "compilerOptions": {
-      "outDir": "./built",
-      "allowJs": true,
-      "target": "es5"
+      "module": "commonjs",
+      "lib": [ "es2015" ],
+      "target": "es6",
+      "moduleResolution" : "node",
+      "rootDir": ".",
+      "sourceMap": true
     },
-    "include": ["./src/**/*"]
+    "includes" : [
+      "*.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
   }
