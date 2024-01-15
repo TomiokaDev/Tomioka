@@ -2,9 +2,13 @@
 //By @SupahFox @HathHub
 //Description: Evento de interacción
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'EmbedBuild... Remove this comment to see the full error message
 const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const ms = require('ms');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'client'.
 const client = require('./../bot.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'config'.
 const config = require('../config.json');
 
 const cooldown = new Collection();
@@ -17,6 +21,7 @@ client.on('interactionCreate', async interaction => {
 			await slashCommand.autocomplete(interaction, choices)
 		}
 	}
+// @ts-expect-error TS(2367): This condition will always return 'false' since th... Remove this comment to see the full error message
 	if (!interaction.type == 2) return;
 
 	if (!slashCommand) return client.slashCommands.delete(interaction.commandName);
@@ -41,6 +46,7 @@ client.on('interactionCreate', async interaction => {
 
 			await slashCommand.run(client, interaction);
 			cooldown.set(`slash-${slashCommand.name}${interaction.user.id}`, Date.now() + slashCommand.cooldown)
+// @ts-expect-error TS(2304): Cannot find name 'setTimeout'.
 			setTimeout(() => {
 				cooldown.delete(`slash-${slashCommand.name}${interaction.user.id}`)
 			}, slashCommand.cooldown)
@@ -63,6 +69,7 @@ client.on('interactionCreate', async interaction => {
 			await slashCommand.run(client, interaction);
 		}
 	} catch (error) {
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 		console.log(error);
 	}
 });

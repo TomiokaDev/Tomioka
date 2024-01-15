@@ -2,7 +2,9 @@
 //By @SupahFox @HathHub
 //Description: Evento ready
 
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { ActivityType } = require('discord.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'client'.
 const client = require('./../bot.js');
 
 client.on("ready", () => {
@@ -35,6 +37,8 @@ client.on("ready", () => {
 		client.user.setStatus(status[s])
 		s++;
 	}, 30000); */
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 	console.log(`Logueado como ${client.user.tag}!`)
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 	console.log(`Versión de node ${process.version}`)
 });

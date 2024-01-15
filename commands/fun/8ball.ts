@@ -2,12 +2,18 @@
 //By @SupahFox
 //Description: 8ball
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Discord'.
 const Discord = require('discord.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Applicatio... Remove this comment to see the full error message
 const { ApplicationCommandType, 
+        // @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'EmbedBuild... Remove this comment to see the full error message
         EmbedBuilder, 
+        // @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Applicatio... Remove this comment to see the full error message
         ApplicationCommandOptionType } = require('discord.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'config'.
 const config = require('../../config.json');
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
     name: '8ball',
     description: 'Preguntale al bot y el te responderá',
