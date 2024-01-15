@@ -2,12 +2,18 @@
 //By @SupahFox
 //Description: Te transforma lo que digas a una manera muy kawaii
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Discord'.
 const Discord = require('discord.js');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const nekoslife = require('nekos.life');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'neko'.
 const neko = new nekoslife();
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Applicatio... Remove this comment to see the full error message
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'config'.
 const config = require('../../config.json');
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
   name: 'owoify',
   description: 'Te transforma lo que digas a una manera muy kawaii',

@@ -2,14 +2,21 @@
 //By @SupahFox
 //Description: monki command
 
+// @ts-expect-error TS(6200): Definitions of the following identifiers conflict ... Remove this comment to see the full error message
 const Discord = require('discord.js');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { PermissionFlagsBits } = require('discord.js')
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'joinVoiceC... Remove this comment to see the full error message
 const { joinVoiceChannel, createAudioPlayer, createAudioResource, StreamType,  VoiceConnectionStatus, AudioPlayerStatus } = require('@discordjs/voice');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { createReadStream } = require('node:fs');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { join } = require('node:path');
 const player = createAudioPlayer();
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'config'.
 const config = require('../../config.json');
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
 	name: 'monki',
 	description: 'Mono chistoso',
@@ -36,6 +43,7 @@ module.exports = {
                let random = audioarray[Math.floor(audioarray.length * Math.random())];
 
                //LA CONCHA PUTA DE TU MADRE CAMBIAN TODO EL PUTO TIEMPO LA API AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+               // @ts-expect-error TS(2304): Cannot find name '__dirname'.
                let audio = createAudioResource(join(__dirname, random), { 
                     inlineVolume: true 
                });
@@ -60,10 +68,12 @@ module.exports = {
      });
    
      player.on('error', error => {
+          // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
           console.error('Error:', error.message);
           connection.destroy();
      });
 } catch (error) {
+     // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
      console.log(error);
      interaction.reply('Ha ocurrido un error al ejecutar este comando.');
 };

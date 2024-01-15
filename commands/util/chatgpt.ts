@@ -3,16 +3,23 @@
 //Description: Generador de Texto por AI
 
 //Usar dynamic import para importar el módulo
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Applicatio... Remove this comment to see the full error message
 const { ApplicationCommandType, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ApplicationCommandOptionType } = require('discord.js');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'fs'.
 const fs = require('fs');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 require('dotenv').config()
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const wait = require('node:timers/promises').setTimeout;
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'config'.
 const config = require('../../config.json');
 
 //Para python
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const {spawn} = require('child_process');
 
 //module exports en es6
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
     name: 'chatgpt',
     description: 'Generador de Texto por AI',
@@ -39,11 +46,14 @@ module.exports = {
             });
             
             python.stderr.on('data', (data) => {
+                // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
                 console.error(`child stderr:\n${data}`);
             });
 
             python.on('exit', (code) => {
+                // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
                 console.log('ChatGPT')
+                // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
                 console.log(`child process close all stdio with code ${code}`);
             });
 
@@ -81,6 +91,7 @@ module.exports = {
             }
         }
         catch (error) {
+            // @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
             console.log(error);
             await interaction.editReply({ content: 'Ha ocurrido un error al ejecutar el comando.', ephemeral: true});
         }

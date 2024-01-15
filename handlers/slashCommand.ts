@@ -2,20 +2,29 @@
 //By @SupahFox @HathHub
 //Description: Slash Command Handler
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'fs'.
 const fs = require('fs');
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'Permission... Remove this comment to see the full error message
 const { PermissionsBitField } = require('discord.js');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { Routes } = require('discord-api-types/v9');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const { REST } = require('@discordjs/rest')
 
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'AsciiTable... Remove this comment to see the full error message
 const AsciiTable = require('ascii-table');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'table'.
 const table = new AsciiTable().setHeading('Slash Commands', 'Stats').setBorder('|', '=', "0", "0")
 
+// @ts-expect-error TS(2580): Cannot find name 'process'. Do you need to install... Remove this comment to see the full error message
 const TOKEN = process.env.TOKEN;
+// @ts-expect-error TS(2580): Cannot find name 'process'. Do you need to install... Remove this comment to see the full error message
 const CLIENT_ID = process.env.CLIENT_ID;
 
 const rest = new REST({ version: '9' }).setToken(TOKEN);
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = (client) => {
 	const slashCommands = [];
 
@@ -24,6 +33,7 @@ module.exports = (client) => {
 		const files = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
 
 		for (const file of files) {
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 			const slashCommand = require(`../commands/${dir}/${file}`);
 			slashCommands.push({
 				name: slashCommand.name,
@@ -57,6 +67,7 @@ module.exports = (client) => {
 
 	(async () => {
 		try {
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 			console.log(`Started refreshing ${slashCommands.length} application (/) commands.`);
 
 			// Refresh and register all commands
@@ -66,6 +77,7 @@ module.exports = (client) => {
 				//{ body: slashCommands },
 
 				//GLOBAL
+// @ts-expect-error TS(2580): Cannot find name 'process'. Do you need to install... Remove this comment to see the full error message
 				Routes.applicationCommands(process.env.CLIENT_ID),
 				{ body: slashCommands },
 
@@ -78,9 +90,11 @@ module.exports = (client) => {
 				//{ body: [] },
 			);
 
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 			console.log(`Successfully reloaded ${data.length} application (/) commands.`);
 		} catch (error) {
 			// And of course, make sure you catch and log any errors!
+// @ts-expect-error TS(2584): Cannot find name 'console'. Do you need to change ... Remove this comment to see the full error message
 			console.error(error);
 		}
 	})();
