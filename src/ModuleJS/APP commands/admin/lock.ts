@@ -1,0 +1,52 @@
+//import Discord = require('discord.js');
+const Discord = require("discord.js")
+const config = require('./../../APP config/config.json')
+
+module.exports = {
+	name: 'lock',
+	description: 'Anti-raid CMD',
+	aliases: ['lockdown'],
+	guildOnly: true,
+	cooldown: 5,
+	execute(message, args) {
+
+
+        let trusted = require("./../../APP config/trusted.json")
+        if(!trusted.accs.includes(message.author.id)){
+
+if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send('No tienes permisos.');
+
+}
+
+
+if(!args[0]) return message.channel.send('INTERNAL DEV CMD\n``tk!lock`` ON OFF');
+
+const query = args[0].toLowerCase();
+
+if(!["on", "off"].includes(query)) return message.reply("La opción no es valida");
+
+const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
+
+        if (args[0] === 'on') {
+            channels.forEach(channel => {
+                channel.updateOverwrite(message.guild.roles.everyone, {
+                    SEND_MESSAGES: false
+                }).then(() => {
+                    channel.setName(channel.name += `🔒`)
+                })
+            })
+            return message.channel.send('Todos los canales han sido bloqueados!');
+       } else if (args[0] === 'off') {
+            channels.forEach(channel => {
+                channel.updateOverwrite(message.guild.roles.everyone, {
+                    SEND_MESSAGES: true
+                }).then(() => {
+                        channel.setName(channel.name.replace('🔒', ''))
+                    }
+                )
+            })
+            return message.channel.send('Todos los canales han sido desbloqueados!')
+        }
+
+},
+};
