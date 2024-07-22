@@ -5,44 +5,66 @@
   <a href="https://discord.js.org">
       <img src="https://img.shields.io/badge/discord-js-blue.svg" alt="discord.js.org">
   </a>
-   <a href="https://nodejs.org">
-    <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="Made with JavaScript">
+  <a href="https://nodejs.org">
+    <img src="https://raw.githubusercontent.com/BraveUX/for-the-badge/master/src/images/badges/made-with-javascript.svg" alt="Made with JavaScript">
+  </a>
+  <a href="https://www.python.org">
+    <img src="https://raw.githubusercontent.com/BraveUX/for-the-badge/master/src/images/badges/made-with-python.svg" alt="Made with Python">
   </a>
   <a href="https://top.gg/bot/531408067993141248">
     <img src="https://top.gg/api/widget/status/531408067993141248.svg" alt="Tomioka" />
-</a>
+  </a>
 </p>
 
-### Programas usados
-
-_Que cosas necesitas para instalar el software y como instalarlas_
+### Requisitos para GNU/Linux
 
 ```
-npm
-pnpm
-node 12.x
+Distro de GNU/Linux basada en Debian
+Node.js v18 LTS o superior
+python 3.10 o superior
 ```
-### Instalación
-
-_ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN UBUNTU O DEBIAN_
-
+### Instalación en GNU/Linux
+Instalar automáticamente
 ```
-sudo apt update
-sudo apt -y upgrade
-sudo apt update
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt -y  install gcc g++ make
-sudo apt -y install nodejs
-node --version
-npm --version
-sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
-sudo apt install git-all
-npm i -g node-gyp
-npm i canvas
-npm i forever -g
+chmod +x setup.sh
+./setup.sh
+```
+Instalar manualmente
+```
 npm i
-npm start
+npm i -g forever
+pip install -r requirements.txt
+```
 
-Forever: forever start -o out.log -e err.log server.js
+### Requisitos para Windows
+```
+Node.js LTS v18 con build dependencys
+python 3.10 o superior
+```
+
+### Instalación en Windows (SE RECOMIENDA EJECUTAR EL SCRIPT COMO ADMINISTRADOR)
+Se puede instalar con el archivo setup.cmd o manualmente con los siguientes comandos
+```
+npm i -g forever
+npm i
+```
+
+### Forever
+
+```
+Forever: forever start -o out.log -e err.log index.js
+```
+
+### ENV
+
+```
+TOKEN =
+CLIENT_ID =
+GUILD_ID =
+YOUTUBEAPI =
+DBLTOKEN =
+STEAMAPI =
+AUTH =
+OPENAI_EMAIL =
+OPENAI_PASSWORD =
 ```
