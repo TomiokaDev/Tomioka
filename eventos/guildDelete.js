@@ -3,28 +3,22 @@ const config = require('../config.json');
 
 module.exports = {
 	name: 'guildDelete',
-	once: true,
-	execute(client) {
-try{
-const promises = [
-         client.shard.fetchClientValues('guilds.cache.size'),
-      ];
-Promise.all(promises).then(results => {
-         
-         const guilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
+	once: false,
+	execute (message, guild) {
 
- let md = client.users.cache.get("178651638209314816")
+const servidores = message.client.guilds.cache;
+
+ let md = message.client.users.cache.get("178651638209314816")
   const embed = new Discord.MessageEmbed()
-  .setTitle(`Ahora estoy en ${guilds} servidores porque me sacaron :(`)
+  .setTitle(`Ahora estoy en ${servidores} servidores porque me sacaron :(`)
   .addField("Nombre del servidor donde fui kickeado o baneado:", guild.name)
-  .addField("Creador:", guild.owner.user.tag)
-  .addField("Usuarios:", guild.members.cache.size)
+//.addField("Creador:", guild.owner.user.tag)
+//.addField("Usuarios:", guild.members.cache.size)
   .addField("ID:", guild.id)
   .setColor(config.color)
-  .setFooter(`Noticia del bot ${client.user.username}`)
-  .setThumbnail(guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
+  .setFooter({text: `Noticia del bot ${message.client.user.username}`})
+//.setThumbnail(guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
   md.send({ embed: embed })
-  })
 
 },
 };

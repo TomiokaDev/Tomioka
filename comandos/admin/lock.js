@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const config = require('../../config.json');
-
+const { Permissions } = require('discord.js');
 module.exports = {
 	name: 'lock',
 	description: 'Anti-raid CMD',
@@ -9,15 +9,20 @@ module.exports = {
 	cooldown: 5,
 	execute(message, args) {
 
-if(!["178651638209314816", "251897216300613632"].includes(message.author.id)) return;
+if(!["178651638209314816", "251897216300613632", "434888018067980288"].includes(message.author.id)) return;
 
-if(!message.member.permissions.has("ADMINISTRATOR")) return message.channel.send('No tienes permisos.');
+if(!["178651638209314816"].includes(message.author.id)){
 
-if(!args[0]) return message.channel.send('INTERNAL DEV CMD\n``tk!lock`` ON OFF');
+if(!message.member.permissions.has((Permissions.FLAGS.ADMINISTRATOR))) return message.channel.send({ content: 'No tienes permisos.'});
+
+}
+
+
+if(!args[0]) return message.channel.send({ content: 'INTERNAL DEV CMD\n``tk!lock`` ON OFF'});
 
 const query = args[0].toLowerCase();
 
-if(!["on", "off"].includes(query)) return message.reply("La opción no es valida");
+if(!["on", "off"].includes(query)) return message.reply({ content:"La opción no es valida"});
 
 const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
 
@@ -29,7 +34,7 @@ const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category
                     channel.setName(channel.name += `🔒`)
                 })
             })
-            return message.channel.send('Todos los canales han sido bloqueados!');
+            return message.channel.send({ content: 'Todos los canales han sido bloqueados!'});
        } else if (args[0] === 'off') {
             channels.forEach(channel => {
                 channel.updateOverwrite(message.guild.roles.everyone, {
@@ -39,7 +44,7 @@ const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category
                     }
                 )
             })
-            return message.channel.send('Todos los canales han sido desbloqueados!')
+            return message.channel.send({ content: 'Todos los canales han sido desbloqueados!'});
         }
 
 },

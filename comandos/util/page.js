@@ -13,8 +13,8 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
     .setDescription(`Accede a la página de ${creador.username} [cliqueando aquí](https://tomiokabot.wixsite.com/tomiokabot) (actualmente activa)`)
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    message.channel.send({ embed: embed })
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+    message.channel.send({ embeds: [embed] })
 
   },
 };

@@ -12,7 +12,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed()
 			.setTitle('Queue del Servidor')
 			.setDescription(queue.songs.map((song, i) => `${i === 0 ? '**Escuchando:**' : `${i}.`} ${song.name} - \`${song.formattedDuration}\``).slice(0, 10).join('\n'))
-			.setFooter(`Canciones en queue: ${queue.songs.length} | Duracion total de queue: ${queue.formattedDuration}`);
+			.setFooter({text: `Canciones en queue: ${queue.songs.length} | Duracion total de queue: ${queue.formattedDuration}`});
 		message.channel.send(embed);
 	},
 };

@@ -11,15 +11,15 @@ module.exports = {
 
 let colgate = ["https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/d2/d22416ac2d89e040641ab36be8cf331006a1bcd5_full.jpg"]
 let random = colgate[Math.floor(colgate.length * Math.random())];
-if(["635285489376690209"].includes(message.guild.id)){
+if(!["178651638209314816"].includes(message.author.id)){
  const embed = new Discord.MessageEmbed()
  .setDescription(`Colgate :moyai:`)
  .setImage(random)
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
  }else{
-  return message.channel.send("error")
+  return message.channel.send("Este comando solo está disponible para usos internos")
  }
 
 },

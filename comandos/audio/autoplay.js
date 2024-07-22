@@ -6,6 +6,6 @@ module.exports = {
 	voiceOnly: true,
 	async execute(message) {
 		const mode = message.client.distube.toggleAutoplay(message);
-		message.channel.send('Autoplay puesto en modo:`' + (mode ? 'On' : 'Off') + '`');
+		message.channel.send({ content: 'Autoplay puesto en modo:`' + (mode ? 'On' : 'Off') + '`'});
 	},
 };

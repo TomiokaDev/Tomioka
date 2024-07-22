@@ -13,9 +13,9 @@ const user = message.mentions.users.first() || message.author;
   const embed = new Discord.MessageEmbed()
  .setDescription("Avatar de " + user.tag)
  .setColor(config.color)
- .setImage(user.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-message.channel.send({ embed: embed })
+ .setImage(user.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }))
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+message.channel.send({ embeds: [embed] })
 
 },
 };

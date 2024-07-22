@@ -12,7 +12,7 @@ module.exports = {
  let posibles = ["sí", "no"]
  let rd = Math.floor(Math.random() * posibles.length)
  let respuesta = posibles[rd]
- if(!pregunta) return message.reply("debes preguntarme algo.");
+ if(!pregunta) return message.reply({ content:"debes preguntarme algo."});
  message.channel.send("Yo creo que " + respuesta + ".")
 
  },

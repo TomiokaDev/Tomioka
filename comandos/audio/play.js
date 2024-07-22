@@ -10,6 +10,5 @@ module.exports = {
 	voiceOnly: true,
 	async execute(message, args) {
 		message.client.distube.play(message, args.join(' '));
-
 	},
 };

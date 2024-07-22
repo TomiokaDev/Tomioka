@@ -34,14 +34,14 @@ let flags = {
   const embed = new Discord.MessageEmbed()
  .addField("Username", id.tag)
  .addField("ID", id.id)
- .addField("Fecha de creación", id.createdAt)
+ .addField("Fecha de creación", id.createdAt.toLocaleString());
   if(emoji.length > 0)
   embed.addField("Insignias", emoji);
   embed
- .setThumbnail(id.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setThumbnail(id.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }))
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };

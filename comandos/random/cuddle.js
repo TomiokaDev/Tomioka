@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const client = require('nekos.life');
 const neko = new client();
 const config = require('../../config.json');
@@ -18,10 +18,10 @@ module.exports = {
     if (member === message.author) return message.channel.send("Menciona a alguien más para hacerle mimos!"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, Nyaaaa~ nwn`); // estoo
 
-    let cuddle = await neko.sfw.cuddle();
+    let cuddle = await neko.cuddle();
 
     return message.channel.send({
-      embed: {
+      embeds: [{
         description: member
           ? `**${message.member.displayName}** le hace mimos a **${member.username}** uwu!`
           : `**${message.member.displayName}** Debes mencionar a alguien, a mi también que quiero mimos uwu`,
@@ -31,7 +31,7 @@ module.exports = {
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
-      }
+      }]
     });
     
   },

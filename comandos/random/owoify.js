@@ -12,10 +12,10 @@ module.exports = {
 	async execute(message, args) {
 
  let say = args.join(" ")
- let owoify = await neko.sfw.OwOify({text: say});
+ let owoify = await neko.OwOify({text: say});
  message.delete({ timeout: 100 })
- if(!say) return message.reply("debes ponerme algo para que lo repita owo");
- if(say.length > 200) return message.reply("Debes ingresar algo menor a 200 caracteres!")
+ if(!say) return message.reply({ content:"debes ponerme algo para que lo repita owo"});
+ if(say.length > 200) return message.reply({ content:"Debes ingresar algo menor a 200 caracteres!"});
   console.log(owoify)
  message.channel.send(`**${message.member.displayName}** dice: ${owoify.owo}`)
 },

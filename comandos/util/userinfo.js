@@ -40,10 +40,10 @@ if(!usuario){
   if(emoji.length > 0)
   embed.addField("Insignias", emoji);
   embed
- .setThumbnail(usuario.avatarURL({ dynamic: true, format: 'png', size: 1024 }))
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setThumbnail(usuario.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }))
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };

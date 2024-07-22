@@ -1,17 +1,47 @@
-//DEFINIMOS DISCORD.JS Y LOS GATEWAY INTENTS
-const { Client, Intents } = require('discord.js');
-//const myIntents = new Intents();
-//myIntents.add('GUILD_PRESENCES', 'GUILD_MESSAGES');
+//DEFINIMOS DISCORD.JS
 const Discord = require('discord.js');
-//const client = new Discord.Client({ ws: { intents: myIntents } });
-const client = new Discord.Client();
+const { Client, Collection, Intents, Permissions } = require('discord.js');
+const client = new Discord.Client({
+	intents: [
+		      Intents.FLAGS.GUILDS,
+			  Intents.FLAGS.GUILD_MESSAGES,
+			  Intents.FLAGS.DIRECT_MESSAGES,
+			  Intents.FLAGS.GUILD_VOICE_STATES,
+			  //Intents.FLAGS.GUILD_MEMBERS
+			 ],
+	ws: { properties: { $browser: "Discord iOS" }}
+});
+
+
 const ytdl = require('ytdl-core');
-const DisTube = require('distube');
+const { DisTube } = require("distube");
+const { YtDlpPlugin } = require("@distube/yt-dlp");
+const { SoundCloudPlugin } = require('@distube/soundcloud');
+const { SpotifyPlugin } = require('@distube/spotify');
+
+
 client.queue = new Map();
 const fs = require('fs');
 const { token } = require('./config.json');
 const config = require('./config.json');
-client.distube = new DisTube(client, { searchSongs: true, emitNewSongOnly: true, leaveOnFinish: true });
+
+client.distube = new DisTube(client, {
+	searchSongs: 1, 
+    leaveOnFinish: true,
+	leaveOnStop: false,
+	emitNewSongOnly: true,
+	emitAddSongWhenCreatingQueue: false,
+	emitAddListWhenCreatingQueue: false,
+	plugins: [
+	  new SpotifyPlugin({
+		emitEventsAfterFetching: true
+	  }),
+	  new SoundCloudPlugin(),
+	  new YtDlpPlugin()
+	],
+	youtubeDL: false
+  })
+
 client.emotes = config.emoji;
 
 
@@ -21,18 +51,6 @@ client.cooldowns = new Discord.Collection();
 
 const { AutoPoster } = require('topgg-autoposter')
 const ap = AutoPoster(config.dbltoken, client)
-
-const constant = require('./node_modules/discord.js/src/util/Constants.js')
-constant.DefaultOptions.ws.properties.$browser = `Discord iOS`
-
-
-// INTENTS NO PRIVILEGIADOS
-
-//const otherIntents = new Intents(Intents.NON_PRIVILEGED);
-//otherIntents.remove(['GUILDS', 'GUILD_MESSAGES']);
-
-//const otherIntents2 = new Intents(32509);
-//otherIntents2.remove(1, 512);
 
 
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:
@@ -109,40 +127,40 @@ client.distube
     const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embed = new Discord.MessageEmbed()
 	.setTitle('Reproduciendo canción!')
-	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
-	.setImage(song.thumbnail)
+	//.setThumbnail(song.user.displayAvatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	//.setImage(song.thumbnail)
 	.addField("Escuchando", "``" + song.name + "``")
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Pedido por", song.user)
-	.setFooter(status)
-	message.channel.send(embed).then(message => message.delete({timeout: 40000}));
+	.setFooter({text: status});
+	queue.textChannel.send({ embeds: [embed] }).then(queue => queue.textChannel.send.delete({timeout: 40000}));
 	})
     .on('addSong', (message, queue, song) => {
         const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embed = new Discord.MessageEmbed()
 	.setTitle('Añadido a la queue!')
-	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
-	.setImage(song.thumbnail)
+	//.setThumbnail(song.user.displayDisplayAvatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	//.setImage(song.thumbnail)
 	.addField("Escuchando", "``" + song.name + "``")
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Por", song.user)
-	.setFooter(status)
-	message.channel.send(embed).then(message => message.delete({timeout: 20000}));
+	.setFooter({text: status});
+	queue.textChannel.send({ embeds: [embed] }).then(queue => queue.textChannel.send.delete({timeout: 20000}));
 	})
 
     .on('playList', (message, queue, playlist, song) => {
         const status = `Volumen: ${queue.volume}% | Filtro: ${queue.filter || client.emotes.error} | Repetir: ${queue.repeatMode ? queue.repeatMode === 2 ? 'Toda la Queue' : 'Esta canción' : client.emotes.error} | Autoplay: ${queue.autoplay ? client.emotes.success : client.emotes.error}`;
 	const embedplaylist = new Discord.MessageEmbed()
 	.setTitle('Playlist añadida a la queue!')
-	.setThumbnail(song.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
+	//.setThumbnail(song.user.displayAvatarURL({ dynamic: false, format: 'png', size: 1024 }))
 	.addField("Nombre de playlist", "``" + playlist.title + "``")
 	.addField("Tamaño de la playlist", "``" + playlist.total_items + "`` " + "canciones")
 	.setImage(song.thumbnail)
 	.addField("Escuchando", "``" + song.name + "``")
 	.addField("Duración", "``" + song.formattedDuration + "``")
 	.addField("Por", song.user)
-	.setFooter(status)
-	message.channel.send(embedplaylist).then(message => message.delete({timeout: 60000}));
+	.setFooter({text: status});
+	queue.textChannel.send({ embeds: [embedplaylist] }).then(queue => queue.textChannel.send.delete({timeout: 60000}));
 
 	})
 
@@ -154,11 +172,11 @@ client.distube
 		.addField("Tamaño de la playlist", "``" + playlist.total_items + "`` " + "canciones")
 		.addField("Duración", "``" + song.formattedDuration + "``")
 		.addField("Por", song.user)
-		.setFooter(status)
-		message.channel.send(embedplaylist).then(message => message.delete({timeout: 60000}));
+		.setFooter({text: status});
+		queue.textChannel.send({ embeds: [embedplaylist] }).then(queue => queue.textChannel.send.delete({timeout: 60000}));
 	})    
      // DisTubeOptions.searchSongs = true
-    .on('searchResult', (message, result) => {
+    .on('searchResult', (message, result, song) => {
         let i = 0;
 		const embed = new Discord.MessageEmbed()
 		.setTitle('Elige una de estas canciones')
@@ -167,25 +185,24 @@ client.distube
     })
     // DisTubeOptions.searchSongs = true
     .on('searchCancel', message => message.channel.send(`${client.emotes.error} | Busqueda cancelada`))
-  //.on('error', (message, err) => message.channel.send(`${client.emotes.error} | Ha ocurrido un error: ${err}`));
-    .on('error', (message, err) => message.channel.send(`Hubo un error al ejecutar el comando D: \n> **Error:** ${err}`));
-  
+
+	.on('error', (message, e, queue) => {
+		//if (message) queue.message.send(`${client.emotes.error} | Hubo un error`)
+		//else 
+		console.error(e)
+	  })
+
+	  .on('empty', channel => channel.send('Canal de voz vacio | Desconectando...'))
+
+	  .on('searchNoResult', (message, query) =>
+		message.channel.send(`${client.emotes.error} | No se encontaron resulatdos para \`${query}\`!`)
+	  )
+
+	  .on('finish', queue => queue.textChannel.send('Finished!'))
+
   // <-- PROPIEDAD LOGIN: -->
   
   // Inicia sesión en Discord con el token definido en config.
-  client.login(config.discordtoken) //agregamos las promesas de la propiedad login.
-	.then(() => { 
-	  console.log(`bot started ${client.user.tag}`);
-	  console.log("Node Version: " + process.version);
-	  console.log("Discord.js Version: " + Discord.version);
-  
-	})
-	.catch((err) => {
-  
-	  //Si se produce un error al iniciar sesión, se le indicará en la consola.
-	  console.error("Error al iniciar sesión: " + err);
-  
-	});
   
  ap.on('posted', () => {
 	console.log('Server count posted!');
@@ -195,4 +212,13 @@ client.distube
    console.log(`Error de la API de top.gg! ${e}`);
   })
 //entra a discord con el token de tu app
-client.login(config.discordtoken);
+client.login(config.discordtoken) //agregamos las promesas de la propiedad login.
+	.then(() => {
+	  console.log(`Conexión exitosa a la API de Discord | index.js listo`);
+	})
+	.catch((err) => {
+  
+	  //Si se produce un error al iniciar sesión, se le indicará en la consola.
+	  console.error("Error al iniciar sesión: " + err);
+  
+	});

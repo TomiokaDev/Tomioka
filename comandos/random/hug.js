@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const client = require('nekos.life');
 const neko = new client();
 const config = require('../../config.json');
@@ -17,10 +17,10 @@ module.exports = {
     if (member === message.author) return message.channel.send("Veo que te estás abrazando vos solo, mencioná a alguien :D"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, Ayyyy nwn me encantan los abrazos!`); // estoo
 
-    let hug = await neko.sfw.hug();
+    let hug = await neko.hug();
 
     return message.channel.send({
-      embed: {
+      embed: [{
         description: member
           ? `**${message.member.displayName}** le dio un abrazo a **${member.username}** uwu`
           : `**${message.member.displayName}** Debes mencionar a alguien, a mi tambien por favor necesito un abrazo! uwu`,
@@ -30,7 +30,7 @@ module.exports = {
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
-      }
+      }]
     });
 
 },
