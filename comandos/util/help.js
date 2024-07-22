@@ -18,13 +18,13 @@ module.exports = {
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
     .addField("Steam", "`steamid`")
-    .addField("Comandos de NSFW", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
-    .addField("Música", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
+    .addField("Comandos de NSFW (Descontinuado temporalmente debido a cambios recientes en la API)", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
+    .addField("Música (EN MANTENIMIENTO)", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
     .addField("Comandos secretos", "`walter` `monki` `hamsterdance` `cow` `amogus` `toyota`")
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    .setThumbnail(message.client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }));
-  if(message.author.id === '178651638209314816' && message.channel.nsfw) return message.channel.send({ embed: ownerembednsfw })
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+    .setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }));
+  if(message.author.id === '178651638209314816' && message.channel.nsfw) return message.channel.send({ embeds: [ownerembednsfw] })
 
   const ownerembed = new Discord.MessageEmbed()
     .addField("ADMIN", "`restart` `shards` `eval`")
@@ -35,12 +35,12 @@ module.exports = {
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
     .addField("Steam", "`steamid`")
-    .addField("Música", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
+    .addField("Música (EN MANTENIMIENTO)", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
     .addField("Comandos secretos", "`walter` `monki` `hamsterdance` `cow` `amogus` `toyota`")
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    .setThumbnail(message.client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }));
-  if(message.author.id === '178651638209314816' && !message.channel.nsfw) return message.channel.send({ embed: ownerembed })
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+    .setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }));
+  if(message.author.id === '178651638209314816' && !message.channel.nsfw) return message.channel.send({ embeds: [ownerembed] })
 
 
   const embed = new Discord.MessageEmbed()
@@ -51,12 +51,12 @@ module.exports = {
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
     .addField("Steam", "`steamid`")
-    .addField("Música", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
+    .addField("Música (EN MANTENIMIENTO)", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
     .addField("Comandos secretos", "Encuentralos owo")
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    .setThumbnail(message.client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }));
-  if(!message.channel.nsfw) return message.channel.send({ embed: embed }) 
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+    .setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }));
+  if(!message.channel.nsfw) return message.channel.send({ embeds: [embed] }) 
   
   const embednsfw = new Discord.MessageEmbed()
     .addField("Comandos útiles", "`report` `suggest` `anuncio` `vote` `avatar` `poll` `botsuggest` `status`")
@@ -66,13 +66,13 @@ module.exports = {
     .addField("Imagenes random", "`cat` `dog` `neko` `nekogif` `foxgirl` `fox`")
     .addField("Comandos de información", "`owner` `info` `ping` `serverinfo` `userinfo` `idinfo` `donate` `invite`")
     .addField("Steam", "`steamid`")
-    .addField("Comandos de NSFW", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
-    .addField("Música", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
+    .addField("Comandos de NSFW (Descontinuado temporalmente debido a cambios recientes en la API)", " `suck` `anal` `cum` `pussy` `fuck` `boobs` `yuri` `eroyuri` `trap` `tits` `kitsune` `erokitsune` `futanari` `feet` `erofeet` `feetgif`")
+    .addField("Música (EN MANTENIMIENTO)", "`play` `stop` `skip` `volume` `shuffle` `pause` `resume` `repeat` `jump` `autoplay` `loop` `filters`")
     .addField("Comandos secretos", "Encuentralos owo")
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
-    .setThumbnail(message.client.user.avatarURL({ dynamic: true, format: 'png', size: 1024 }));
-  if(message.channel.nsfw) return message.channel.send({ embed: embednsfw })
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+    .setThumbnail(message.client.user.displayAvatarURL({ dynamic: true, format: 'png', size: 1024 }));
+  if(message.channel.nsfw) return message.channel.send({ embeds: [embednsfw] })
 
  },
 };

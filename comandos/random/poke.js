@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const config = require('../../config.json');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
       pokeImg = await pokeFetch.json();
 
     return message.channel.send({
-      embed: {
+      embed: [{
         description: member
           ? `**${message.member.displayName}** pokeó a **${member.username}**!`
           : `**${message.member.displayName}** Debes mencionar a alguien, que no sea yo owo`,
@@ -29,7 +29,7 @@ module.exports = {
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
-      }
+      }]
     });
     
   },

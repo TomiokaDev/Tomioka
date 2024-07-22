@@ -19,10 +19,10 @@ if(!["178651638209314816", "312342505033170948"].includes(message.author.id)) re
  .setTitle("Integrantes de AP (Atención personalizada)")
  .setDescription("Estos son los discapacitados mentales que están en AP")
  .addField("AP:", "``" + AP1.tag + "`` " +  "``" + AP2.tag + "`` " + "``" + AP3.tag + "`` ")
- .setFooter(`texto de abajo`, message.author.avatarURL())
+ .setFooter({text: `texto de abajo`}, message.author.displayAvatarURL())
  .setColor(config.color)
- .setFooter(`texto de abajo`, message.author.avatarURL())
- message.channel.send({ embed: embed })
+ .setFooter({text: `texto de abajo`}, message.author.displayAvatarURL())
+ message.channel.send({ embeds: [embed] })
 
 },
 };

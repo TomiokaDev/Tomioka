@@ -12,9 +12,9 @@ module.exports = {
   const embed = new Discord.MessageEmbed()
  .setDescription(`**${message.author.username}** dijo que ta helao :cold_face:`)
  .setImage("https://cdn.discordapp.com/attachments/671170382010515466/733014743064903750/G6ngIKtSbmfr-ORq.jpg")
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };

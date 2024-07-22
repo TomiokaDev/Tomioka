@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const config = require('../../config.json');
 
 module.exports = {
@@ -18,7 +18,7 @@ module.exports = {
     .setTitle("Zorritos!")
     .setImage(foximg.image)
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
     return message.channel.send({ embed : embed });
   },
 };

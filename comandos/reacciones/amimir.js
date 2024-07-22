@@ -15,9 +15,9 @@ module.exports = {
  const embed = new Discord.MessageEmbed()
  .setDescription(`A mimir, dijo **${message.author.username}** uwu`)
  .setImage(captura)
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };

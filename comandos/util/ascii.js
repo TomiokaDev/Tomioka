@@ -10,7 +10,7 @@ module.exports = {
 
  var figlet = require('figlet');
  let say = message.content.split(' ').slice(1).join(' ');
- if(!say) return message.reply("Debes poner algo para que lo convierta en formato ascii");
+ if(!say) return message.reply({ content:"Debes poner algo para que lo convierta en formato ascii"});
 
  figlet(say, function(err, data) {
     if (err) {
@@ -20,12 +20,12 @@ module.exports = {
       }
 
 if (data.length <= 2000){
- message.channel.send('```' + data + '```').catch(console.error);
+ message.channel.send({ content: ('```' + data + '```').catch(console.error)});
  //console.log(data);
 }
 
 else if (data.length > 2000){
-  message.channel.send('El API del ascii excede la cantidad de 2000 caracteres. Intentá poner algo más corto.').catch(console.error);
+  message.channel.send({ content: ('El API del ascii excede la cantidad de 2000 caracteres. Intentá poner algo más corto.').catch(console.error)});
  }
 });
 

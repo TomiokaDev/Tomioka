@@ -10,7 +10,7 @@ module.exports = {
 
  let say = message.content.split(' ').slice(1).join(' ')
  message.delete({ timeout: 100 })
- if(!say) return message.reply("debes ponerme algo para que lo repita");
+ if(!say) return message.reply({ content:"debes ponerme algo para que lo repita"});
  message.channel.send(say)
 
  },

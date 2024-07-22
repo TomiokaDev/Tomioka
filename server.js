@@ -1,9 +1,18 @@
 const Topgg = require("@top-gg/sdk");
 const express = require("express");
 const app = express();
-const { ShardingManager } = require('discord.js');
 const config = require('./config.json');
-const manager = new ShardingManager('./index.js', { token: config.discordtoken, totalShards: 'auto' });
+const { ShardingManager } = require('discord.js');
+
+	const manager = new ShardingManager('./index.js', {
+	execArgv: ['--trace-warnings'],
+	shardArgs: ['--ansi', '--color'],
+	token: config.discordtoken,
+  //totalShards: 15,
+  totalShards: 'auto',
+  respawn: true
+});
+
 
 manager.spawn();
 manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
@@ -15,6 +24,9 @@ app.post("/dblwebhook", webhook.middleware(), (req, res) => {
   console.log(req.vote.user); // 395526710101278721 < user who voted
 });
 
-app.listen(9068, "ip-172-31-11-80", () => { // setting port for existing server
+const constant = require('./node_modules/discord.js/src/util/Constants.js')
+//constant.DefaultOptions.ws.properties.$browser = `Discord iOS`
+
+app.listen(9068, "tomioka", () => { // setting port for existing server
    console.log('Https listening'); // Now socket and server both listens to same port
 });

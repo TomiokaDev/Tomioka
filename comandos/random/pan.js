@@ -1,6 +1,14 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
-const client = new Discord.Client();
+const fetch = require('node-fetch');
+const { Intents } = require('discord.js');
+const client = new Discord.Client({
+	intents: [
+		      Intents.FLAGS.GUILDS,
+			  Intents.FLAGS.GUILD_MESSAGES,
+			  Intents.FLAGS.DIRECT_MESSAGES,
+			  Intents.FLAGS.GUILD_VOICE_STATES
+			 ]
+});
 const config = require('../../config.json');
 
 module.exports = {
@@ -22,7 +30,7 @@ module.exports = {
     .setDescription("pan")
     .setImage(captura)
     .setColor(config.color)
-    .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+    .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
     return message.channel.send({ embed : embed });
   },
 };

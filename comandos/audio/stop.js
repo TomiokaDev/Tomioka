@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'stop',
 	description: 'Para una canción.',
-	aliases: ['st'],
+	aliases: ['st', 'leave'],
 	guildOnly: true,
 	cooldown: 5,
 	args: false,

@@ -12,9 +12,9 @@ module.exports = {
  const embed = new Discord.MessageEmbed()
  .setDescription(`A **${message.author.username}** le chupó 3 pingos`)
  .setImage("https://cdn.discordapp.com/attachments/671170382010515466/728671363170041926/EZn-iNYWkAEforF.jpg")
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };

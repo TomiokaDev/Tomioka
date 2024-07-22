@@ -18,7 +18,7 @@ module.exports = {
  
 if(!channel){
     return message.channel.send("Debes proporcionar la ID o mencionar el canal donde iran los comandos NSFW")
-} if(!message.member.hasPermission("ADMINISTRATOR")) { return message.reply("No tienes permisos para definir canales.") 
+} if(!message.member.hasPermission("ADMINISTRATOR")) { return message.reply({ content:"No tienes permisos para definir canales."});
 } else if(!channel.nsfw) {
   return message.channel.send("No mencionaste un canal nsfw, por favor, menciona uno.") 
 }else{

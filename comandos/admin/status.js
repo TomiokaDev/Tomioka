@@ -25,11 +25,11 @@ var  getpercentage =
  .addField("Porcentaje de memoria usada:", getpercentage)
  .addField("Ping de Discord API:", ping)
  .addField("Ping de mensajes:", mping)
- .addField("ID de shard:", message.guild.shardID)
- .setThumbnail(message.client.user.avatarURL({ dynamic: false, format: 'png', size: 1024 }))
+ .addField("ID de shard:", message.guild.shardId)
+ .setThumbnail(message.client.user.displayAvatarURL({ dynamic: false, format: 'png', size: 1024 }))
  .setColor(config.color)
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
- message.channel.send({ embed: embed })
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
+ message.channel.send({ embeds: [embed] })
 
 
 },

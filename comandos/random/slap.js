@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 const client = require('nekos.life');
 const neko = new client();
 const config = require('../../config.json');
@@ -15,13 +15,13 @@ module.exports = {
   var member = message.mentions.users.first() || message.guild.members.cache.get(args.join(" "));
 
 
-    if (member === message.author) return message.channel.send("No est�s en un sue�o, est�s en la vida real :D"); // estoo
+    if (member === message.author) return message.channel.send("No est s en un sue o, est s en la vida real :D"); // estoo
     if (member === message.client.user) return message.channel.send(`**${message.member.displayName}**, nooooo que me duele :(`); // estoo
 
-    let slap = await neko.sfw.slap();
+    let slap = await neko.slap();
 
     return message.channel.send({
-      embed: {
+      embed: [{
         description: member
           ? `**${message.member.displayName}** le da una cachetada a **${member.username}**!`
           : `**${message.member.displayName}** Debes mencionar a alguien, que no sea yo por favor :((`,
@@ -31,7 +31,7 @@ module.exports = {
             : "http://gifimage.net/wp-content/uploads/2017/06/anime-cat-gif-17.gif"
         },
         color: message.guild ? message.guild.me.displayColor : "#00e059"
-      }
+      }]
     });
 
 },

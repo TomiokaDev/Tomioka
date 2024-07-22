@@ -11,26 +11,26 @@ module.exports = {
 	async execute(message, args) {
 
   let createdAt = moment(message.guild.createdAt).format('MMMM Do YYYY, h:mm:ss a');
- let owner = message.guild.owner.user
+  const owner = await message.guild.fetchOwner();
 
 //var memberCount = guild.members.filter(member => !member.user.bot).size;
-const a = message.client.guilds.cache.get(message.guild.id).memberCount;
+//let a = await message.guild.members.fetch()
 
  const embed = new Discord.MessageEmbed()
  .setTitle(`Server Info`)
  .setDescription(`Este comando te brindará información acerca del servidor que te encuentres actualmente.`)
- .addField("Nombre:", message.guild)
+ .addField("Nombre:", message.guild.name)
  .addField("ID:", message.guild.id)
- .addField("Creador:", owner.tag)
- .addField("Región:", message.guild.region)
+ .addField("Creador:", owner.displayName)
+ .addField("Región:", message.guild.preferredLocale)
  .addField("Fecha de creación:", createdAt)
 //.addField("Cantidad de usuarios:", message.guild.members.cache.size)
- .addField("Cantidad de usuarios:", a)
- .addField("Cantidad de canales:", message.guild.channels.cache.size)
+ //.addField("Cantidad de usuarios:", a)
+ //.addField("Cantidad de canales:", message.guild.channels.cache.size)
  .setThumbnail(message.guild.iconURL({ dynamic: true, format: 'png', size: 1024 }))
- .setFooter(`Ejecutado por: ${message.author.tag}`, message.author.avatarURL())
+ .setFooter({text: `Ejecutado por: ${message.author.tag}`}, message.author.displayAvatarURL())
  .setColor(config.color)
- message.channel.send({ embed: embed })
+ message.channel.send({ embeds: [embed] })
 
 },
 };
