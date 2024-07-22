@@ -38,7 +38,7 @@
     "puppeteer": "^10.0.0",
     "python": "^0.0.4",
     "request": "^2.88.2",
-    "semver": "^7.3.5",
+    "semver": "^7.5.2",
     "simple-youtube-api": "^5.2.1",
     "soundcloud-downloader": "^1.0.0",
     "spotify-web-api-node": "^5.0.2",
