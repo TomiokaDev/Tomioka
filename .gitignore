@@ -1,6 +1,6 @@
-#Para que carajo querés subir esto, te van a hackear huehuehuehuehuehue
 node_modules/
-package-lock.json
-pnpm-lock.yaml
-config.js
+debug.log
+out.log
+err.log
 .env
+.code-workspace
