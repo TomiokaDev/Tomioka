@@ -1,30 +1,48 @@
-# hello-express
+![intro](https://cdn.discordapp.com/attachments/671170382010515466/775459377347035166/tomiokapng.png)
+# Tomioka
+<h4 align="center">Bot multipropósito</h4>
+<p align="center">
+  <a href="https://discord.js.org">
+      <img src="https://img.shields.io/badge/discord-js-blue.svg" alt="discord.js.org">
+  </a>
+   <a href="https://nodejs.org">
+    <img src="https://forthebadge.com/images/badges/made-with-javascript.svg" alt="Made with JavaScript">
+  </a>
+  <a href="https://top.gg/bot/531408067993141248">
+    <img src="https://top.gg/api/widget/status/531408067993141248.svg" alt="Tomioka" />
+</a>
+</p>
 
-A server that serves a webpage, its resources, and some data
+### Programas usados
 
+_Que cosas necesitas para instalar el software y como instalarlas_
 
-## Your Project
+```
+npm
+pnpm
+node 12.x
+```
+### Instalación
 
-On the front-end,
+_ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN UBUNTU O DEBIAN_
 
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
+```
+sudo apt update
+sudo apt -y upgrade
+sudo apt update
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y  install gcc g++ make
+sudo apt -y install nodejs
+node --version
+npm --version
+sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+sudo apt install git-all
+npm i -g node-gyp
+npm i canvas
+npm i forever -g
+npm i
+npm start
 
-On the back-end,
-
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
-
-
-## Made by [Glitch](https://glitch.com/)
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-( ᵔ ᴥ ᵔ )
+Forever: forever start -o out.log -e err.log server.js
+```

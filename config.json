@@ -1,6 +1,20 @@
 {
- "token": "",
- "prefix":"tk!",
- "color": "ORANGE",
- "hosting": "Glitch"
+  "prefix": "tk!",
+  "color": "#ff4803",
+  "youtubeapi": "YTTOKEN",
+  "discordtoken": "TOKEN",
+  "dbltoken": "TOPGGTOKEM",
+  "steamapi": "STEAMAPITOKEN",
+  "auth": "WEBHOOKAUTH,
+  "devID": "OWNERID",
+  "emoji": {
+    "play": "▶️",
+    "stop": "⏹️",
+    "queue": "📄",
+    "success": "☑️",
+    "repeat": "🔁",
+    "error": "❌",
+    "pause": "⏸️",
+    "resume": "⏯️"
+  }  
 }
