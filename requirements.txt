@@ -11,6 +11,6 @@ redis==4.6.0
 requests==2.31.0
 six==1.16.0
 spotipy==2.23.0
-urllib3==2.0.3
+urllib3==2.2.2
 OpenAIAuth==2.0.0
 characterai==0.6.0
