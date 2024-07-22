@@ -1,30 +1,35 @@
-# hello-express
+# Tomioka
+TOMIOKA DISCORD BOT.JS
 
-A server that serves a webpage, its resources, and some data
+### Programas usados
 
+_Que cosas necesitas para instalar el software y como instalarlas_
 
-## Your Project
+```
+npm
+node 12.x
+nekos.life
+discord.js 12
+moment
+megadb
+```
+### Instalación
 
-On the front-end,
+_ESTO SE DEBE TOMAR SI SE ESTA HOSTEADO EN UBUNTU_
 
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
-
-
-## Made by [Glitch](https://glitch.com/)
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-( ᵔ ᴥ ᵔ )
+```
+sudo apt update
+sudo apt -y upgrade
+sudo apt update
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt -y install nodejs
+sudo apt -y  install gcc g++ make
+node --version
+npm --version
+npm i forever
+npm install discord.js
+npm i -s nekos.life
+npm i megadb
+npm i moment
+```
