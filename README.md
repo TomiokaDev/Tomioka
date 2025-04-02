@@ -1,3 +1,6 @@
+# El bot ya no es soportado.
+# ENG: Bot is not maintained anymore, expect bugs and dependency issues.
+
 ![intro](https://cdn.discordapp.com/attachments/671170382010515466/775459377347035166/tomiokapng.png)
 # Tomioka
 <h4 align="center">Bot multipropósito</h4>
