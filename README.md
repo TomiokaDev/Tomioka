@@ -2,8 +2,8 @@
 # ENG: Bot is not maintained anymore, expect bugs and dependency issues.
 
 # Tomioka
-###Giyu Tomioka and Kimetsu no Yaiba (Demon Slayer) are property of Koyoharu Gotouge and SHUEISHA Inc.
-###I do not own any rights to the character, the franchise, or any related intellectual property. All rights belong to their respective creators, owners, and official distributors.
+<sub><sup>Giyu Tomioka and Kimetsu no Yaiba (Demon Slayer) are property of Koyoharu Gotouge and SHUEISHA Inc.
+I do not own any rights to the character, the franchise, or any related intellectual property. All rights belong to their respective creators, owners, and official distributors.</sub></sup>
 <h4 align="center">Bot multipropósito</h4>
 <p align="center">
   <a href="https://discord.js.org">
