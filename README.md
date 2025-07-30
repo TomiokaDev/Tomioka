@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 ### Requisitos para Windows
 ```
-Node.js LTS v18 con build dependencys
+Node.js LTS v18 con build dependencies
 python 3.10 o superior
 ```
 
